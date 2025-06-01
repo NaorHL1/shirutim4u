@@ -35,7 +35,7 @@ export default function LargeTestimonial() {
             <div className="flex flex-row-reverse items-center gap-4 mb-3">
               <Image
                 src={TestimonialImg}
-                alt="Avatar"
+                alt="Person"
                 width={40}
                 height={40}
                 className="rounded-full border border-gray-300 shadow-sm"
