@@ -1,4 +1,6 @@
 import React from 'react';
+import { ReactNode } from "react";
+
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -13,7 +15,7 @@ interface LegalModalProps {
 }
 
 // --------------------- Data ----------------------
-const legalContent: Record<LegalType, { title: string; body: JSX.Element }> = {
+const legalContent: Record<LegalType, { title: string; body: ReactNode }> = {
   terms: {
     title: "תקנון האתר ותנאי שימוש",
     body: (
