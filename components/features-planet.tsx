@@ -1,6 +1,4 @@
 import Image from "next/image";
-import PlanetImg from "/images/planet.png";
-import PlanetOverlayImg from "/images/planet-overlay.svg";
 
 export default function FeaturesPlanet() {
   return (
@@ -22,13 +20,13 @@ export default function FeaturesPlanet() {
             <div className="relative w-50 h-50 md:w-65 md:h-65 rounded-full border-8 border-blue-100 bg-gradient-to-tr from-blue-50 to-white shadow-xl flex items-center justify-center">
               <Image
                 className="rounded-full object-cover"
-                src={PlanetImg}
+                src="/images/planet.png"
                 width={300}
                 height={300}
                 alt="Planet"
               />
               <div className="absolute -right-10 -top-10 w-32 h-32 opacity-30">
-                <Image src={PlanetOverlayImg} alt="Decoration" width={128} height={128} />
+                <Image src="/images/planet-overlay.svg" alt="Decoration" width={128} height={128} />
               </div>
             </div>
           </div>
