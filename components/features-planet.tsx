@@ -1,6 +1,6 @@
 import Image from "next/image";
-import PlanetImg from "@/public/images/planet.png";
-import PlanetOverlayImg from "@/public/images/planet-overlay.svg";
+import PlanetImg from "/images/planet.png";
+import PlanetOverlayImg from "/images/planet-overlay.svg";
 
 export default function FeaturesPlanet() {
   return (
