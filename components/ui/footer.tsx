@@ -1,195 +1,113 @@
 import Link from "next/link";
 import Logo from "./logo";
+import { useState } from "react";
+import LegalModal, { LegalType } from "./LegalModals";
 
 export default function Footer({ border = false }: { border?: boolean }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<LegalType>("terms");
+
+  const open = (type: LegalType) => {
+    setModalType(type);
+    setModalOpen(true);
+  };
   return (
-    <footer>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <footer className="bg-white border-t border-gray-200 text-gray-700 text-sm" dir="rtl">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
         {/* Top area: Blocks */}
         <div
-          className={`grid gap-10 py-8 sm:grid-cols-12 md:py-12 ${border ? "border-t [border-image:linear-gradient(to_right,transparent,var(--color-slate-200),transparent)1]" : ""}`}
+          className={`grid gap-8 sm:grid-cols-12 md:py-8 ${border
+            ? "border-t [border-image:linear-gradient(to_right,transparent,var(--color-slate-350),transparent)1]"
+            : ""
+            }`}
         >
-          {/* 1st block */}
-          <div className="space-y-2 sm:col-span-12 lg:col-span-4">
+          {/* 1st block - Logo + Copyright */}
+          <div className="sm:col-span-12 lg:col-span-4 space-y-3 text-right">
             <div>
-              <Logo />
+              <img
+                src="/images/ollogo.png"
+                alt="Logo"
+                className="h-14 w-auto object-contain"
+              />
             </div>
-            <div className="text-sm text-gray-600">
-              &copy; Cruip.com - All rights reserved.
+            <div className="text-gray-500 text-sm">
+              &copy; {new Date().getFullYear()} כל הזכויות שמורות.
             </div>
           </div>
 
-          {/* 2nd block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Product</h3>
-            <ul className="space-y-2 text-sm">
+          {/* 2nd block - קישורים ראשיים */}
+          <div className="sm:col-span-6 md:col-span-3 lg:col-span-2 space-y-2 text-right">
+            <h3 className="text-sm font-bold mb-2">תפריט ראשי</h3>
+            <ul className="space-y-2">
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Features
-                </Link>
+                <Link href="#gallery" className="hover:text-blue-600 transition">גלריה</Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Integrations
-                </Link>
+                <Link href="#whyus" className="hover:text-blue-600 transition">למה אנחנו</Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Pricing & Plans
-                </Link>
+                <Link href="#contact" className="hover:text-blue-600 transition">צור קשר</Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Changelog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Our method
-                </Link>
+                <Link href="#faq" className="hover:text-blue-600 transition">שאלות ותשובות</Link>
               </li>
             </ul>
           </div>
 
-          {/* 3rd block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Company</h3>
-            <ul className="space-y-2 text-sm">
+          {/* 3rd block - עמודים משפטיים */}
+          <div className="sm:col-span-6 md:col-span-3 lg:col-span-2 space-y-2 text-right">
+            <h3 className="text-sm font-bold mb-2">מידע משפטי</h3>
+            <ul className="space-y-2">
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                <button
+                  onClick={() => open("terms")}
+                  className="text-blue-600 hover:underline transition cursor-pointer"
                 >
-                  About us
-                </Link>
+                  תקנון האתר
+                </button>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                <button
+                  onClick={() => open("privacy")}
+                  className="text-blue-600 hover:underline transition cursor-pointer"
                 >
-                  Diversity & Inclusion
-                </Link>
+                  מדיניות פרטיות
+                </button>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                <button
+                  onClick={() => open("accessibility")}
+                  className="text-blue-600 hover:underline transition cursor-pointer"
                 >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Financial statements
-                </Link>
+                  הצהרת נגישות
+                </button>
               </li>
             </ul>
           </div>
 
-          {/* 4th block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Resources</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Community
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Terms of service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Report a vulnerability
-                </Link>
-              </li>
-            </ul>
-          </div>
 
-          {/* 5th block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Social</h3>
-            <ul className="flex gap-1">
+          {/* 4th block - רשתות חברתיות */}
+          <div className="sm:col-span-6 md:col-span-3 lg:col-span-2 space-y-2 text-right">
+            <h3 className="text-sm font-bold mb-2">עקבו אחרינו</h3>
+            <ul className="flex gap-3">
               <li>
-                <Link
-                  className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                  href="#0"
-                  aria-label="Twitter"
-                >
-                  <svg
-                    className="h-8 w-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z"></path>
+                <Link href="#" className="hover:text-blue-500 transition" aria-label="Facebook">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.6l-.4 3H14v7A10 10 0 0 0 22 12z" />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link
-                  className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                  href="#0"
-                  aria-label="Medium"
-                >
-                  <svg
-                    className="h-8 w-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M23 8H9a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1Zm-1.708 3.791-.858.823a.251.251 0 0 0-.1.241V18.9a.251.251 0 0 0 .1.241l.838.823v.181h-4.215v-.181l.868-.843c.085-.085.085-.11.085-.241v-4.887l-2.41 6.131h-.329l-2.81-6.13V18.1a.567.567 0 0 0 .156.472l1.129 1.37v.181h-3.2v-.181l1.129-1.37a.547.547 0 0 0 .146-.472v-4.749a.416.416 0 0 0-.138-.351l-1-1.209v-.181H13.8l2.4 5.283 2.122-5.283h2.971l-.001.181Z"></path>
+                <Link href="#" className="hover:text-pink-500 transition" aria-label="Instagram">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3a3 3 0 1 0 0-6zm5.2-2.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link
-                  className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                  href="#0"
-                  aria-label="Github"
-                >
-                  <svg
-                    className="h-8 w-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z"></path>
+                <Link href="#" className="hover:text-blue-400 transition" aria-label="LinkedIn">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M4.98 3A2.5 2.5 0 1 0 5 8a2.5 2.5 0 0 0 0-5zM4 9h2v12H4V9zm7 0h2v1.7c.3-.5 1.1-1.2 2.3-1.2 2.4 0 2.8 1.6 2.8 3.7V21h-2v-6c0-1.4-.5-2.3-1.8-2.3-1 0-1.6.7-1.9 1.3-.1.2-.1.5-.1.8v6.2h-2V9z" />
                   </svg>
                 </Link>
               </li>
@@ -197,18 +115,11 @@ export default function Footer({ border = false }: { border?: boolean }) {
           </div>
         </div>
       </div>
-
-      {/* Big text */}
-      <div className="relative -mt-16 h-60 w-full" aria-hidden="true">
-        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-linear-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Simple'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Simple'] after:[text-shadow:0_1px_0_white]"></div>
-        {/* Glow */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2/3"
-          aria-hidden="true"
-        >
-          <div className="h-56 w-56 rounded-full border-[20px] border-blue-700 blur-[80px]"></div>
-        </div>
-      </div>
+      <LegalModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        type={modalType}
+      />
     </footer>
   );
 }

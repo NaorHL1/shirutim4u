@@ -205,3 +205,10 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+@layer utilities {
+  .custom-pulse {
+    @apply animate-pulse;
+    animation-duration: 4s; /* יותר איטי — ברירת מחדל של Tailwind זה בערך 1.5s */
+  }
+}

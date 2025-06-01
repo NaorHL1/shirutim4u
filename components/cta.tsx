@@ -1,52 +1,76 @@
+'use client';
 import Image from "next/image";
 import Stripes from "@/public/images/stripes-dark.svg";
 
 export default function Cta() {
   return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div
-          className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900"
-          data-aos="zoom-y-out"
-        >
-          {/* Glow */}
-          <div
-            className="absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 translate-y-1/2"
-            aria-hidden="true"
-          >
-            <div className="h-56 w-[480px] rounded-full border-[20px] border-blue-500 blur-3xl" />
-          </div>
-          {/* Stripes illustration */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 transform"
-            aria-hidden="true"
-          >
-            <Image
-              className="max-w-none"
-              src={Stripes}
-              width={768}
-              height={432}
-              alt="Stripes"
+    <section id="contact" className="bg-white py-16 px-4 sm:px-6">
+      <div className="mx-auto max-w-3xl rounded-[2rem] border border-gray-300 shadow-[0_8px_40px_rgba(0,0,0,0.1)] bg-black bg-[radial-gradient(circle_at_top_left,_#1f1f1f,_#0c0c0c_80%)] p-10 relative overflow-hidden">
+        {/* Futuristic Border Glow */}
+        <div className="absolute inset-0 rounded-[2rem] border border-blue-300/10 ring-1 ring-inset ring-blue-400/10 blur-[2px] pointer-events-none" aria-hidden="true" />
+
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
+          ?מחפש פתרון יוקרתי ונוח לאירוע שלך
+        </h2>
+        <p className="text-gray-300 text-center mb-8">
+          :השאר פרטים ונחזור אליך עם הצעה משתלמת במיוחד
+        </p>
+
+        {/* Contact Form */}
+        <form dir="rtl" className="space-y-2 max-w-md mx-auto">
+          {/* שם מלא */}
+          <div className="flex flex-col space-y-1">
+            <label className="text-right text-white font-bold text-sm">שם מלא</label>
+            <input
+              type="text"
+              placeholder="שם מלא"
+              className="w-full p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
+              required
             />
           </div>
-          <div className="px-4 py-12 md:px-12 md:py-20">
-            <h2 className="mb-6 border-y text-3xl font-bold text-gray-200 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.7),transparent)1] md:mb-12 md:text-4xl">
-              Create your next project with Simple
-            </h2>
-            <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-              <a
-                className="btn group mb-4 w-full bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-sm hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                href="#0"
-              >
-                <span className="relative inline-flex items-center">
-                  Start Free Trial{" "}
-                  <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
-                    -&gt;
-                  </span>
-                </span>
-              </a>
-            </div>
+
+          {/* מספר טלפון */}
+          <div className="flex flex-col space-y-1">
+            <label className="text-right text-white font-bold text-sm">מספר נייד</label>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              dir="rtl"
+              placeholder="מספר נייד"
+              className="w-full p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
+              maxLength={10}
+              required
+              onInput={(e) => {
+                const input = e.target as HTMLInputElement;
+                input.value = input.value.replace(/[^0-9]/g, '');
+              }}
+            />
           </div>
+
+          {/* כפתור שליחה */}
+          <button
+            type="submit"
+            className="cursor-pointer w-full bg-gradient-to-r from-white to-gray-100 text-gray-900 font-bold py-3 rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-gray-200 hover:to-white hover:scale-105 active:scale-95 transition-all duration-300 border border-gray-300 text-lg tracking-wide mt-4"
+          >
+            שלחו לי הצעת מחיר עכשיו
+          </button>
+        </form>
+
+        {/* Contact Info */}
+        <div className="text-center mt-10">
+          <p className="text-gray-100 text-lg mb-2">:או דברו איתנו ישירות</p>
+          <div className="text-lg font-semibold flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-center">
+            <a href="tel:+972526525185" className="text-cyan-400 hover:underline">📱052-6525185</a>
+            <span className="text-gray-500 hidden sm:inline">/</span>
+            <a href="tel:+972526920346" className="text-cyan-400 hover:underline">📱052-6920346</a>
+          </div>
+          <a
+            href="https://wa.me/972526525185"
+            className="inline-block mt-6 px-6 py-3 bg-green-500 rounded-full text-white font-semibold hover:bg-green-600 transition transform hover:scale-105 shadow-md"
+          >
+            שלחו לנו הודעת וואטסאפ
+          </a>
         </div>
       </div>
     </section>

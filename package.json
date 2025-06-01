@@ -1,5 +1,5 @@
 {
-  "name": "simple-next",
+  "name": "shirutim4u",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -28,7 +28,5 @@
     "tailwindcss": "^4.0.3"
   },
   "overrides": {
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.1"
   }
 }

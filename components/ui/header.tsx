@@ -1,35 +1,95 @@
+import { useState } from "react";
 import Link from "next/link";
-import Logo from "./logo";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="fixed top-2 z-30 w-full md:top-6">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-white/90 px-3 shadow-lg shadow-black/[0.03] backdrop-blur-xs before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-          {/* Site branding */}
-          <div className="flex flex-1 items-center">
-            <Logo />
-          </div>
+    <header className="fixed top-4 left-1/2 z-30 -translate-x-1/2 w-[90%] max-w-2xl">
+      <div className="flex items-center justify-around rounded-xl bg-white px-4 py-2 shadow-lg border border-gray-200">
+        {/* תפריט שמאל */}
+        <nav className="hidden sm:flex gap-2">
+          <Link
+            href="#gallery"
+            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+          >
+            שאלות
+          </Link>
+          <Link
+            href="#faq"
+            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+          >
+            צור קשר
+          </Link>
+        </nav>
 
-          {/* Desktop sign in links */}
-          <ul className="flex flex-1 items-center justify-end gap-3">
-            <li>
+        {/* לוגו במרכז */}
+        <div className="flex-shrink-0">
+          <img
+            src="/images/ollogo.png"
+            alt="Logo"
+            className="h-14 w-auto object-contain"
+          />
+        </div>
+
+        {/* תפריט ימין */}
+        <nav className="hidden sm:flex gap-2">
+          <Link
+            href="#whyus"
+            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+          >
+            למה אנחנו
+          </Link>
+          <Link
+            href="#contact"
+            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+          >
+            גלריה
+          </Link>
+        </nav>
+
+        {/* כפתור מובייל */}
+        <div className="sm:hidden ml-auto relative">
+          <button
+            className="px-3 py-1 rounded-lg bg-gray-100 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-200 transition"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            תפריט
+          </button>
+
+          {/* תפריט נפתח במובייל */}
+          {isOpen && (
+            <div className="text-right absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded-xl shadow-2xl py-3 px-4 space-y-2 z-50">
               <Link
-                href="/signin"
-                className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
+                href="#gallery"
+                className="block text-gray-800 text-sm font-semibold px-2 py-2 rounded-md hover:bg-gray-100 transition"
+                onClick={() => setIsOpen(false)}
               >
-                Login
+                גלריה
               </Link>
-            </li>
-            <li>
               <Link
-                href="/signup"
-                className="btn-sm bg-gray-800 text-gray-200 shadow-sm hover:bg-gray-900"
+                href="#faq"
+                className="block text-gray-800 text-sm font-semibold px-2 py-2 rounded-md hover:bg-gray-100 transition"
+                onClick={() => setIsOpen(false)}
               >
-                Register
+                שאלות
               </Link>
-            </li>
-          </ul>
+              <Link
+                href="#whyus"
+                className="block text-gray-800 text-sm font-semibold px-2 py-2 rounded-md hover:bg-gray-100 transition"
+                onClick={() => setIsOpen(false)}
+              >
+                למה אנחנו
+              </Link>
+              <Link
+                href="#contact"
+                className="block text-gray-800 text-sm font-semibold px-2 py-2 rounded-md hover:bg-gray-100 transition"
+                onClick={() => setIsOpen(false)}
+              >
+                צור קשר
+              </Link>
+            </div>
+          )}
+
         </div>
       </div>
     </header>

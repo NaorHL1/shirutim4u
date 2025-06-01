@@ -3,47 +3,52 @@ import TestimonialImg from "@/public/images/large-testimonial.jpg";
 
 export default function LargeTestimonial() {
   return (
-    <section>
-      <div className="mx-auto max-w-2xl px-4 sm:px-6">
-        <div className="py-12 md:py-20">
-          <div className="space-y-3 text-center">
-            <div className="relative inline-flex">
-              <svg
-                className="absolute -left-6 -top-2 -z-10"
-                width={40}
-                height={49}
-                viewBox="0 0 40 49"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22.7976 -0.000136375L39.9352 23.4746L33.4178 31.7234L13.7686 11.4275L22.7976 -0.000136375ZM9.34947 17.0206L26.4871 40.4953L19.9697 48.7441L0.320491 28.4482L9.34947 17.0206Z"
-                  fill="#D1D5DB"
-                />
-              </svg>
+    <section className="relative px-6 py-20 bg-white text-right">
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-gray-50" aria-hidden="true" />
+
+      <h3 className="text-3xl font-bold text-center text-gray-900 mb-16">?מה הלקוחות שלנו אומרים</h3>
+
+      <div className="relative max-w-6xl mx-auto grid gap-6 sm:grid-cols-2 lg:gap-8">
+        {[ 
+          {
+            name: "מור ואורן",
+            location: "חתונה בקיבוץ",
+            text: "השירותים היו נקיים, מרווחים ומעוצבים לא מתקרב לגועל של שירותים כימיים!"
+          },
+          {
+            name: "תומר",
+            location: "כנס בהרצליה",
+            text: "רמה אחרת לגמרי. נקי, נעים, מסודר – פשוט שידרג את כל האירוע!"
+          },
+          {
+            name: "יעל",
+            location: "אירוע פרטי ברמת גן",
+            text: "הופתעתי מרמת השירות. הכל היה מושלם ומדויק. בהחלט נשכיר מהם שוב!"
+          },
+          {
+            name: "מיכאל",
+            location: "אירוע חברה בצפון",
+            text: "השירות היה מקצועי, מהיר ונקי. האורחים שמו לב והשאיר רושם מעולה."
+          }
+        ].map((review, index) => (
+          <blockquote key={index} className="relative bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-md p-6 rounded-2xl transition duration-300 hover:shadow-xl text-sm">
+            <div className="flex flex-row-reverse items-center gap-4 mb-3">
               <Image
-                className="rounded-full"
                 src={TestimonialImg}
-                width={48}
-                height={48}
-                alt="Large testimonial"
+                alt="Avatar"
+                width={40}
+                height={40}
+                className="rounded-full border border-gray-300 shadow-sm"
               />
+              <div>
+                <p className="font-bold text-gray-800 text-sm">{review.name}</p>
+                <p className="text-xs text-gray-500">{review.location}</p>
+              </div>
             </div>
-            <p className="text-2xl font-bold text-gray-900">
-              “Simple has simplified my life in more ways than one. From
-              managing my sites to{" "}
-              <em className="italic text-gray-500">keeping track of tasks</em>,
-              it's become my go-to tool for everything.”
-            </p>
-            <div className="text-sm font-medium text-gray-500">
-              <span className="text-gray-700">Mary Sullivan</span>{" "}
-              <span className="text-gray-400">/</span>{" "}
-              <a className="text-blue-500" href="#0">
-                CTO at Microsoft
-              </a>
-            </div>
-          </div>
-        </div>
+            <p className="text-yellow-400 text-lg leading-none mb-3">★★★★★</p>
+            <p dir="rtl" className="text-gray-700 leading-relaxed italic">"{review.text}"</p>
+          </blockquote>
+        ))}
       </div>
     </section>
   );
