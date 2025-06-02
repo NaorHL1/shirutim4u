@@ -1,6 +1,6 @@
 export const metadata = {
   title: "shirutim4u",
-  description: "Page description",
+  description: "אתר א.ל שירותים ניידים מפוארים — שירותי השכרת שירותים ניידים ברמה הגבוהה ביותר לאירועים, חתונות, כנסים ומופעים. עיצוב יוקרתי, נוחות מרבית והתאמה מלאה לדרישות הלקוח. האתר נגיש ומותאם לכלל המשתמשים.",
 };
 
 import Hero from "@/components/hero-home";

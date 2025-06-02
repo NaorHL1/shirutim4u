@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
+const isExport = process.env.EXPORT_BUILD === 'true';
+
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true, // מומלץ
+  output: isExport ? 'export' : undefined,
+  trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: isExport ? true : false
   }
 };
 

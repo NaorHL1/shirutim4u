@@ -5,15 +5,15 @@ import Stripes from "@/public/images/stripes-dark.svg";
 export default function Cta() {
   return (
     <section id="contact" className="bg-white py-16 px-4 sm:px-6">
-      <div className="mx-auto max-w-3xl rounded-[2rem] border border-gray-300 shadow-[0_8px_40px_rgba(0,0,0,0.1)] bg-black bg-[radial-gradient(circle_at_top_left,_#1f1f1f,_#0c0c0c_80%)] p-10 relative overflow-hidden">
+      <div className="mx-auto max-w-3xl rounded-[2rem] border border-gray-300 shadow-[0_8px_40px_rgba(0,0,0,0.1)] bg-black bg-[radial-gradient(circle_at_top_left,_#1f1f1f,_#0c0c0c_80%)] p-5 sm:p-10 relative overflow-hidden">
         {/* Futuristic Border Glow */}
         <div className="absolute inset-0 rounded-[2rem] border border-blue-300/10 ring-1 ring-inset ring-blue-400/10 blur-[2px] pointer-events-none" aria-hidden="true" />
 
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
-          ?מחפש פתרון יוקרתי ונוח לאירוע שלך
+        <h2 dir="rtl" className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
+          מחפש פתרון יוקרתי ונוח לאירוע שלך?
         </h2>
-        <p className="text-gray-300 text-center mb-8">
-          :השאר פרטים ונחזור אליך עם הצעה משתלמת במיוחד
+        <p dir="rtl" className="text-gray-300 text-center mb-8">
+          השאר פרטים ונדאג לחזור אליך בהקדם עם הצעה משתלמת במיוחד:
         </p>
 
         {/* Contact Form */}
@@ -24,7 +24,7 @@ export default function Cta() {
             <input
               type="text"
               placeholder="שם מלא"
-              className="w-full p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
+              className="w-full p-3 sm:p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
               required
             />
           </div>
@@ -38,7 +38,7 @@ export default function Cta() {
               pattern="[0-9]*"
               dir="rtl"
               placeholder="מספר נייד"
-              className="w-full p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
+              className="w-full p-3 sm:p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
               maxLength={10}
               required
               onInput={(e) => {
@@ -58,16 +58,16 @@ export default function Cta() {
         </form>
 
         {/* Contact Info */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-4 sm:mt-10">
           <p className="text-gray-100 text-lg mb-2">:או דברו איתנו ישירות</p>
-          <div className="text-lg font-semibold flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-center">
+          <div className="text-xl sm:text-lg font-semibold flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-center">
             <a href="tel:+972526525185" className="text-cyan-400 hover:underline">📱052-6525185</a>
             <span className="text-gray-500 hidden sm:inline">/</span>
             <a href="tel:+972526920346" className="text-cyan-400 hover:underline">📱052-6920346</a>
           </div>
           <a
             href="https://wa.me/972526525185"
-            className="inline-block mt-6 px-6 py-3 bg-green-500 rounded-full text-white font-semibold hover:bg-green-600 transition transform hover:scale-105 shadow-md"
+            className="text-xl sm:text-base inline-block mt-6 px-6 py-3 bg-green-500 rounded-full text-white font-semibold hover:bg-green-600 transition transform hover:scale-105 shadow-md"
           >
             שלחו לנו הודעת וואטסאפ
           </a>

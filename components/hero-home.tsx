@@ -1,11 +1,7 @@
 import Image from "next/image";
 import PageIllustration from "@/components/page-illustration";
-import Avatar01 from "@/public/images/avatar-01.jpg";
-import Avatar02 from "@/public/images/avatar-02.jpg";
-import Avatar03 from "@/public/images/avatar-03.jpg";
-import Avatar04 from "@/public/images/avatar-04.jpg";
-import Avatar05 from "@/public/images/avatar-05.jpg";
-import Avatar06 from "@/public/images/avatar-06.jpg";
+import AddContactButton from "@/components/addcontactbutton";
+
 
 export default function HeroHome() {
   return (
@@ -37,7 +33,7 @@ export default function HeroHome() {
                   className="group inline-flex items-center gap-3 rounded-full bg-gray-900 px-6 py-3 text-white font-semibold shadow-lg hover:bg-gray-800 transition duration-300"
                 >
                   <span className="text-blue-400 transition-transform group-hover:-translate-x-1">&larr;</span>
-                  <span className="tracking-tight">התקשר עכשיו</span>
+                  <AddContactButton />
                 </a>
               </div>
             </div>
@@ -58,7 +54,7 @@ export default function HeroHome() {
               </div>
             </div>
           </section>
-          
+
           {/* Why Us Section */}
           <section id="whyus" className="px-6 py-20 bg-gradient-to-b from-gray-50 to-white rounded-xl shadow-inner">
             <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">?למה לבחור בנו</h3>
