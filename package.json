@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "build:export": "cross-env EXPORT_BUILD=true next build && next export",
+    "build:export": "cross-env EXPORT_BUILD=true next build",
     "start": "next start",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build"
