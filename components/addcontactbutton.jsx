@@ -7,10 +7,10 @@ const AddContactButton = () => {
     lastName: "שירותים ניידים מפוארים",
     phone: "+972526525185",
     email: "shirutim4u@gmail.com",
-    photoURL: "/images/ollogo.png"
+    photoURL: "/images/logo50kb.jpeg"
   };
 
-  const generateVCard = (contact, photoURL) => {
+  const generateVCard = (contact, base64Photo) => {
     return [
       'BEGIN:VCARD',
       'VERSION:3.0',
@@ -18,7 +18,7 @@ const AddContactButton = () => {
       `FN:${contact.firstName} ${contact.lastName}`,
       `TEL;TYPE=CELL:${contact.phone}`,
       `EMAIL:${contact.email}`,
-      `PHOTO;VALUE=URL;TYPE=PNG:${photoURL}`,
+      `PHOTO;ENCODING=b;TYPE=PNG:${base64Photo}`,
       'END:VCARD',
     ].join('\n');
   };
@@ -37,13 +37,24 @@ const AddContactButton = () => {
     URL.revokeObjectURL(url);
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+
+    const response = await fetch(contact.photoURL);
+    const blob = await response.blob();
+
+    const base64Photo = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result.split(',')[1]); // רק את base64
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
 
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
-      const vCard = generateVCard(contact, contact.photoURL);
+      // פה הייתה הבעיה - נשתמש ב-base64Photo ולא ב-contact.photoURL
+      const vCard = generateVCard(contact, base64Photo);
       downloadVCard(vCard, 'al_shirutim_contact.vcf');
     } else {
       // במחשב — פשוט נגלול ל-#contact
