@@ -17,12 +17,18 @@ export default function Cta() {
         </p>
 
         {/* Contact Form */}
-        <form dir="rtl" className="space-y-2 max-w-md mx-auto">
+        <form
+          dir="rtl"
+          action="https://formspree.io/f/xyzjyazl" // <-- שים כאן את ה-ID שלך
+          method="POST"
+          className="space-y-2 max-w-md mx-auto"
+        >
           {/* שם מלא */}
           <div className="flex flex-col space-y-1">
             <label className="text-right text-white font-bold text-sm">שם מלא</label>
             <input
               type="text"
+              name="full-name" // חובה name
               placeholder="שם מלא"
               className="w-full p-3 sm:p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
               required
@@ -34,6 +40,7 @@ export default function Cta() {
             <label className="text-right text-white font-bold text-sm">מספר נייד</label>
             <input
               type="text"
+              name="phone" // חובה name
               inputMode="numeric"
               pattern="[0-9]*"
               dir="rtl"
@@ -46,6 +53,17 @@ export default function Cta() {
                 input.value = input.value.replace(/[^0-9]/g, '');
               }}
             />
+          </div>
+
+          {/* הודעה (רשות) */}
+          <div className="flex flex-col space-y-1">
+            <label className="text-right text-white font-bold text-sm">הודעה</label>
+            <textarea
+              name="message" // חובה name
+              placeholder="הודעה (לא חובה)"
+              rows={4}
+              className="w-full p-3 sm:p-4 rounded-xl bg-gray-100 text-right text-black font-bold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-300"
+            ></textarea>
           </div>
 
           {/* כפתור שליחה */}
