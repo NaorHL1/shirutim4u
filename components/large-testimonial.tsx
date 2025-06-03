@@ -12,29 +12,33 @@ export default function LargeTestimonial() {
           {
             name: "מור ואורן",
             location: "חתונה בקיבוץ",
-            text: "השירותים היו נקיים, מרווחים ומעוצבים לא מתקרב לגועל של שירותים כימיים!"
+            text: "השירותים היו נקיים, מרווחים ומעוצבים לא מתקרב לגועל של שירותים כימיים!",
+            image: "/images/moran.png"
           },
           {
             name: "תומר",
             location: "כנס בהרצליה",
-            text: "רמה אחרת לגמרי. נקי, נעים, מסודר – פשוט שידרג את כל האירוע!"
+            text: "רמה אחרת לגמרי. נקי, נעים, מסודר – פשוט שידרג את כל האירוע!",
+            image: "/images/tomer.jpg"
           },
           {
             name: "יעל",
             location: "אירוע פרטי ברמת גן",
-            text: "הופתעתי מרמת השירות. הכל היה מושלם ומדויק. בהחלט נשכיר מהם שוב!"
+            text: "הופתעתי מרמת השירות. הכל היה מושלם ומדויק. בהחלט נשכיר מהם שוב!",
+            image: "/images/yahel.jpg"
           },
           {
             name: "מיכאל",
             location: "אירוע חברה בצפון",
-            text: "השירות היה מקצועי, מהיר ונקי. האורחים שמו לב והשאיר רושם מעולה."
+            text: "השירות היה מקצועי, מהיר ונקי. האורחים שמו לב והשאיר רושם מעולה.",
+            image: "/images/micheal.jpg"
           }
         ].map((review, index) => (
           <blockquote key={index} className="relative bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-md p-6 rounded-2xl transition duration-300 hover:shadow-xl text-sm">
             <div className="flex flex-row-reverse items-center gap-4 mb-3">
-              <Image
-                src="/images/large-testimonial.jpg"
-                alt="Person"
+             <Image
+                src={review.image}
+                alt="person"
                 width={40}
                 height={40}
                 className="rounded-full border border-gray-300 shadow-sm"
