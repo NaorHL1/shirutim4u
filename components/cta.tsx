@@ -71,7 +71,7 @@ export default function Cta() {
             type="submit"
             className="cursor-pointer w-full bg-gradient-to-r from-white to-gray-100 text-gray-900 font-bold py-3 rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-gray-200 hover:to-white hover:scale-105 active:scale-95 transition-all duration-300 border border-gray-300 text-lg tracking-wide mt-4"
           >
-            שלחו לי הצעת מחיר עכשיו
+            שלח לי הצעת מחיר עכשיו
           </button>
         </form>
 
