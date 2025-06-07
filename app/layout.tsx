@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "shirutim4u",
+  title: "שירותים ניידים מפוארים | א.ל שירותים ניידים",
   description: "...",
     icons: {
     icon: '/favicon.ico',
