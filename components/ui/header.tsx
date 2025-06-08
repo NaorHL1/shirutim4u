@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +27,12 @@ export default function Header() {
 
         {/* לוגו במרכז */}
         <div className="flex-shrink-0">
-          <img
+          <Image
             src="/images/ollogo.png"
             alt="Logo"
+            width={120}
+            height={56}
+            priority
             className="h-14 w-auto object-contain"
           />
         </div>
