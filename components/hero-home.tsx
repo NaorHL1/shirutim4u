@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import PageIllustration from "@/components/page-illustration";
 import AddContactButton from "@/components/addcontactbutton";
