@@ -14,29 +14,30 @@ export default function HeroHome() {
           {/* Section header */}
           <motion.div
             className="pb-12 text-center md:pb-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="mb-6 text-5xl font-extrabold text-gray-900 leading-tight md:text-6xl">
               הפתרון האלגנטי <br className="max-lg:hidden" />
               הנוח והנקי לאירועים מרגשים
             </h1>
-            <div className="mx-auto max-w-2xl">
-              <motion.p
-                className="mb-10 text-lg text-gray-600 md:text-xl"
-                dir="rtl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              >
-                חתונות, בר/בת מצווה, כנסים ואירועים פרטיים – אנחנו מביאים את השירותים ברמה של אולם יוקרתי לכל מקום. שירות מקצועי, איכות ללא פשרות, ואחריות מלאה – עם א.ל שירותים ניידים מפוארים.
-              </motion.p>
+            <motion.div
+              className="mx-auto max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <p className="mb-10 text-lg text-gray-600 md:text-xl" dir="rtl">
+                חתונות, בר/בת מצווה, כנסים ואירועים פרטיים – אנחנו מביאים את
+                השירותים ברמה של אולם יוקרתי לכל מקום. שירות מקצועי, איכות ללא
+                פשרות, ואחריות מלאה – עם א.ל שירותים ניידים מפוארים.
+              </p>
               <motion.div
                 className="mx-auto flex justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
                 <a
                   href="#0"
@@ -48,7 +49,7 @@ export default function HeroHome() {
                   <AddContactButton />
                 </a>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Gallery Section */}
@@ -56,42 +57,26 @@ export default function HeroHome() {
             <h3 className="text-3xl font-bold text-center text-gray-900 mb-10">
               גלריה
             </h3>
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.8, staggerChildren: 0.1 },
-                },
-              }}
-            >
-              {["toiletimg1.jpg", "toiletimg2.jpg", "toiletimg1.jpg"].map(
-                (img, index) => (
-                  <motion.div
-                    key={index}
-                    className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group relative"
-                    variants={{
-                      hidden: { opacity: 0, scale: 0.95 },
-                      visible: { opacity: 1, scale: 1 },
-                    }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <Image
-                      src={`/images/${img}`}
-                      alt="luxury toilet"
-                      fill
-                      priority={index === 0}
-                      className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
-                    />
-                  </motion.div>
-                )
-              )}
-            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {[
+                "toiletimg1.jpg",
+                "toiletimg2.jpg",
+                "toiletimg1.jpg", // לוודא שהתמונה קיימת
+              ].map((img, index) => (
+                <div
+                  key={index}
+                  className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group relative"
+                >
+                  <Image
+                    src={`/images/${img}`}
+                    alt="luxury toilet"
+                    fill
+                    priority={index === 0}
+                    className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
+                  />
+                </div>
+              ))}
+            </div>
           </section>
 
           {/* Why Us Section */}
@@ -105,17 +90,10 @@ export default function HeroHome() {
             <motion.div
               dir="rtl"
               className="grid gap-10 max-w-5xl mx-auto sm:grid-cols-2"
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.8, staggerChildren: 0.1 },
-                },
-              }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               {[
                 {
@@ -146,11 +124,10 @@ export default function HeroHome() {
                 <motion.div
                   key={index}
                   className="space-y-2"
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
                 >
                   <h4 className="text-xl font-semibold text-gray-800">
                     {item.title}
