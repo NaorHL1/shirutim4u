@@ -43,14 +43,29 @@ export default function HeroHome() {
           <section id="gallery" className="px-6 py-16">
             <h3 className="text-3xl font-bold text-center text-gray-900 mb-10">גלריה</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              <div className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group">
-                <img alt="luxury toilet" src="/images/toiletimg1.jpg" className="h-full w-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95" />
+              <div className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group relative">
+                <Image
+                  src="/images/toiletimg1.jpg"
+                  alt="luxury toilet"
+                  fill
+                  className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
+                />
               </div>
-              <div className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group">
-                <img alt="luxury toilet" src="/images/toiletimg2.jpg" className="h-full w-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95" />
+              <div className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group relative">
+                <Image
+                  src="/images/toiletimg2.jpg"
+                  alt="luxury toilet"
+                  fill
+                  className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
+                />
               </div>
-              <div className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group">
-                <img alt="luxury toilet" src="/images/toiletimg1.jpg" className="h-full w-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95" />
+              <div className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden group relative">
+                <Image
+                  src="/images/toiletimg1.jpg"
+                  alt="luxury toilet"
+                  fill
+                  className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
+                />
               </div>
             </div>
           </section>
