@@ -70,15 +70,6 @@ export const metadata: Metadata = {
   }
 };
 
-export const structuredData = {
-  __html: `{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "א.ל שירותים ניידים",
-    "description": "השכרת שירותים ניידים מפוארים – קבינות יוקרתיות ונקיות לכל אירוע",
-    "url": "https://www.shirutim4u.com/",
-  }`
-};
 
 export default function RootLayout({
   children,
