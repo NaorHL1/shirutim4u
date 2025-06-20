@@ -1,5 +1,7 @@
 import "./css/style.css";
 import Script from "next/script";
+import type { Metadata } from "next";
+
 
 import { Inter } from "next/font/google";
 
@@ -9,12 +11,73 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata = {
-  title: "שירותים ניידים מפוארים | א.ל שירותים ניידים",
-  description: "מחפשים שירותים ניידים מפוארים להשכרה? בא.ל שירותים ניידים תמצאו שירותים יוקרתיים, מרווחים ונקיים לכל סוגי האירועים: חתונות, כנסים, אירועי שטח, פסטיבלים ואירועים פרטיים. פתרון איכותי ומקצועי לשירותים ניידים.",
-    icons: {
-    icon: '/favicon.ico',
+/* ------------  Meta Tags  ------------ */
+export const metadata: Metadata = {
+  title: "השכרת שירותים ניידים מפוארים | א.ל שירותים ניידים – פרימיום",
+
+  /* Description ≈ 155 תווים – קריאה לפעולה ברורה */
+  description:
+    "אל תורידו את רמת האירוע: השכירו שירותים ניידים מפוארים מא.ל וקבלו תאי שירות נקיים, מרווחים ובעלי עיצוב יוקרתי לחתונות, כנסים ופסטיבלים. שירות ארצי ואחריות מלאה.",
+
+  /* Keywords – לא מכביד, עדיין מועיל במנועים משניים וב-schema */
+  keywords: [
+    "שירותים ניידים",
+    "השכרת שירותים ניידים",
+    "שירותים ניידים מפוארים",
+    "שירותים ניידים לאירועים",
+    "שירותים כימיים להשכרה",
+    "תאי שירותים ניידים"
+  ],
+
+  /* Robots – מאפשר סניפט ותצוגת-תמונה/וידאו מלאים; אין nocache */
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1
+    }
   },
+
+  /* Canonical – כתובת מדויקת עם ‎https ו-‎www (לפי ההגדרה באתר) */
+  alternates: {
+    canonical: "https://www.shirutim4u.com/"
+  },
+
+  /* Open Graph – CTR גבוה בשיתופים (וגם רמז טוב לגוגל) */
+  openGraph: {
+    type: "website",
+    url: "https://www.shirutim4u.com/",
+    siteName: "א.ל שירותים ניידים",
+    title: "השכרת שירותים ניידים מפוארים – א.ל שירותים ניידים",
+    description:
+      "שירותים ניידים פרימיום, ריח מושלם, תא רחב ונקי – שירות מקצועי בפריסה ארצית.",
+    images: [
+      {
+        url: "https://shirutim4u.com/images/toiletimg2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "תאי שירותים ניידים מפוארים באירוע חוץ"
+      }
+    ],
+    locale: "he_IL"
+  },
+   icons: {
+    icon: "/favicon.ico"
+  }
+};
+
+export const structuredData = {
+  __html: `{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "א.ל שירותים ניידים",
+    "description": "השכרת שירותים ניידים מפוארים – קבינות יוקרתיות ונקיות לכל אירוע",
+    "url": "https://www.shirutim4u.com/",
+  }`
 };
 
 export default function RootLayout({

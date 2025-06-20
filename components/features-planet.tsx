@@ -47,7 +47,7 @@ export default function FeaturesPlanet() {
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
               <h3 className="mb-2 text-xl font-semibold text-gray-900">כמה יחידות צריך לאירוע?</h3>
-              <p className="text-gray-600">יחידה אחת מתאימה לכ-150 אורחים למשך 7–8 שעות. נתאים לך את הכמות לפי מספר משתתפים ומשך האירוע.</p>
+              <p className="text-gray-600">יחידה אחת מתאימה לכ-200 אורחים למשך 7–8 שעות. נתאים לך את הכמות לפי מספר משתתפים ומשך האירוע.</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
               <h3 className="mb-2 text-xl font-semibold text-gray-900">האם השירות כולל ניקיון בזמן האירוע?</h3>
