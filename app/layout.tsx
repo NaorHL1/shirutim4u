@@ -13,7 +13,7 @@ const inter = Inter({
 
 /* ------------  Meta Tags  ------------ */
 export const metadata: Metadata = {
-  title: "השכרת שירותים ניידים מפוארים | א.ל שירותים ניידים – פרימיום",
+  title: "השכרת שירותים ניידים מפוארים | א.ל שירותים ניידים",
 
   /* Description ≈ 155 תווים – קריאה לפעולה ברורה */
   description:
