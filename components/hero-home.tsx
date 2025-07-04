@@ -40,7 +40,8 @@ export default function HeroHome() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
                 <a
-                  href="#0"
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
                   className="group inline-flex items-center gap-3 rounded-full bg-gray-900 px-6 py-3 text-white font-semibold shadow-lg hover:bg-gray-800 transition duration-300"
                 >
                   <span className="text-blue-400 transition-transform group-hover:-translate-x-1">
