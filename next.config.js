@@ -8,7 +8,10 @@ const nextConfig = {
     unoptimized: isExport ? true : false,
     unoptimized: isExport ? true : false,
     formats: ['image/avif', 'image/webp'],
-  }
+  },
+  experimental: {
+  modern: true,
+}
 };
 
 module.exports = nextConfig;
