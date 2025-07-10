@@ -105,7 +105,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
               <li>
-                <Link href="https://www.tiktok.com/@shirutim4u" className="hover:text-blue-400 transition" aria-label="Tiktok" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.tiktok.com/@shirutim4uט" className="hover:text-blue-400 transition" aria-label="Tiktok" target="_blank" rel="noopener noreferrer">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                     <path d="M208.1 75.6a59.2 59.2 0 0 1-35.1-11.5v61.8a66.5 66.5 0 1 1-66.5-66.5c3.3 0 6.5.3 9.7.9v35.3a31.2 31.2 0 1 0 22.5 30.2V0h34.6a59.4 59.4 0 0 0 35.8 54.8z" />
                   </svg>
