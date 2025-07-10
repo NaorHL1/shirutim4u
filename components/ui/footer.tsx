@@ -91,23 +91,23 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <h3 className="text-sm font-bold mb-2">עקבו אחרינו</h3>
             <ul className="flex gap-3">
               <li>
-                <Link href="#" className="hover:text-blue-500 transition" aria-label="Facebook">
+                <Link href="https://www.facebook.com/people/%25D7%2590%25D7%259C-%25D7%25A9%25D7%2599%25D7%25A8%25D7%2595%25D7%25AA%25D7%2599%25D7%259D-%25D7%25A0%25D7%2599%25D7%2599%25D7%2593%25D7%2599%25D7%259D/61576869609037/?rdid=8aIuk0O4uX8gw8Px&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F167Bc2tDRB%252F" className="hover:text-blue-500 transition" aria-label="Facebook">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
                     <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.6l-.4 3H14v7A10 10 0 0 0 22 12z" />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-pink-500 transition" aria-label="Instagram">
+                <Link href="https://www.instagram.com/shirutim4u" className="hover:text-pink-500 transition" aria-label="Instagram">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
                     <path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3a3 3 0 1 0 0-6zm5.2-2.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-blue-400 transition" aria-label="LinkedIn">
-                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                    <path d="M4.98 3A2.5 2.5 0 1 0 5 8a2.5 2.5 0 0 0 0-5zM4 9h2v12H4V9zm7 0h2v1.7c.3-.5 1.1-1.2 2.3-1.2 2.4 0 2.8 1.6 2.8 3.7V21h-2v-6c0-1.4-.5-2.3-1.8-2.3-1 0-1.6.7-1.9 1.3-.1.2-.1.5-.1.8v6.2h-2V9z" />
+                <Link href="https://www.tiktok.com/@shirutim4u" className="hover:text-blue-400 transition" aria-label="Tiktok" target="_blank" rel="noopener noreferrer">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M208.1 75.6a59.2 59.2 0 0 1-35.1-11.5v61.8a66.5 66.5 0 1 1-66.5-66.5c3.3 0 6.5.3 9.7.9v35.3a31.2 31.2 0 1 0 22.5 30.2V0h34.6a59.4 59.4 0 0 0 35.8 54.8z" />
                   </svg>
                 </Link>
               </li>
