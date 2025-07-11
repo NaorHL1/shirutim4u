@@ -12,13 +12,13 @@ export default function Header() {
         {/* תפריט שמאל */}
         <nav className="hidden sm:flex gap-2">
           <Link
-            href="#gallery"
+            href="#faq"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             שאלות
           </Link>
           <Link
-            href="#faq"
+            href="#contact"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             צור קשר
@@ -46,7 +46,7 @@ export default function Header() {
             למה אנחנו
           </Link>
           <Link
-            href="#contact"
+            href="#gallery"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             גלריה
