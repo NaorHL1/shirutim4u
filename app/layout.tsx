@@ -59,7 +59,7 @@ export default function RootLayout({
       <head>
         {/* אנחנו שמים את זה ב-head ידנית כדי לוודא שזה נטען ראשון */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-T3DT74HVR0"
+          src="https://www.googletagmanager.com/gtag/js?id=G-EPTQYXQ530"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
