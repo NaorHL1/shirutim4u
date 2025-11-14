@@ -2,6 +2,8 @@ import './css/style.css'
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 const inter = Inter({
   subsets: ['latin'],
@@ -54,9 +56,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" className="scroll-smooth">
-      <body
-        className={`${inter.variable} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}
-      >
+      <head>
+        {/* אנחנו שמים את זה ב-head ידנית כדי לוודא שזה נטען ראשון */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-T3DT74HVR0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T3DT74HVR0', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
+      <body className={`${inter.variable} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}>
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
