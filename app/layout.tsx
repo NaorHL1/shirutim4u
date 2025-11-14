@@ -60,7 +60,6 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
-
         <Script src="/acctoolbar.min.js" strategy="afterInteractive" />
         <Script id="init-acctoolbar" strategy="afterInteractive">
           {`

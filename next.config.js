@@ -3,15 +3,17 @@ const isExport = process.env.EXPORT_BUILD === 'true';
 
 const nextConfig = {
   output: isExport ? 'export' : undefined,
-  trailingSlash: true,
+  // שינינו את זה ל-false כדי למנוע את שגיאות ההפניה בקבצים
+  trailingSlash: false,
   images: {
-    unoptimized: isExport ? true : false,
+    // מחקתי את השורה הכפולה שהיתה כאן
     unoptimized: isExport ? true : false,
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
-  modern: true,
-}
+    // הערה: בגרסאות חדשות של Next.js זה לפעמים לא נחוץ, אבל נשאיר אם זה עובד לך
+    modern: true,
+  }
 };
 
 module.exports = nextConfig;
