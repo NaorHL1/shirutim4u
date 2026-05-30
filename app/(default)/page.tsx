@@ -3,18 +3,29 @@ import FeaturesPlanet from "@/components/features-planet";
 import LargeTestimonial from "@/components/large-testimonial";
 import Cta from "@/components/cta";
 
-export const metadata = {
-  title: "שירותים ניידים מפוארים | א.ל שירותים ניידים",
-  description: "אל תורידו את רמת האירוע: השכירו שירותים ניידים מפוארים מא.ל וקבלו תאי שירות נקיים, מרווחים ובעלי עיצוב יוקרתי לחתונות, כנסים ופסטיבלים. שירות ארצי ואחריות מלאה.",
-  alternates: {
-    canonical: 'https://www.shirutim4u.com/',
-  },
-};
-
 export default function Home() {
+  // הגדרת סכמה (Schema.org) לקידום מקומי חזק בגוגל
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'א.ל שירותים ניידים',
+    image: 'https://www.shirutim4u.com/images/toiletimg2.jpg',
+    description: 'השכרת שירותים ניידים מפוארים לאירועים, חתונות וכנסים בפריסה ארצית.',
+    url: 'https://www.shirutim4u.com',
+    telephone: '052-6290346', // החלף במספר הטלפון האמיתי
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'IL',
+    },
+  }
+
   return (
     <>
-      {/* שים לב: מחקנו מכאן את ה-Head ואת ה-script כי הם כבר נמצאים ב-Layout */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
       <LargeTestimonial />
       <Cta />
