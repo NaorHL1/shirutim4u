@@ -51,6 +51,9 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link href="#faq" className="hover:text-blue-600 transition">שאלות ותשובות</Link>
               </li>
+              <li>
+                <Link href="/services/mobile-toilets">השכרת שירותים ניידים</Link>
+              </li>
             </ul>
           </div>
 

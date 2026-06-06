@@ -13,8 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shirutim4u.com'),
   title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל שירותים ניידים',
-  description:
-    'השכירו שירותים ניידים מפוארים מא.ל וקבלו תאי שירות נקיים, מרווחים ובעלי עיצוב יוקרתי לחתונות, כנסים ופסטיבלים. שירות בפריסה ארצית ואחריות מלאה.',
+  description: 'מחפשים שירותים ניידים להשכרה? א.ל מציעה תאי שירות מפוארים, נקיים ומרווחים לאירועי שטח וחתונות. שירות מקצועי בפריסה ארצית ואחריות מלאה.',
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   alternates: {
     canonical: '/',
@@ -55,7 +54,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
-        
+
         {/* סקריפט הנגישות */}
         <Script src="/acctoolbar.min.js" strategy="afterInteractive" />
         <Script id="init-acctoolbar" strategy="afterInteractive">
