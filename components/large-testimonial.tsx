@@ -35,10 +35,10 @@ export default function LargeTestimonial() {
           }
         ].map((review, index) => (
           <blockquote key={index} className="relative bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-md p-6 rounded-2xl transition duration-300 hover:shadow-xl text-sm">
-            <div className="flex flex-row-reverse items-center gap-4 mb-3">
+            <div className="flex flex-row items-center gap-4 mb-3">
              <Image
                 src={review.image}
-                alt="person"
+                alt="face"
                 width={40}
                 height={40}
                 className="rounded-full border border-gray-300 shadow-sm"
