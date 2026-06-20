@@ -16,20 +16,20 @@ export default function FeaturesPlanet() {
           </div>
 
           {/* Planet visual */}
-          <div className="pb-16 md:pb-20 flex justify-center" data-aos="zoom-y-out">
-            <div className="relative w-50 h-50 md:w-65 md:h-65 rounded-full border-8 border-blue-100 bg-gradient-to-tr from-blue-50 to-white shadow-xl flex items-center justify-center">
-              <Image
-                className="rounded-full object-cover"
-                src="/images/planet.png"
-                width={300}
-                height={300}
-                alt="Planet"
-              />
-              <div className="absolute -right-10 -top-10 w-32 h-32 opacity-30">
-                <Image src="/images/planet-overlay.svg" alt="Decoration" width={128} height={128} />
-              </div>
+        <div className="pb-16 md:pb-20 flex justify-center custom-zoom-in">
+          <div className="relative w-[288px] h-[288px] rounded-full border-8 border-blue-100 bg-gradient-to-tr from-blue-50 to-white shadow-xl flex items-center justify-center overflow-hidden">
+            <Image
+              className="rounded-full object-cover"
+              src="/images/planet.png"
+              width={300}
+              height={300}
+              alt="Planet"
+            />
+            <div className="absolute -right-10 -top-10 w-32 h-32 opacity-30 pointer-events-none">
+              <Image src="/images/planet-overlay.svg" alt="Decoration" width={128} height={128} />
             </div>
           </div>
+        </div>
 
           {/* FAQ Grid */}
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center sm:text-right">

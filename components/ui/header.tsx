@@ -9,7 +9,8 @@ export default function Header() {
   return (
     <header className="fixed top-4 left-1/2 z-30 -translate-x-1/2 w-[90%] max-w-2xl">
       <div className="flex items-center justify-around rounded-xl bg-white px-4 py-2 shadow-lg border border-gray-200">
-        {/* תפריט שמאל */}
+        
+        {/* תפריט שמאל (מסכים גדולים) */}
         <nav className="hidden sm:flex gap-2">
           <Link
             href="#faq"
@@ -37,7 +38,7 @@ export default function Header() {
           />
         </div>
 
-        {/* תפריט ימין */}
+        {/* תפריט ימין (מסכים גדולים) */}
         <nav className="hidden sm:flex gap-2">
           <Link
             href="#whyus"
@@ -53,31 +54,32 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* כפתורי מובייל */}
-        <div className="sm:hidden ml-auto flex items-center space-x-3 relative">
-          {/* כפתור טלפון */}
-          <a
-            href="tel:+972526525185"
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
-            aria-label="התקשר עכשיו"
-          >
-            <FaPhoneAlt size={24} />
-          </a>
+        {/* --- אזור מובייל בלבד --- */}
+        <div className="sm:hidden flex-1 flex items-center justify-between pr-4">
+          
+          {/* כפתורי שיחה (מוצמדים לימין, קרובים ללוגו) */}
+          <div className="flex items-center gap-3">
+            <a
+              href="tel:+972526525185"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
+              aria-label="התקשר עכשיו"
+            >
+              <FaPhoneAlt size={24} />
+            </a>
 
-          {/* כפתור וואטסאפ */}
-          <a
-            href="https://wa.me/972526525185"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
-            aria-label="שלח הודעת וואטסאפ"
-          >
-            <FaWhatsapp size={26} />
-          </a>
+            <a
+              href="https://wa.me/972526525185"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
+              aria-label="שלח הודעת וואטסאפ"
+            >
+              <FaWhatsapp size={26} />
+            </a>
+          </div>
 
-          {/* כפתור תפריט וה- dropdown - מופרד ב"קופסה" כדי לא להשפיע על הפלקס */}
+          {/* אזור כפתור תפריט (מוצמד לשמאל הקיצוני) */}
           <div className="relative">
-            {/* כפתור המבורגר */}
             <button
               className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-gray-800 shadow-sm hover:bg-gray-200 transition"
               onClick={() => setIsOpen(!isOpen)}
@@ -103,7 +105,7 @@ export default function Header() {
             {isOpen && (
               <div
                 dir="rtl"
-                className="text-center absolute top-14 right-0 w-40 bg-white border border-gray-300 rounded-xl shadow-xl py-3 px-4 space-y-2 z-50"
+                className="text-center absolute top-14 left-0 w-40 bg-white border border-gray-300 rounded-xl shadow-xl py-3 px-4 space-y-2 z-50"
               >
                 <Link
                   href="#gallery"
@@ -136,6 +138,7 @@ export default function Header() {
               </div>
             )}
           </div>
+          
         </div>
       </div>
     </header>

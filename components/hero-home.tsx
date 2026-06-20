@@ -84,7 +84,7 @@ export default function HeroHome() {
                 גלריית תאי שירותים מפוארים
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {['toiletimg1.jpg','toiletimg2.jpg','toiletimg1.jpg'].map((img, i) => (
+                {['toiletimg1.jpg','toiletimg3.jpeg','toiletimg2.jpg'].map((img, i) => (
                   <motion.div
                     key={i}
                     className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden relative group"
