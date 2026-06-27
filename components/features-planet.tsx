@@ -32,26 +32,36 @@ export default function FeaturesPlanet() {
         </div>
 
           {/* FAQ Grid */}
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center sm:text-right">
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">האם צריך נקודת חשמל באירוע?</h3>
-              <p className="text-gray-600">לא נדרש חיבור לחשמל – השירותים פועלים באופן עצמאי לחלוטין.</p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-center sm:text-right">
+            {/* Box 1 */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אירועים זה מתאים?</h3>
+              <p className="text-gray-600 text-sm">חתונות בטבע, בר/בת מצווה, כנסים, הפקות ענק ואירועים פרטיים ברמה הגבוהה ביותר.</p>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">האם צריך נקודת מים?</h3>
-              <p className="text-gray-600">לא. היחידות מצוידות במיכלי מים פנימיים המספקים מים נקיים ונוחים לשימוש.</p>
+            {/* Box 2 */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אזורים מגיעים?</h3>
+              <p className="text-gray-600 text-sm">אנו מספקים שירות בפריסה ארצית רחבה: באזור המרכז, אזור הצפון ואזור הדרום.</p>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">האם אתם דואגים להובלה והתקנה?</h3>
-              <p className="text-gray-600">בוודאי! השירות כולל הובלה, התקנה מקצועית, ניקיון ופינוי.</p>
+            {/* Box 3 */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם צריך חיבור למים או ביוב?</h3>
+              <p className="text-gray-600 text-sm">לא. היחידות עצמאיות לחלוטין ומצוידות במיכלים המספקים חוויה נקייה וללא תשתיות קבועות.</p>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">כמה יחידות צריך לאירוע?</h3>
-              <p className="text-gray-600">יחידה אחת מתאימה לכ-200 אורחים למשך 7–8 שעות. נתאים לך את הכמות לפי מספר משתתפים ומשך האירוע.</p>
+            {/* Box 4 */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם נדרש חשמל בשטח?</h3>
+              <p className="text-gray-600 text-sm">לא נדרש חיבור חיצוני לחשמל – השירותים פועלים באופן מלא ועצמאי בשטח הפתוח.</p>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">האם השירות כולל ניקיון בזמן האירוע?</h3>
-              <p className="text-gray-600">בהחלט. הניקיון והתחזוקה במהלך האירוע כלולים ונותנים שקט מלא.</p>
+            {/* Box 5 */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">כמה יחידות צריך לאירוע?</h3>
+              <p className="text-gray-600 text-sm">יחידה אחת מתאימה לכ-200 אורחים. נתאים את הכמות המדויקת למספר המשתתפים ומשך האירוע.</p>
+            </div>
+            {/* Box 6 */}
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">השירות כולל ניקיון והתקנה?</h3>
+              <p className="text-gray-600 text-sm">בוודאי. השירות כולל הובלה, התקנה, ניקיון שוטף במהלך האירוע ופינוי מלא בסיומו.</p>
             </div>
           </div>
         </div>

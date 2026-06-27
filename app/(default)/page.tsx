@@ -12,12 +12,26 @@ export default function Home() {
     image: 'https://www.shirutim4u.com/images/toiletimg2.jpg',
     description: 'השכרת שירותים ניידים מפוארים לאירועים, חתונות וכנסים בפריסה ארצית.',
     url: 'https://www.shirutim4u.com',
-    telephone: '052-6290346', // החלף במספר הטלפון האמיתי
+    telephone: '052-6290346',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'IL',
     },
+    areaServed: [
+      {
+        '@type': 'State',
+        name: 'אזור המרכז'
+      },
+      {
+        '@type': 'State',
+        name: 'אזור הדרום'
+      },
+      {
+        '@type': 'State',
+        name: 'אזור הצפון'
+      }
+    ]
   }
 
   return (
