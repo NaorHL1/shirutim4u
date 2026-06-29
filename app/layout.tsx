@@ -12,11 +12,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shirutim4u.com'),
-  title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל',
-  description: 'מחפשים שירותים ניידים להשכרה? א.ל מציעה תאי שירות מפוארים, נקיים ומרווחים לאירועי שטח וחתונות. שירות מקצועי בפריסה ארצית ואחריות מלאה.',
+  title: 'השכרת שירותים ניידים מפוארים לאירועי טבע וחתונות | א.ל',
+  description: 'מחפשים שירותים ניידים להשכרה? א.ל מציעה תאי שירות מפוארים, נקיים ומרווחים לאירועי שטח וחתונות. שירות מקצועי בפריסה ארצית.',
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   alternates: {
     canonical: '/',
+    languages: {
+      'he-IL': '/',
+    }
   },
   openGraph: {
     title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל',
@@ -59,8 +62,8 @@ export default function RootLayout({
         </div>
 
         {/* סקריפט הנגישות */}
-        <Script src="/acctoolbar.min.js" strategy="afterInteractive" />
-        <Script id="init-acctoolbar" strategy="afterInteractive">
+        <Script src="/acctoolbar.min.js" strategy="lazyOnload" />
+        <Script id="init-acctoolbar" strategy="lazyOnload">
           {`
             function initMicAccessTool() {
               if (typeof MicAccessTool !== 'undefined') {
