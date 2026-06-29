@@ -9,10 +9,6 @@ const nextConfig = {
     // מחקתי את השורה הכפולה שהיתה כאן
     unoptimized: isExport ? true : false,
     formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    // הערה: בגרסאות חדשות של Next.js זה לפעמים לא נחוץ, אבל נשאיר אם זה עובד לך
-    modern: true,
   }
 };
 
