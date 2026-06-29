@@ -1,0 +1,67 @@
+# Blog Structures
+
+comparison:
+  description: "Analytical, data-driven (~2000-3000 words)"
+  sections:
+    - "Introduction: What are we comparing and why?"
+    - "Criteria for Comparison"
+    - "Deep Dive: Project A"
+    - "Deep Dive: Project B"
+    - "Feature by Feature Comparison (Table)"
+    - "Pros and Cons"
+    - "Verdict / Conclusion"
+  eeat_injection: "Add metric or testimonial in Introduction or Verdict."
+
+listicle:
+  description: "Helpful curator (~2500-4000 words)"
+  sections:
+    - "Introduction: The problem and why this list matters"
+    - "List Item 1 (The best overall)"
+    - "List Item 2 (Best for specific use case)"
+    - "List Item 3..."
+    - "How to Choose the Right One for You"
+    - "Conclusion"
+  eeat_injection: "Add experience or review link in Introduction or How to Choose section."
+
+tutorial:
+  description: "Patient teacher, use 'I', share experience (~1500-2500 words)"
+  sections:
+    - "Introduction: What you will learn"
+    - "Prerequisites"
+    - "Step 1"
+    - "Step 2"
+    - "Step 3"
+    - "Common Pitfalls and Troubleshooting"
+    - "Conclusion"
+  eeat_injection: "Add experience in Introduction or Troubleshooting section."
+
+how_to:
+  description: "Problem-solver (~1200-2000 words)"
+  sections:
+    - "Introduction: The problem"
+    - "The Solution Overview"
+    - "Step-by-step Guide"
+    - "Alternative Methods"
+    - "Conclusion"
+  eeat_injection: "Add experience in The Solution Overview."
+
+review:
+  description: "Honest reviewer, admit drawbacks (~2000-3000 words)"
+  sections:
+    - "Introduction"
+    - "Key Features"
+    - "What Works Well (Pros)"
+    - "What Could Be Better (Cons)"
+    - "Pricing"
+    - "Final Verdict"
+  eeat_injection: "Add review link or testimonial in Final Verdict."
+
+thought_leadership:
+  description: "Opinionated, take-a-stand (~1500-2500 words)"
+  sections:
+    - "The Hook / The Provocation"
+    - "The Current State of Things"
+    - "Why It's Broken / Why It Needs to Change"
+    - "The New Way / My Opinion"
+    - "Conclusion"
+  eeat_injection: "Add experience throughout."

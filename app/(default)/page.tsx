@@ -2,6 +2,7 @@ import Hero from "@/components/hero-home";
 import FeaturesPlanet from "@/components/features-planet";
 import LargeTestimonial from "@/components/large-testimonial";
 import Cta from "@/components/cta";
+import SeoContent from "@/components/seo-content";
 
 export default function Home() {
   // הגדרת סכמה (Schema.org) לקידום מקומי חזק בגוגל
@@ -44,6 +45,7 @@ export default function Home() {
       <LargeTestimonial />
       <Cta />
       <FeaturesPlanet />
+      <SeoContent />
     </>
   );
 }

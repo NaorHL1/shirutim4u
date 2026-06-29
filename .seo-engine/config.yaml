@@ -1,0 +1,93 @@
+# SEO Content Engine — Project Configuration
+# Auto-generated. Edit anything here anytime — Claude Code reads this before every task.
+
+project:
+  name: "shirutim4u.com"
+  tagline: "השכרת שירותים ניידים מפוארים לאירועים"
+  description: "השכרת שירותים ניידים מפוארים לאירועים בפריסה ארצית. שירות פרימיום לחלוטין שמתאים לחתונות, כנסים ואירועי בוטיק בחיק הטבע."
+  website: "https://www.shirutim4u.com"
+  target_audience:
+    primary: "מפיקי אירועים, חתנים וכלות, מארגני כנסים"
+    secondary: ""
+    technical_level: "beginner"
+
+author:
+  name: "א.ל שירותים ניידים"
+  title: ""
+  bio: ""
+  website: "https://www.shirutim4u.com"
+  social_links: {}
+
+trust_signals:
+  review_links:
+    g2: ""
+    trustpilot: ""
+    capterra: ""
+    product_hunt: ""
+    rightfeature: ""
+    canny: ""
+    other: []
+  testimonials: []
+  metrics: []
+
+cms:
+  type: "next.js"
+  blog_directory: "app/blog"
+  docs_directory: ""
+  frontmatter_format: "yaml"
+  date_format: "YYYY-MM-DD"
+  slug_style: "kebab-case"
+  slug_max_words: 5
+  image_directory: "public/images"
+  frontmatter_schema:
+    required:
+      - title
+      - description
+      - date
+    optional:
+      - author
+      - tags
+      - category
+      - image
+      - draft
+
+competitors:
+  - name: "00plus"
+    website: "https://00plus.co.il/"
+    id: "comp_00plus"
+  - name: "shablulevents"
+    website: "https://www.shablulevents.co.il/"
+    id: "comp_shablulevents"
+  - name: "gorest"
+    website: "https://www.gorest.co.il/"
+    id: "comp_gorest"
+
+seo:
+  primary_topics: ["שירותים ניידים להשכרה", "השכרת שירותים ניידים", "שירותים ניידים מפוארים", "השכרת שירותים ניידים מפוארים"]
+  brand_terms: ["א.ל שירותים ניידים", "shirutim4u"]
+  avoid_terms: []
+  target_regions: ["Global"]
+  language: "he"
+
+content:
+  min_word_count: 1500
+  max_word_count: 4000
+  default_author: "א.ל שירותים ניידים"
+  tone: "professional-conversational"
+  include_faq: true
+  include_toc: true
+  cta_text: "צרו קשר לקבלת הצעת מחיר"
+  cta_url: "https://www.shirutim4u.com/#contact"
+  max_posts_per_month: 8
+  requires_human_review: true
+
+technical_seo:
+  meta_description_max_chars: 160
+  title_tag_max_chars: 60
+  image_alt_text_required: true
+  canonical_url_pattern: "https://www.shirutim4u.com/blog/{slug}"
+
+integrations:
+  seo_tool: "none"
+  analytics: "none"
+  search_console: false

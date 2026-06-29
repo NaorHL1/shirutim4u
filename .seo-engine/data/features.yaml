@@ -1,0 +1,36 @@
+project: "shirutim4u.com"
+last_updated: "2026-06-29"
+generated_from: "website"
+
+categories:
+  - id: "cat_facilities"
+    name: "תאי שירותים מפוארים"
+    description: "מאפייני תאי השירותים הניידים"
+    subcategories:
+      - id: "sub_features"
+        name: "פיצ'רים"
+        features:
+          - id: "feat_luxury"
+            name: "עיצוב יוקרתי"
+            description: "תאי שירותים בעיצוב יוקרתי עם תאורת לד ומראות."
+            status: "available"
+            doc_refs: []
+            blog_refs: []
+            tags: ["עיצוב", "יוקרה"]
+            notes: ""
+          - id: "feat_offgrid"
+            name: "עצמאי בשטח"
+            description: "פועל ללא צורך בחיבור לתשתיות מים וביוב."
+            status: "available"
+            doc_refs: []
+            blog_refs: []
+            tags: ["שטח", "תשתיות"]
+            notes: ""
+          - id: "feat_service"
+            name: "פריסה ארצית וניקיון"
+            description: "שירות הובלה, התקנה, וניקיון בפריסה ארצית."
+            status: "available"
+            doc_refs: []
+            blog_refs: []
+            tags: ["שירות", "ניקיון"]
+            notes: ""

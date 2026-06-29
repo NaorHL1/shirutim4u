@@ -1,0 +1,21 @@
+last_updated: "2026-06-29"
+
+queue:
+  - id: "q_001"
+    title: "המדריך המלא לבחירת שירותים ניידים מפוארים לאירוע שלכם"
+    blog_type: "how_to"
+    content_type: "pillar"
+    cluster_id: "tc_luxury_toilets"
+    target_keywords: ["שירותים ניידים מפוארים", "השכרת שירותים ניידים מפוארים"]
+    target_features: ["feat_luxury", "feat_offgrid", "feat_service"]
+    unique_angle: "מדריך מקיף שכולל את כל השלבים והשיקולים לבחירת תאי שירותים יוקרתיים ללא תלות בתשתיות קיימות"
+    priority: "high"
+    priority_reason: "Pillar page for primary topic"
+    status: "planned"
+    estimated_word_count: 2000
+    eeat_plan: "include expertise and practical tips from a portable toilets supplier point of view"
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: []
+    internal_link_targets: []

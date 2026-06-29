@@ -13,13 +13,13 @@ export default function Header() {
         {/* תפריט שמאל (מסכים גדולים) */}
         <nav className="hidden sm:flex gap-2">
           <Link
-            href="#faq"
+            href="/#faq"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             שאלות
           </Link>
           <Link
-            href="#contact"
+            href="/#contact"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             צור קשר
@@ -41,13 +41,13 @@ export default function Header() {
         {/* תפריט ימין (מסכים גדולים) */}
         <nav className="hidden sm:flex gap-2">
           <Link
-            href="#whyus"
+            href="/#whyus"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             למה אנחנו
           </Link>
           <Link
-            href="#gallery"
+            href="/#gallery"
             className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             גלריה
@@ -108,28 +108,28 @@ export default function Header() {
                 className="text-center absolute top-14 left-0 w-40 bg-white border border-gray-300 rounded-xl shadow-xl py-3 px-4 space-y-2 z-50"
               >
                 <Link
-                  href="#gallery"
+                  href="/#gallery"
                   className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
                   onClick={() => setIsOpen(false)}
                 >
                   גלריה
                 </Link>
                 <Link
-                  href="#faq"
+                  href="/#faq"
                   className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
                   onClick={() => setIsOpen(false)}
                 >
                   שאלות
                 </Link>
                 <Link
-                  href="#whyus"
+                  href="/#whyus"
                   className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
                   onClick={() => setIsOpen(false)}
                 >
                   למה אנחנו
                 </Link>
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
                   onClick={() => setIsOpen(false)}
                 >

@@ -1,0 +1,50 @@
+last_updated: "2026-06-29"
+
+clusters:
+  - cluster_id: "tc_portable_toilets"
+    name: "השכרת שירותים ניידים - מדריך מקיף"
+    description: "כל מה שצריך לדעת על השכרת שירותים ניידים לאירועים"
+
+    pillar:
+      title: "השכרת שירותים ניידים: כל הפתרונות לאירוע מושלם"
+      target_keyword: "שירותים ניידים להשכרה"
+      slug: "portable-toilets-rent"
+      status: "planned"
+      blog_slug: ""
+
+    cluster_pages:
+      - title: "שירותים ניידים לאירועים ללא תשתית מים - איך זה עובד?"
+        target_keyword: "שירותים ניידים לאירועים ללא תשתית מים"
+        slug: "offgrid-portable-toilets"
+        angle: "התמקדות בצד הטכני של שירותים ניידים אוטונומיים"
+        status: "planned"
+        blog_slug: ""
+
+    linking_rules:
+      - "Every cluster page MUST link to pillar"
+      - "Pillar MUST link to all published cluster pages"
+      - "Cluster pages MAY cross-link when relevant"
+
+  - cluster_id: "tc_luxury_toilets"
+    name: "שירותים ניידים מפוארים"
+    description: "מידע על פתרונות פרימיום של שירותים לאירועי בוטיק וחתונות"
+
+    pillar:
+      title: "המדריך המלא לבחירת שירותים ניידים מפוארים לאירוע שלכם"
+      target_keyword: "שירותים ניידים מפוארים"
+      slug: "luxury-portable-toilets"
+      status: "planned"
+      blog_slug: ""
+
+    cluster_pages:
+      - title: "השכרת שירותים ניידים מפוארים - האם זה שווה את המחיר?"
+        target_keyword: "השכרת שירותים ניידים מפוארים"
+        slug: "luxury-toilets-cost-value"
+        angle: "התמקדות בתמורה ובחוויית האורח לעומת המחיר"
+        status: "planned"
+        blog_slug: ""
+
+    linking_rules:
+      - "Every cluster page MUST link to pillar"
+      - "Pillar MUST link to all published cluster pages"
+      - "Cluster pages MAY cross-link when relevant"

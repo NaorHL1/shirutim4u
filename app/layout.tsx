@@ -12,14 +12,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shirutim4u.com'),
-  title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל שירותים ניידים',
+  title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל',
   description: 'מחפשים שירותים ניידים להשכרה? א.ל מציעה תאי שירות מפוארים, נקיים ומרווחים לאירועי שטח וחתונות. שירות מקצועי בפריסה ארצית ואחריות מלאה.',
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל שירותים ניידים',
+    title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל',
     description:
       'שירותים ניידים פרימיום, ריח מושלם, תא רחב ונקי – שירות מקצועי בפריסה ארצית.',
     url: '/',
@@ -35,7 +35,10 @@ export const metadata: Metadata = {
     ],
     type: 'website',
   },
-  icons: { icon: '/favicon.ico' },
+  icons: { 
+    icon: '/favicon.ico',
+    apple: '/favicon.ico'
+  },
 }
 
 export const viewport: Viewport = {

@@ -1,0 +1,10 @@
+required:
+  - title
+  - description
+  - date
+optional:
+  - author
+  - tags
+  - category
+  - image
+  - draft

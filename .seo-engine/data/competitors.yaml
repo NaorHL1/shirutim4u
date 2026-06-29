@@ -1,0 +1,54 @@
+last_updated: "2026-06-29"
+last_verified: "2026-06-29"
+
+competitors:
+  - id: "comp_00plus"
+    name: "00plus"
+    website: "https://00plus.co.il/"
+    category: "השכרת שירותים ניידים"
+    pricing_model: "unknown"
+    strengths: ""
+    weaknesses: ""
+    notes: "Not yet verified."
+  - id: "comp_shablulevents"
+    name: "shablulevents"
+    website: "https://www.shablulevents.co.il/"
+    category: "השכרת שירותים ניידים"
+    pricing_model: "unknown"
+    strengths: ""
+    weaknesses: ""
+    notes: "Not yet verified."
+  - id: "comp_gorest"
+    name: "gorest"
+    website: "https://www.gorest.co.il/"
+    category: "השכרת שירותים ניידים"
+    pricing_model: "unknown"
+    strengths: ""
+    weaknesses: ""
+    notes: "Not yet verified."
+
+feature_matrix:
+  - feature_id: "feat_luxury"
+    our_project:
+      supported: true
+      details: "עיצוב יוקרתי, תאורה מתקדמת"
+      tier: "unknown"
+    competitors:
+      comp_00plus:
+        supported: null
+        details: ""
+        tier: "unknown"
+        confidence: "unverified"
+        last_verified: ""
+      comp_shablulevents:
+        supported: null
+        details: ""
+        tier: "unknown"
+        confidence: "unverified"
+        last_verified: ""
+      comp_gorest:
+        supported: null
+        details: ""
+        tier: "unknown"
+        confidence: "unverified"
+        last_verified: ""

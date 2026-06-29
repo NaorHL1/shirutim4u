@@ -40,16 +40,16 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <h3 className="text-sm font-bold mb-2">תפריט ראשי</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#gallery" className="hover:text-blue-600 transition">גלריה</Link>
+                <Link href="/#gallery" className="hover:text-blue-600 transition">גלריה</Link>
               </li>
               <li>
-                <Link href="#whyus" className="hover:text-blue-600 transition">למה אנחנו</Link>
+                <Link href="/#whyus" className="hover:text-blue-600 transition">למה אנחנו</Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-blue-600 transition">צור קשר</Link>
+                <Link href="/#contact" className="hover:text-blue-600 transition">צור קשר</Link>
               </li>
               <li>
-                <Link href="#faq" className="hover:text-blue-600 transition">שאלות ותשובות</Link>
+                <Link href="/#faq" className="hover:text-blue-600 transition">שאלות ותשובות</Link>
               </li>
               <li>
                 <Link href="/services/mobile-toilets">השכרת שירותים ניידים</Link>
