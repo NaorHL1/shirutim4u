@@ -83,17 +83,19 @@ export default function Cta() {
         {/* Contact Info */}
         <div className="text-center mt-6 pt-5 border-t border-white/10 relative z-10">
           <p className="text-gray-400 text-sm mb-2">או דברו איתנו ישירות:</p>
-          <div className="text-lg font-bold flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-4">
+          <div className="flex flex-row justify-center items-center gap-6 sm:gap-12 mt-4">
             {/* Right: Liav */}
-            <div className="flex flex-col items-center">
-              <span className="text-gray-400 text-sm mb-1 font-medium">ליאב</span>
-              <a href="tel:+972526920346" aria-label="התקשרו לליאב 052-6920346" className="text-white hover:text-gray-300 transition-colors tracking-wide">📱 052-6920346</a>
-            </div>
+            <a href="tel:+972526920346" aria-label="התקשרו לליאב 052-6920346" className="flex flex-col items-center group">
+              <span className="text-gray-400 text-xs mb-1 font-medium group-hover:text-gray-300 transition-colors">ליאב</span>
+              <span className="text-white font-bold text-[15px] sm:text-base group-hover:text-gray-300 transition-colors tracking-wide">📱 052-6920346</span>
+              <span className="text-gray-500 text-[10px] sm:text-xs mt-1 font-medium bg-white/10 px-2 py-0.5 rounded-full group-hover:bg-white/20 transition-colors">לחצו להתקשר</span>
+            </a>
             {/* Left: Oshri */}
-            <div className="flex flex-col items-center">
-              <span className="text-gray-400 text-sm mb-1 font-medium">אושרי</span>
-              <a href="tel:+972526525185" aria-label="התקשרו לאושרי 052-6525185" className="text-white hover:text-gray-300 transition-colors tracking-wide">📱 052-6525185</a>
-            </div>
+            <a href="tel:+972526525185" aria-label="התקשרו לאושרי 052-6525185" className="flex flex-col items-center group">
+              <span className="text-gray-400 text-xs mb-1 font-medium group-hover:text-gray-300 transition-colors">אושרי</span>
+              <span className="text-white font-bold text-[15px] sm:text-base group-hover:text-gray-300 transition-colors tracking-wide">📱 052-6525185</span>
+              <span className="text-gray-500 text-[10px] sm:text-xs mt-1 font-medium bg-white/10 px-2 py-0.5 rounded-full group-hover:bg-white/20 transition-colors">לחצו להתקשר</span>
+            </a>
           </div>
           <a
             href="https://wa.me/972526920346"
