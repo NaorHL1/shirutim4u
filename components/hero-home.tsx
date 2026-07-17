@@ -34,7 +34,8 @@ export default function HeroHome() {
     { type: 'video', content: 'placeholder' },
     { type: 'image', src: '/images/toiletimg1.jpeg', alt: 'תא שירותים ניידים מפואר להשכרה' },
     { type: 'image', src: '/images/toiletimg2.jpeg', alt: 'תא שירותים ניידים מפואר מבפנים' },
-    { type: 'image', src: '/images/toiletimg3.jpg', alt: 'תא שירותים ניידים מפואר מבחוץ' },
+    { type: 'image', src: '/images/toiletimg_new1.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 1' },
+    { type: 'image', src: '/images/toiletimg_new2.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 2' },
     { type: 'image', src: '/images/toiletimg4.jpeg', alt: 'תא שירותים ניידים מבט נוסף' },
   ]
 
@@ -97,18 +98,18 @@ export default function HeroHome() {
               <div className="md:hidden flex flex-col items-center">
 
                 {/* Swipe Indicator */}
-                <div className="flex items-center gap-2 text-gray-500 mb-3 animate-pulse" dir="rtl">
-                  <span className="text-sm font-semibold">החלק כדי לראות עוד</span>
-                  <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                <div className="flex items-center gap-3 text-white bg-blue-600 px-6 py-2 rounded-full mb-6 shadow-md animate-bounce" dir="rtl">
+                  <span className="text-sm font-bold tracking-wide">החליקו ימינה ושמאלה לכל התמונות</span>
+                  <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </div>
 
                 {/* Horizontal Swipe Photos */}
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-8 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  {['toiletimg1.jpeg', 'toiletimg2.jpeg', 'toiletimg3.jpg', 'toiletimg4.jpeg'].map((img, idx) => (
+                  {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
                     <div key={idx} className="flex-shrink-0 w-[75vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
                       <Image
-                        src={`/images/${img}`}
-                        alt="תא שירותים ניידים מפואר"
+                        src={item.src!}
+                        alt={item.alt!}
                         fill
                         priority={true}
                         sizes="75vw"
@@ -149,8 +150,8 @@ export default function HeroHome() {
 
                 </div>
 
-                {/* Bottom Row: 4 Photos Side-by-Side */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+                {/* Bottom Row: 5 Photos Side-by-Side */}
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 w-full">
                   {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
                     <div key={idx} className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group">
                       <Image
@@ -158,7 +159,7 @@ export default function HeroHome() {
                         alt={item.alt!}
                         fill
                         priority={true}
-                        sizes="33vw"
+                        sizes="20vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
