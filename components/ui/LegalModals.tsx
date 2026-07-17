@@ -117,7 +117,7 @@ const legalContent: Record<LegalType, { title: string; body: ReactNode }> = {
         </p>
         <h4 className="font-semibold text-gray-900">4. יצירת קשר בנושאי נגישות</h4>
         <p>
-          לפניות בנושא נגישות ניתן לפנות בדוא"ל: shirutim4u@gmail.com או בטלפון: 052-6525185
+          לפניות בנושא נגישות ניתן לפנות בדוא"ל: shirutim4u@gmail.com או בטלפון: 052-692-0346
         </p>
       </div>
     ),

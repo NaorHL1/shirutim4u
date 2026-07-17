@@ -79,12 +79,10 @@ export default function Cta() {
         <div className="text-center mt-4 sm:mt-10">
           <p className="text-gray-100 text-lg mb-2">:או דברו איתנו ישירות</p>
           <div className="text-xl sm:text-lg font-semibold flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-center">
-            <a href="tel:+972526525185" className="text-cyan-400 hover:underline">📱052-6525185</a>
-            <span className="text-gray-500 hidden sm:inline">/</span>
             <a href="tel:+972526920346" className="text-cyan-400 hover:underline">📱052-6920346</a>
           </div>
           <a
-            href="https://wa.me/972526525185"
+            href="https://wa.me/972526920346"
             className="text-xl sm:text-base inline-block mt-6 px-6 py-3 bg-green-500 rounded-full text-white font-semibold hover:bg-green-600 transition transform hover:scale-105 shadow-md"
           >
             שלחו לנו הודעת וואטסאפ

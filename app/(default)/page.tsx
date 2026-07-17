@@ -13,7 +13,7 @@ export default function Home() {
     image: 'https://www.shirutim4u.com/images/toiletimg2.jpg',
     description: 'השכרת שירותים ניידים מפוארים לאירועים, חתונות וכנסים בפריסה ארצית.',
     url: 'https://www.shirutim4u.com',
-    telephone: '052-6290346',
+    telephone: '052-6920346',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',

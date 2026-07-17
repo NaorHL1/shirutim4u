@@ -25,10 +25,18 @@ const headerItem = {
 
 const fadeVariants = {
   hidden: { opacity: 0, y: 20 },
-  show:   { opacity: 1, y: 0 },
+  show: { opacity: 1, y: 0 },
 }
 
 export default function HeroHome() {
+
+  const mediaItems = [
+    { type: 'video', content: 'placeholder' },
+    { type: 'image', src: '/images/toiletimg1.jpeg', alt: 'תא שירותים ניידים מפואר להשכרה' },
+    { type: 'image', src: '/images/toiletimg2.jpg', alt: 'תא שירותים ניידים מפואר מבפנים' },
+    { type: 'image', src: '/images/toiletimg3.jpeg', alt: 'תא שירותים ניידים מפואר מבחוץ' },
+  ]
+
   return (
     <MotionConfig reducedMotion="never">
       <section className="relative bg-white text-center">
@@ -79,32 +87,81 @@ export default function HeroHome() {
               </motion.div>
             </motion.div>
 
-            <section id="gallery" className="px-6 py-16">
-              <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">
+            <section id="gallery" className="w-full py-16">
+              <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 px-6">
                 גלריית תאי שירותים מפוארים
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {['toiletimg1.jpg','toiletimg3.jpeg','toiletimg2.jpg'].map((img, i) => (
-                  <motion.div
-                    key={i}
-                    className="h-115 w-full rounded-2xl bg-gray-200 shadow-inner overflow-hidden relative group"
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={fadeVariants}
-                    transition={{ delay: i * 0.1, duration: 0.6 }}
-                  >
-                    {/* הוספת sizes קריטית לביצועים ול-SEO */}
-                    <Image
-                      src={`/images/${img}`}
-                      alt={`תא שירותים ניידים מפואר להשכרה - תמונה ${i + 1}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                      priority={i === 0}
-                      className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
-                    />
-                  </motion.div>
-                ))}
+
+              {/* MOBILE: Swipeable Gallery with Indicator */}
+              <div className="md:hidden flex flex-col items-center">
+
+                {/* Swipe Indicator */}
+                <div className="flex items-center gap-2 text-gray-500 mb-3 animate-pulse" dir="rtl">
+                  <span className="text-sm font-semibold">החלק כדי לראות עוד</span>
+                  <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </div>
+
+                {/* Horizontal Swipe Photos */}
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-8 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {['toiletimg1.jpeg', 'toiletimg2.jpg', 'toiletimg3.jpeg'].map((img, idx) => (
+                    <div key={idx} className="flex-shrink-0 w-[75vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
+                      <Image
+                        src={`/images/${img}`}
+                        alt="תא שירותים ניידים מפואר"
+                        fill
+                        sizes="75vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Vertical Video Block Underneath */}
+                <div className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100">
+                  <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted={true} defaultMuted playsInline />
+                </div>
+              </div>
+
+              {/* DESKTOP: Static Layout (Text/Video Top, 3 Photos Bottom) */}
+              <div className="hidden md:flex flex-col gap-10 max-w-5xl mx-auto px-6 w-full" dir="rtl">
+
+                {/* Top Row: Text (Right) and Video (Left) aligned to a 3-col grid */}
+                <div className="grid grid-cols-3 gap-8 w-full items-center">
+
+                  {/* Right Side: Text (spans 2 columns) */}
+                  <div className="col-span-2 flex flex-col items-start text-right pr-4 lg:pr-12">
+                    <h3 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+                      שקט נפשי לאירוע מושלם
+                    </h3>
+                    <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+                      אנו מציעים <strong className="font-semibold text-gray-900">שירותים ניידים מפוארים להשכרה</strong> שישדרגו כל אירוע בטבע. הקרונות שלנו מאובזרים בכיורים מעוצבים, תאורת אווירה נעימה, מראות ענקיות ורמת היגיינה ללא פשרות. אנו מספקים חוויה אסתטית ומפנקת ממש כמו במלון יוקרתי, כדי שאתם והאורחים שלכם תוכלו פשוט לחגוג בראש שקט.
+                    </p>
+                  </div>
+
+                  {/* Left Side: Video (spans 1 column, aligns perfectly with bottom left photo) */}
+                  <div className="col-span-1">
+                    <div className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50">
+                      <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted={true} defaultMuted playsInline />
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Bottom Row: 3 Photos Side-by-Side */}
+                <div className="grid grid-cols-3 gap-8 w-full">
+                  {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
+                    <div key={idx} className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group">
+                      <Image
+                        src={item.src!}
+                        alt={item.alt!}
+                        fill
+                        sizes="33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </section>
 
@@ -124,11 +181,11 @@ export default function HeroHome() {
               >
                 {[
                   { title: 'יוקרה ונוחות ללא תחרות', desc: 'שירותים מוארים ומעוצבים – חוויה יוקרתית כמו באולם.' },
-                  { title: 'מתאים לכל סוגי האירועים',    desc: 'חתונות, בר/בת מצווה, אירועים עסקיים וחגיגות חוץ.' },
-                  { title: 'שירות בפריסה ארצית',         desc: 'מגיעים לכל אזור בארץ – מצפון ועד דרום.' },
-                  { title: 'הובלה, התקנה וניקיון',         desc: 'מגיעים בזמן, מתקינים, מנקים – הכל כלול בהשכרה.' },
-                  { title: 'יחס אישי וזמינות',             desc: 'מענה מהיר וליווי אישי לאורך כל הדרך.' },
-                  { title: 'עצמאי לחלוטין בשטח',                desc: 'לא נדרשת תשתית ביוב או מים – השירותים פועלים גם בטבע.' }
+                  { title: 'מתאים לכל סוגי האירועים', desc: 'חתונות, בר/בת מצווה, אירועים עסקיים וחגיגות חוץ.' },
+                  { title: 'שירות בפריסה ארצית', desc: 'מגיעים לכל אזור בארץ – מצפון ועד דרום.' },
+                  { title: 'הובלה, התקנה וניקיון', desc: 'מגיעים בזמן, מתקינים, מנקים – הכל כלול בהשכרה.' },
+                  { title: 'יחס אישי וזמינות', desc: 'מענה מהיר וליווי אישי לאורך כל הדרך.' },
+                  { title: 'עצמאי לחלוטין בשטח', desc: 'לא נדרשת תשתית ביוב או מים – השירותים פועלים גם בטבע.' }
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}

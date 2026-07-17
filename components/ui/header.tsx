@@ -60,7 +60,7 @@ export default function Header() {
           {/* כפתורי שיחה (מוצמדים לימין, קרובים ללוגו) */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+972526525185"
+              href="tel:+972526920346"
               className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
               aria-label="התקשר עכשיו"
             >
@@ -68,7 +68,7 @@ export default function Header() {
             </a>
 
             <a
-              href="https://wa.me/972526525185"
+              href="https://wa.me/972526920346"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
