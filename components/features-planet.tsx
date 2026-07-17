@@ -36,32 +36,32 @@ export default function FeaturesPlanet() {
             {/* Box 1 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
               <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אירועים זה מתאים?</h3>
-              <p className="text-gray-600 text-sm">חתונות בטבע, בר/בת מצווה, כנסים, הפקות ענק ואירועים פרטיים ברמה הגבוהה ביותר.</p>
+              <p className="text-gray-600 text-[15px]">חתונות בטבע, בר/בת מצווה, כנסים, הפקות ענק ואירועים פרטיים ברמה הגבוהה ביותר.</p>
             </div>
             {/* Box 2 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
               <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אזורים מגיעים?</h3>
-              <p className="text-gray-600 text-sm">אנו מספקים שירות בפריסה ארצית רחבה: באזור המרכז, אזור הצפון ואזור הדרום.</p>
+              <p className="text-gray-600 text-[15px]">אנו מספקים שירות בפריסה ארצית רחבה: באזור המרכז, אזור הצפון ואזור הדרום.</p>
             </div>
             {/* Box 3 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
               <h3 className="mb-2 text-lg font-semibold text-gray-900">האם צריך חיבור למים או ביוב?</h3>
-              <p className="text-gray-600 text-sm">לא. היחידות עצמאיות לחלוטין ומצוידות במיכלים המספקים חוויה נקייה וללא תשתיות קבועות.</p>
+              <p className="text-gray-600 text-[15px]">לא. היחידות עצמאיות לחלוטין ומצוידות במיכלים המספקים חוויה נקייה וללא תשתיות קבועות.</p>
             </div>
             {/* Box 4 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
               <h3 className="mb-2 text-lg font-semibold text-gray-900">האם נדרש חשמל בשטח?</h3>
-              <p className="text-gray-600 text-sm">לא נדרש חיבור חיצוני לחשמל – השירותים פועלים באופן מלא ועצמאי בשטח הפתוח.</p>
+              <p className="text-gray-600 text-[15px]">לא נדרש חיבור חיצוני לחשמל – השירותים פועלים באופן מלא ועצמאי בשטח הפתוח.</p>
             </div>
             {/* Box 5 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
               <h3 className="mb-2 text-lg font-semibold text-gray-900">כמה יחידות צריך לאירוע?</h3>
-              <p className="text-gray-600 text-sm">יחידה אחת מתאימה לכ-200 אורחים. נתאים את הכמות המדויקת למספר המשתתפים ומשך האירוע.</p>
+              <p className="text-gray-600 text-[15px]">יחידה אחת מתאימה לכ-200 אורחים. נתאים את הכמות המדויקת למספר המשתתפים ומשך האירוע.</p>
             </div>
             {/* Box 6 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
               <h3 className="mb-2 text-lg font-semibold text-gray-900">השירות כולל ניקיון והתקנה?</h3>
-              <p className="text-gray-600 text-sm">בוודאי. השירות כולל הובלה, התקנה, ניקיון שוטף במהלך האירוע ופינוי מלא בסיומו.</p>
+              <p className="text-gray-600 text-[15px]">בוודאי. השירות כולל הובלה, התקנה, ניקיון שוטף במהלך האירוע ופינוי מלא בסיומו.</p>
             </div>
           </div>
         </div>
