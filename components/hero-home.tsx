@@ -108,13 +108,13 @@ export default function HeroHome() {
                 {/* Horizontal Swipe Photos */}
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
-                    <div key={idx} className="flex-shrink-0 w-[90vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
+                    <div key={idx} className="flex-shrink-0 w-[95vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
                       <Image
                         src={item.src!}
                         alt={item.alt!}
                         fill
                         priority={true}
-                        sizes="90vw"
+                        sizes="95vw"
                         className="object-cover"
                       />
                     </div>
