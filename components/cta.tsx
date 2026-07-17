@@ -5,11 +5,11 @@ import Stripes from "@/public/images/stripes-dark.svg";
 export default function Cta() {
   return (
     <section id="contact" className="bg-white py-12 px-4 sm:px-6">
-      <div className="mx-auto max-w-2xl rounded-3xl border border-gray-800 shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-[#111111] bg-[radial-gradient(ellipse_at_top,_#222,_#000_80%)] p-8 sm:p-12 relative overflow-hidden">
+      <div className="mx-auto max-w-xl rounded-3xl border border-gray-800 shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-[#111111] bg-[radial-gradient(ellipse_at_top,_#222,_#000_80%)] p-6 sm:p-10 relative overflow-hidden">
         {/* Subtle Inner Glow */}
         <div className="absolute inset-0 rounded-3xl border border-white/5 ring-1 ring-inset ring-white/10 pointer-events-none" aria-hidden="true" />
 
-        <h2 dir="rtl" className="text-3xl md:text-4xl font-extrabold text-white text-center mb-3 relative z-10">
+        <h2 dir="rtl" className="text-2xl md:text-3xl font-extrabold text-white text-center mb-2 relative z-10">
           מחפש פתרון יוקרתי לאירוע?
         </h2>
         <p dir="rtl" className="text-base text-gray-300 text-center mb-8 relative z-10 font-medium">
@@ -32,7 +32,7 @@ export default function Cta() {
                 type="text"
                 name="full-name" // חובה name
                 placeholder="הכנס שם מלא"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-right text-white font-medium placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300"
+                className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-right text-white font-medium placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300"
                 required
               />
             </div>
@@ -48,7 +48,7 @@ export default function Cta() {
                 pattern="[0-9]*"
                 dir="rtl"
                 placeholder="05X-XXXXXXX"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-right text-white font-medium placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300"
+                className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-right text-white font-medium placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300"
                 maxLength={10}
                 required
                 onInput={(e) => {
@@ -67,14 +67,14 @@ export default function Cta() {
               name="message" // חובה name
               placeholder="כתוב הודעה (לא חובה)"
               rows={3}
-              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-right text-white font-medium placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300 resize-none"
+              className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-right text-white font-medium placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300 resize-none"
             ></textarea>
           </div>
 
           {/* כפתור שליחה */}
           <button
             type="submit"
-            className="cursor-pointer w-full bg-white text-gray-900 font-bold py-3.5 rounded-xl shadow-lg hover:bg-gray-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-lg tracking-wide mt-2"
+            className="cursor-pointer w-full bg-white text-gray-900 font-bold py-3 rounded-xl shadow-lg hover:bg-gray-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-lg tracking-wide mt-2"
           >
             שלח לי הצעת מחיר עכשיו
           </button>
