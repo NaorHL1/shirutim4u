@@ -8,7 +8,8 @@
     "build:export": "cross-env EXPORT_BUILD=true next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "update-reviews": "node scripts/update-reviews.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -34,6 +35,7 @@
     "@types/aos": "^3.0.7",
     "cross-env": "^7.0.3",
     "postcss": "^8.5.1",
+    "puppeteer": "^25.3.0",
     "tailwindcss": "^4.0.3"
   },
   "overrides": {}
