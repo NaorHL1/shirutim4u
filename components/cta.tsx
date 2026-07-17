@@ -26,8 +26,9 @@ export default function Cta() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* שם מלא */}
             <div className="flex flex-col space-y-1.5">
-              <label className="text-right text-white font-semibold text-sm">שם מלא</label>
+              <label htmlFor="full-name" className="text-right text-white font-semibold text-[15px]">שם מלא</label>
               <input
+                id="full-name"
                 type="text"
                 name="full-name" // חובה name
                 placeholder="הכנס שם מלא"
@@ -38,8 +39,9 @@ export default function Cta() {
 
             {/* מספר טלפון */}
             <div className="flex flex-col space-y-1.5">
-              <label className="text-right text-white font-semibold text-sm">מספר נייד</label>
+              <label htmlFor="phone" className="text-right text-white font-semibold text-[15px]">מספר נייד</label>
               <input
+                id="phone"
                 type="text"
                 name="phone" // חובה name
                 inputMode="numeric"
@@ -59,8 +61,9 @@ export default function Cta() {
 
           {/* הודעה (רשות) */}
           <div className="flex flex-col space-y-1.5">
-            <label className="text-right text-white font-semibold text-sm">הודעה</label>
+            <label htmlFor="message" className="text-right text-white font-semibold text-[15px]">הודעה</label>
             <textarea
+              id="message"
               name="message" // חובה name
               placeholder="כתוב הודעה (לא חובה)"
               rows={3}
@@ -79,13 +82,14 @@ export default function Cta() {
 
         {/* Contact Info */}
         <div className="text-center mt-6 pt-5 border-t border-white/10 relative z-10">
-          <p className="text-gray-400 text-xs mb-2">או דברו איתנו ישירות:</p>
-          <div className="text-lg font-bold flex justify-center items-center gap-4">
-            <a href="tel:+972526920346" className="text-white hover:text-gray-300 transition-colors">📱 052-6920346</a>
+          <p className="text-gray-400 text-sm mb-2">או דברו איתנו ישירות:</p>
+          <div className="text-xl font-bold flex justify-center items-center gap-4">
+            <a href="tel:+972526920346" aria-label="התקשרו אלינו למספר 052-6920346" className="text-white hover:text-gray-300 transition-colors">📱 052-6920346</a>
           </div>
           <a
             href="https://wa.me/972526920346"
-            className="inline-block mt-3 px-5 py-2 text-sm bg-[#25D366] rounded-full text-white font-semibold hover:bg-[#20bd5a] transition transform hover:scale-105 shadow-md"
+            aria-label="שלחו לנו הודעה בווטסאפ"
+            className="inline-block mt-4 px-6 py-2.5 text-[15px] bg-[#25D366] rounded-full text-white font-semibold hover:bg-[#20bd5a] transition transform hover:scale-105 shadow-md"
           >
             שלחו הודעת וואטסאפ
           </a>

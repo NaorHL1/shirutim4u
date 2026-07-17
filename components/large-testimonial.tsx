@@ -15,7 +15,7 @@ export default function LargeTestimonial() {
           const Content = (
             <blockquote 
               key={index} 
-              className="w-[260px] md:w-[360px] flex-shrink-0 bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-sm p-4 md:p-6 rounded-2xl transition duration-300 hover:shadow-md text-sm cursor-pointer"
+              className="w-[260px] md:w-[360px] flex-shrink-0 bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-sm p-4 md:p-6 rounded-2xl transition duration-300 hover:shadow-md text-[15px] cursor-pointer"
             >
               <div className="flex flex-row items-center gap-3 md:gap-4 mb-3">
                 <div className="relative w-10 h-10 shrink-0">
@@ -29,7 +29,7 @@ export default function LargeTestimonial() {
                 </div>
                 <div className="flex flex-col text-right w-full overflow-hidden">
                   <span className="font-bold text-gray-900 truncate">{review.name}</span>
-                  <span className="text-gray-500 text-xs">ביקורת גוגל ⭐️⭐️⭐️⭐️⭐️</span>
+                  <span className="text-gray-500 text-sm">ביקורת גוגל ⭐️⭐️⭐️⭐️⭐️</span>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed italic" dir="rtl" title={review.text}>
@@ -55,7 +55,7 @@ export default function LargeTestimonial() {
           const Content = (
             <blockquote 
               key={'dup-'+index} 
-              className="w-[260px] md:w-[360px] flex-shrink-0 bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-sm p-4 md:p-6 rounded-2xl transition duration-300 hover:shadow-md text-sm cursor-pointer"
+              className="w-[260px] md:w-[360px] flex-shrink-0 bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-sm p-4 md:p-6 rounded-2xl transition duration-300 hover:shadow-md text-[15px] cursor-pointer"
             >
               <div className="flex flex-row items-center gap-3 md:gap-4 mb-3">
                 <div className="relative w-10 h-10 shrink-0">
@@ -69,7 +69,7 @@ export default function LargeTestimonial() {
                 </div>
                 <div className="flex flex-col text-right w-full overflow-hidden">
                   <span className="font-bold text-gray-900 truncate">{review.name}</span>
-                  <span className="text-gray-500 text-xs">ביקורת גוגל ⭐️⭐️⭐️⭐️⭐️</span>
+                  <span className="text-gray-500 text-sm">ביקורת גוגל ⭐️⭐️⭐️⭐️⭐️</span>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed italic" dir="rtl" title={review.text}>
@@ -105,10 +105,10 @@ export default function LargeTestimonial() {
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-gray-50" aria-hidden="true" />
       
       <div className="relative z-10 px-4 md:px-6 mb-8 md:mb-12">
-        <h3 className="text-2xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-900 mb-4">
           מה הלקוחות שלנו אומרים?
-        </h3>
-        <p className="text-sm md:text-base text-center text-gray-500 max-w-2xl mx-auto">
+        </h2>
+        <p className="text-[15px] md:text-base text-center text-gray-500 max-w-2xl mx-auto">
           עשרות לקוחות מרוצים כבר בחרו בנו לאירוע שלהם ונהנו משירות אישי, ניקיון ברמה של בית מלון ואיכות ללא פשרות. הנה חלק מהביקורות האמיתיות שהשאירו לנו בגוגל.
         </p>
       </div>
