@@ -110,6 +110,7 @@ export default function HeroHome() {
                         src={`/images/${img}`}
                         alt="תא שירותים ניידים מפואר"
                         fill
+                        priority={true}
                         sizes="75vw"
                         className="object-cover"
                       />
@@ -156,6 +157,7 @@ export default function HeroHome() {
                         src={item.src!}
                         alt={item.alt!}
                         fill
+                        priority={true}
                         sizes="33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />

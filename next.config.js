@@ -9,6 +9,12 @@ const nextConfig = {
     // מחקתי את השורה הכפולה שהיתה כאן
     unoptimized: isExport ? true : false,
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.googleusercontent.com',
+      },
+    ],
   }
 };
 

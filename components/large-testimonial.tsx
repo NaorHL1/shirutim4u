@@ -5,9 +5,9 @@ export default function LargeTestimonial() {
   const row2 = googleReviews.slice(23);
 
   const ReviewMarquee = ({ reviews, duration }: { reviews: typeof googleReviews, duration: string }) => (
-    <div className="flex w-full overflow-hidden" dir="rtl">
+    <div className="group flex w-full overflow-hidden" dir="rtl">
       <div 
-        className="flex shrink-0 gap-4 md:gap-6 pl-4 md:pl-6 items-center"
+        className="flex shrink-0 gap-4 md:gap-6 pl-4 md:pl-6 items-center group-hover:[animation-play-state:paused]"
         style={{ animation: `marquee-rtl ${duration} linear infinite` }}
       >
         {reviews.map((review, index) => (
@@ -16,8 +16,14 @@ export default function LargeTestimonial() {
             className="w-[280px] md:w-[360px] flex-shrink-0 bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-sm p-6 rounded-2xl transition duration-300 hover:shadow-md text-sm"
           >
             <div className="flex flex-row items-center gap-4 mb-3">
-              <div className={`flex shrink-0 items-center justify-center w-10 h-10 rounded-full text-white font-bold text-lg ${review.color} shadow-inner`}>
-                {review.initial}
+              <div className="relative w-10 h-10 shrink-0">
+                {review.image ? (
+                  <Image src={review.image} alt={review.name} fill className="rounded-full object-cover shadow-inner" sizes="40px" />
+                ) : (
+                  <div className={`flex items-center justify-center w-full h-full rounded-full text-white font-bold text-lg ${review.color} shadow-inner`}>
+                    {review.initial}
+                  </div>
+                )}
               </div>
               <div className="flex flex-col text-right w-full overflow-hidden">
                 <span className="font-bold text-gray-900 truncate">{review.name}</span>
@@ -31,7 +37,7 @@ export default function LargeTestimonial() {
         ))}
       </div>
       <div 
-        className="flex shrink-0 gap-4 md:gap-6 pl-4 md:pl-6 items-center"
+        className="flex shrink-0 gap-4 md:gap-6 pl-4 md:pl-6 items-center group-hover:[animation-play-state:paused]"
         style={{ animation: `marquee-rtl ${duration} linear infinite` }}
         aria-hidden="true"
       >
@@ -41,8 +47,14 @@ export default function LargeTestimonial() {
             className="w-[280px] md:w-[360px] flex-shrink-0 bg-gradient-to-tr from-white to-gray-50 border border-gray-200 shadow-sm p-6 rounded-2xl transition duration-300 hover:shadow-md text-sm"
           >
             <div className="flex flex-row items-center gap-4 mb-3">
-              <div className={`flex shrink-0 items-center justify-center w-10 h-10 rounded-full text-white font-bold text-lg ${review.color} shadow-inner`}>
-                {review.initial}
+              <div className="relative w-10 h-10 shrink-0">
+                {review.image ? (
+                  <Image src={review.image} alt={review.name} fill className="rounded-full object-cover shadow-inner" sizes="40px" />
+                ) : (
+                  <div className={`flex items-center justify-center w-full h-full rounded-full text-white font-bold text-lg ${review.color} shadow-inner`}>
+                    {review.initial}
+                  </div>
+                )}
               </div>
               <div className="flex flex-col text-right w-full overflow-hidden">
                 <span className="font-bold text-gray-900 truncate">{review.name}</span>
@@ -64,11 +76,6 @@ export default function LargeTestimonial() {
         @keyframes marquee-rtl {
           0% { transform: translateX(0); }
           100% { transform: translateX(100%); }
-        }
-        
-        /* Pause animations on hover so users can read */
-        .pause-on-hover:hover > div {
-          animation-play-state: paused !important;
         }
       `}</style>
 
