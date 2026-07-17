@@ -98,21 +98,21 @@ export default function HeroHome() {
               <div className="md:hidden flex flex-col items-center">
 
                 {/* Swipe Indicator */}
-                <div className="flex items-center gap-3 text-white bg-blue-600 px-6 py-2 rounded-full mb-6 shadow-md animate-bounce" dir="rtl">
-                  <span className="text-sm font-bold tracking-wide">החליקו ימינה ושמאלה לכל התמונות</span>
-                  <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                <div className="flex items-center justify-center gap-3 text-white bg-gray-900 px-6 py-3 rounded-full mb-6 shadow-xl" dir="rtl">
+                  <span className="text-base font-bold tracking-wide">החליקו שמאלה לכל התמונות</span>
+                  <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </div>
 
                 {/* Horizontal Swipe Photos */}
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-8 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
-                    <div key={idx} className="flex-shrink-0 w-[75vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
+                    <div key={idx} className="flex-shrink-0 w-[85vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
                       <Image
                         src={item.src!}
                         alt={item.alt!}
                         fill
                         priority={true}
-                        sizes="75vw"
+                        sizes="85vw"
                         className="object-cover"
                       />
                     </div>
@@ -150,16 +150,16 @@ export default function HeroHome() {
 
                 </div>
 
-                {/* Bottom Row: 5 Photos Side-by-Side */}
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 w-full">
-                  {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
+                {/* Bottom Row: 4 Photos Side-by-Side (Desktop only) */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+                  {mediaItems.filter(item => item.type === 'image').slice(0, 4).map((item, idx) => (
                     <div key={idx} className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group">
                       <Image
                         src={item.src!}
                         alt={item.alt!}
                         fill
                         priority={true}
-                        sizes="20vw"
+                        sizes="25vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
