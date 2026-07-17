@@ -83,13 +83,22 @@ export default function Cta() {
         {/* Contact Info */}
         <div className="text-center mt-6 pt-5 border-t border-white/10 relative z-10">
           <p className="text-gray-400 text-sm mb-2">או דברו איתנו ישירות:</p>
-          <div className="text-xl font-bold flex justify-center items-center gap-4">
-            <a href="tel:+972526920346" aria-label="התקשרו אלינו למספר 052-6920346" className="text-white hover:text-gray-300 transition-colors">📱 052-6920346</a>
+          <div className="text-lg font-bold flex flex-row justify-center items-center gap-8 mt-3">
+            {/* Right: Liav */}
+            <div className="flex flex-col items-center">
+              <span className="text-gray-400 text-sm mb-1 font-medium">ליאב</span>
+              <a href="tel:+972526920346" aria-label="התקשרו לליאב 052-6920346" className="text-white hover:text-gray-300 transition-colors tracking-wide">📱 052-6920346</a>
+            </div>
+            {/* Left: Oshri */}
+            <div className="flex flex-col items-center">
+              <span className="text-gray-400 text-sm mb-1 font-medium">אושרי</span>
+              <a href="tel:+972526525185" aria-label="התקשרו לאושרי 052-6525185" className="text-white hover:text-gray-300 transition-colors tracking-wide">📱 052-6525185</a>
+            </div>
           </div>
           <a
             href="https://wa.me/972526920346"
             aria-label="שלחו לנו הודעה בווטסאפ"
-            className="inline-block mt-4 px-6 py-2.5 text-[15px] bg-[#25D366] rounded-full text-white font-semibold hover:bg-[#20bd5a] transition transform hover:scale-105 shadow-md"
+            className="inline-block mt-5 px-6 py-2.5 text-[15px] bg-[#25D366] rounded-full text-white font-semibold hover:bg-[#20bd5a] transition transform hover:scale-105 shadow-md"
           >
             שלחו הודעת וואטסאפ
           </a>
