@@ -33,8 +33,9 @@ export default function HeroHome() {
   const mediaItems = [
     { type: 'video', content: 'placeholder' },
     { type: 'image', src: '/images/toiletimg1.jpeg', alt: 'תא שירותים ניידים מפואר להשכרה' },
-    { type: 'image', src: '/images/toiletimg2.jpg', alt: 'תא שירותים ניידים מפואר מבפנים' },
-    { type: 'image', src: '/images/toiletimg3.jpeg', alt: 'תא שירותים ניידים מפואר מבחוץ' },
+    { type: 'image', src: '/images/toiletimg2.jpeg', alt: 'תא שירותים ניידים מפואר מבפנים' },
+    { type: 'image', src: '/images/toiletimg3.jpg', alt: 'תא שירותים ניידים מפואר מבחוץ' },
+    { type: 'image', src: '/images/toiletimg4.jpeg', alt: 'תא שירותים ניידים מבט נוסף' },
   ]
 
   return (
@@ -103,7 +104,7 @@ export default function HeroHome() {
 
                 {/* Horizontal Swipe Photos */}
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-8 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  {['toiletimg1.jpeg', 'toiletimg2.jpg', 'toiletimg3.jpeg'].map((img, idx) => (
+                  {['toiletimg1.jpeg', 'toiletimg2.jpeg', 'toiletimg3.jpg', 'toiletimg4.jpeg'].map((img, idx) => (
                     <div key={idx} className="flex-shrink-0 w-[75vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
                       <Image
                         src={`/images/${img}`}
@@ -147,8 +148,8 @@ export default function HeroHome() {
 
                 </div>
 
-                {/* Bottom Row: 3 Photos Side-by-Side */}
-                <div className="grid grid-cols-3 gap-8 w-full">
+                {/* Bottom Row: 4 Photos Side-by-Side */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                   {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
                     <div key={idx} className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group">
                       <Image
