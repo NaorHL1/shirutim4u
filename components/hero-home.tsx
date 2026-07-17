@@ -4,6 +4,7 @@ import Image from 'next/image'
 import PageIllustration from '@/components/page-illustration'
 import AddContactButton from '@/components/addcontactbutton'
 import { motion, MotionConfig } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
 
 const headerContainer = {
   hidden: {},
@@ -29,6 +30,27 @@ const fadeVariants = {
 }
 
 export default function HeroHome() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([])
+  
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = Number(entry.target.getAttribute('data-index'))
+          if (!isNaN(idx)) setCurrentIndex(idx)
+        }
+      })
+    }, { root: scrollRef.current, threshold: 0.5 })
+
+    slideRefs.current.forEach(slide => {
+      if (slide) observer.observe(slide)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   const mediaItems = [
     { type: 'video', content: 'placeholder' },
@@ -38,6 +60,21 @@ export default function HeroHome() {
     { type: 'image', src: '/images/toiletimg_new2.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 2' },
     { type: 'image', src: '/images/toiletimg4.jpeg', alt: 'תא שירותים ניידים מבט נוסף' },
   ]
+
+  const imageItems = mediaItems.filter(item => item.type === 'image')
+  const canScrollRight = currentIndex > 0 // Right means go back to previous (start)
+  const canScrollLeft = currentIndex < imageItems.length - 1 // Left means go to next
+
+  const scrollLeft = () => {
+    const nextIdx = Math.min(currentIndex + 1, imageItems.length - 1)
+    slideRefs.current[nextIdx]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  }
+
+  const scrollRight = () => {
+    const prevIdx = Math.max(currentIndex - 1, 0)
+    slideRefs.current[prevIdx]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  }
+
 
   return (
     <MotionConfig reducedMotion="never">
@@ -106,19 +143,36 @@ export default function HeroHome() {
                 </div>
 
                 {/* Horizontal Swipe Photos */}
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
-                    <div key={idx} className="flex-shrink-0 w-[95vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
-                      <Image
-                        src={item.src!}
-                        alt={item.alt!}
-                        fill
-                        priority={true}
-                        sizes="95vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
+                <div className="relative w-full">
+                  {canScrollRight && (
+                    <button onClick={scrollRight} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  )}
+                  {canScrollLeft && (
+                    <button onClick={scrollLeft} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                  )}
+                  <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {imageItems.map((item, idx) => (
+                      <div 
+                        key={idx} 
+                        data-index={idx}
+                        ref={el => { slideRefs.current[idx] = el }}
+                        className="flex-shrink-0 w-[95vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200"
+                      >
+                        <Image
+                          src={item.src!}
+                          alt={item.alt!}
+                          fill
+                          priority={true}
+                          sizes="95vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Vertical Video Block Underneath */}
