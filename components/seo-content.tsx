@@ -59,12 +59,15 @@ export default function SeoContent() {
           </div>
         </div>
 
-        <div className="bg-gray-900 text-white rounded-3xl p-8 md:p-10 text-center shadow-lg">
-          <h3 className="text-xl md:text-2xl font-bold mb-3">אל תתפשרו על פחות מהטוב ביותר</h3>
-          <p className="text-[15px] md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6">
+        <div className="mx-auto max-w-xl rounded-3xl border border-gray-800 shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-[#111111] bg-[radial-gradient(ellipse_at_top,_#222,_#000_80%)] p-8 md:p-10 text-center relative overflow-hidden text-white">
+          {/* Subtle Inner Glow */}
+          <div className="absolute inset-0 rounded-3xl border border-white/5 ring-1 ring-inset ring-white/10 pointer-events-none" aria-hidden="true" />
+          
+          <h3 className="text-xl md:text-2xl font-extrabold mb-3 relative z-10">אל תתפשרו על פחות מהטוב ביותר</h3>
+          <p className="text-[15px] md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6 relative z-10 font-medium">
             שירותים ניידים מפוארים הם השקעה שמשתלמת ומבטיחה שהאורחים שלכם יזכרו את האירוע שלכם לטובה. צרו איתנו קשר עוד היום ונספק לכם את הפתרון המושלם. השירות ניתן 24/7 וזמין לכל סוגי האירועים, מאירועי בוטיק פרטיים ועד כנסים עסקיים.
           </p>
-          <Link href="/#contact" className="inline-block bg-white text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors shadow-md text-[15px] md:text-base">
+          <Link href="/#contact" className="relative z-10 inline-block bg-white text-gray-900 font-bold px-8 py-3 rounded-xl hover:bg-gray-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md text-[15px] md:text-base">
             לקבלת הצעת מחיר מותאמת אישית
           </Link>
         </div>
