@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: 'he_IL',
     images: [
       {
-        url: '/images/toiletimg2.jpg',
+        url: '/images/toiletimg2.jpeg',
         width: 1200,
         height: 630,
         alt: 'תא שירותים נייד מפואר מבפנים',
