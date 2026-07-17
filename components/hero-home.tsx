@@ -98,21 +98,23 @@ export default function HeroHome() {
               <div className="md:hidden flex flex-col items-center">
 
                 {/* Swipe Indicator */}
-                <div className="flex items-center justify-center gap-3 text-white bg-gray-900 px-6 py-3 rounded-full mb-6 shadow-xl" dir="rtl">
-                  <span className="text-base font-bold tracking-wide">החליקו שמאלה לכל התמונות</span>
-                  <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                <div className="w-full flex justify-center mb-4" dir="rtl">
+                  <div className="inline-flex items-center gap-2 px-5 py-1.5 bg-gray-100 border border-gray-200 rounded-full shadow-sm text-gray-800">
+                    <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                    <span className="text-[15px] font-bold">החליקו לראות תמונות נוספות</span>
+                  </div>
                 </div>
 
                 {/* Horizontal Swipe Photos */}
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-8 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {mediaItems.filter(item => item.type === 'image').map((item, idx) => (
-                    <div key={idx} className="flex-shrink-0 w-[85vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
+                    <div key={idx} className="flex-shrink-0 w-[90vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200">
                       <Image
                         src={item.src!}
                         alt={item.alt!}
                         fill
                         priority={true}
-                        sizes="85vw"
+                        sizes="90vw"
                         className="object-cover"
                       />
                     </div>
@@ -126,7 +128,7 @@ export default function HeroHome() {
               </div>
 
               {/* DESKTOP: Static Layout (Text/Video Top, 3 Photos Bottom) */}
-              <div className="hidden md:flex flex-col gap-10 max-w-5xl mx-auto px-6 w-full" dir="rtl">
+              <div className="hidden md:flex flex-col gap-10 max-w-7xl mx-auto px-6 w-full" dir="rtl">
 
                 {/* Top Row: Text (Right) and Video (Left) aligned to a 3-col grid */}
                 <div className="grid grid-cols-3 gap-8 w-full items-center">
