@@ -1,16 +1,29 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function SeoContent() {
   return (
-    <section className="px-6 py-16 bg-gray-50 border-t border-gray-100" dir="rtl">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
-            כל מה שצריך לדעת על שירותים ניידים מפוארים להשכרה
-          </h2>
-          <p className="text-base md:text-[17px] text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            כאשר מתכננים אירוע בחיק הטבע, אחת הדאגות המרכזיות היא נוחיות האורחים. אנו בא.ל שירותים ניידים מבינים שאירוע מושלם דורש התייחסות לכל פרט ופרט, ולכן אנו מספקים קרונות מפוארים שמעניקים תחושה של בית מלון יוקרתי, גם באמצע היער או המדבר.
-          </p>
+    <section className="px-6 py-20 bg-gray-50 border-t border-gray-100" dir="rtl">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Top Split Layout: Text & New Image */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
+          <div className="lg:w-1/2 text-right">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+              כל מה שצריך לדעת על שירותים ניידים מפוארים להשכרה
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              כאשר מתכננים אירוע בחיק הטבע, אחת הדאגות המרכזיות היא נוחיות האורחים. אנו בא.ל שירותים ניידים מבינים שאירוע מושלם דורש התייחסות לכל פרט ופרט, ולכן אנו מספקים קרונות מפוארים שמעניקים תחושה של בית מלון יוקרתי, גם באמצע היער או המדבר.
+            </p>
+          </div>
+          <div className="lg:w-1/2 w-full relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+            <Image 
+              src="/images/toiletimg_new1.jpg" 
+              alt="שירותים ניידים מפוארים מוכנים לאירוע" 
+              fill 
+              className="object-cover transition-transform duration-700 hover:scale-105"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5 mb-12">
