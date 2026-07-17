@@ -118,7 +118,7 @@ export default function HeroHome() {
 
                 {/* Vertical Video Block Underneath */}
                 <div className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100">
-                  <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted={true} defaultMuted playsInline />
+                  <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted playsInline />
                 </div>
               </div>
 
@@ -141,7 +141,7 @@ export default function HeroHome() {
                   {/* Left Side: Video (spans 1 column, aligns perfectly with bottom left photo) */}
                   <div className="col-span-1">
                     <div className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50">
-                      <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted={true} defaultMuted playsInline />
+                      <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted playsInline />
                     </div>
                   </div>
 
