@@ -86,15 +86,15 @@ export default function Cta() {
           <div className="flex flex-row justify-center items-center gap-6 sm:gap-12 mt-4">
             {/* Right: Liav */}
             <a href="tel:+972526920346" aria-label="התקשרו לליאב 052-6920346" className="flex flex-col items-center group">
-              <span className="text-gray-400 text-xs mb-1 font-medium group-hover:text-gray-300 transition-colors">ליאב</span>
-              <span className="text-white font-bold text-[15px] sm:text-base group-hover:text-gray-300 transition-colors tracking-wide">📱 052-6920346</span>
-              <span className="text-gray-500 text-[10px] sm:text-xs mt-1 font-medium bg-white/10 px-2 py-0.5 rounded-full group-hover:bg-white/20 transition-colors">לחצו להתקשר</span>
+              <span className="text-gray-400 text-[15px] sm:text-base mb-1 font-semibold group-hover:text-gray-300 transition-colors">ליאב</span>
+              <span className="text-white font-bold text-base sm:text-lg group-hover:text-gray-300 transition-colors tracking-wide">📱 052-6920346</span>
+              <span className="text-gray-300 text-sm mt-1.5 font-medium bg-white/10 px-3 py-1 rounded-full group-hover:bg-white/20 transition-colors">לחצו להתקשר</span>
             </a>
             {/* Left: Oshri */}
             <a href="tel:+972526525185" aria-label="התקשרו לאושרי 052-6525185" className="flex flex-col items-center group">
-              <span className="text-gray-400 text-xs mb-1 font-medium group-hover:text-gray-300 transition-colors">אושרי</span>
-              <span className="text-white font-bold text-[15px] sm:text-base group-hover:text-gray-300 transition-colors tracking-wide">📱 052-6525185</span>
-              <span className="text-gray-500 text-[10px] sm:text-xs mt-1 font-medium bg-white/10 px-2 py-0.5 rounded-full group-hover:bg-white/20 transition-colors">לחצו להתקשר</span>
+              <span className="text-gray-400 text-[15px] sm:text-base mb-1 font-semibold group-hover:text-gray-300 transition-colors">אושרי</span>
+              <span className="text-white font-bold text-base sm:text-lg group-hover:text-gray-300 transition-colors tracking-wide">📱 052-6525185</span>
+              <span className="text-gray-300 text-sm mt-1.5 font-medium bg-white/10 px-3 py-1 rounded-full group-hover:bg-white/20 transition-colors">לחצו להתקשר</span>
             </a>
           </div>
           <a
