@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import PageIllustration from '@/components/page-illustration'
 import AddContactButton from '@/components/addcontactbutton'
-import { motion, MotionConfig } from 'framer-motion'
+import { motion, MotionConfig, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 
 const headerContainer = {
@@ -34,6 +34,7 @@ export default function HeroHome() {
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
   
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [selectedMedia, setSelectedMedia] = useState<{ type: 'image' | 'video', src: string } | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -160,7 +161,8 @@ export default function HeroHome() {
                         key={idx} 
                         data-index={idx}
                         ref={el => { slideRefs.current[idx] = el }}
-                        className="flex-shrink-0 w-[95vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200"
+                        className="flex-shrink-0 w-[95vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200 cursor-pointer"
+                        onClick={() => setSelectedMedia({ type: 'image', src: item.src! })}
                       >
                         <Image
                           src={item.src!}
@@ -176,8 +178,11 @@ export default function HeroHome() {
                 </div>
 
                 {/* Vertical Video Block Underneath */}
-                <div className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100">
-                  <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted playsInline />
+                <div 
+                  className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100 cursor-pointer"
+                  onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
+                >
+                  <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0 pointer-events-none" autoPlay loop muted playsInline />
                 </div>
               </div>
 
@@ -199,8 +204,11 @@ export default function HeroHome() {
 
                   {/* Left Side: Video (spans 1 column, aligns perfectly with bottom left photo) */}
                   <div className="col-span-1">
-                    <div className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50">
-                      <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0" autoPlay loop muted playsInline />
+                    <div 
+                      className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 cursor-pointer group"
+                      onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
+                    >
+                      <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0 pointer-events-none transition-transform duration-700 group-hover:scale-105" autoPlay loop muted playsInline />
                     </div>
                   </div>
 
@@ -209,7 +217,11 @@ export default function HeroHome() {
                 {/* Bottom Row: 4 Photos Side-by-Side (Desktop only) */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                   {mediaItems.filter(item => item.type === 'image').slice(0, 4).map((item, idx) => (
-                    <div key={idx} className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group">
+                    <div 
+                      key={idx} 
+                      className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group cursor-pointer"
+                      onClick={() => setSelectedMedia({ type: 'image', src: item.src! })}
+                    >
                       <Image
                         src={item.src!}
                         alt={item.alt!}
@@ -265,6 +277,51 @@ export default function HeroHome() {
           </div>
         </div>
       </section>
+
+      {/* Fullscreen Media Modal */}
+      <AnimatePresence>
+        {selectedMedia && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 cursor-pointer backdrop-blur-sm"
+            onClick={() => setSelectedMedia(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative max-w-5xl w-full h-[85vh] rounded-2xl shadow-2xl flex items-center justify-center cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors cursor-pointer"
+                onClick={() => setSelectedMedia(null)}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+              {selectedMedia.type === 'image' ? (
+                <Image
+                  src={selectedMedia.src}
+                  alt="Enlarged view"
+                  fill
+                  className="object-contain"
+                />
+              ) : (
+                <video
+                  src={selectedMedia.src}
+                  className="max-w-full max-h-full object-contain rounded-2xl"
+                  autoPlay
+                  controls
+                  playsInline
+                />
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </MotionConfig>
   )
 }
