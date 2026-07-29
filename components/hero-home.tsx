@@ -29,12 +29,71 @@ const fadeVariants = {
   show: { opacity: 1, y: 0 },
 }
 
+const mediaItems = [
+  { type: 'video' as const, content: 'placeholder' },
+  { type: 'image' as const, src: '/images/toiletimg1.jpeg', alt: 'תא שירותים ניידים מפואר להשכרה' },
+  { type: 'image' as const, src: '/images/toiletimg2.jpeg', alt: 'תא שירותים ניידים מפואר מבפנים' },
+  { type: 'image' as const, src: '/images/toiletimg_new1.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 1' },
+  { type: 'image' as const, src: '/images/toiletimg_new2.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 2' },
+  { type: 'image' as const, src: '/images/toiletimg4.jpeg', alt: 'תא שירותים ניידים מבט נוסף' },
+]
+
+const imageItems = mediaItems.filter(item => item.type === 'image')
+
 export default function HeroHome() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
   
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedMedia, setSelectedMedia] = useState<{ type: 'image' | 'video', src: string } | null>(null)
+
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (selectedMedia?.type === 'image') {
+      const idx = imageItems.findIndex(item => item.src === selectedMedia.src)
+      if (isLeftSwipe && idx > 0) {
+        setSelectedMedia({ type: 'image', src: imageItems[idx - 1].src! })
+      } else if (isRightSwipe && idx < imageItems.length - 1) {
+        setSelectedMedia({ type: 'image', src: imageItems[idx + 1].src! })
+      }
+    }
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedMedia || selectedMedia.type !== 'image') return
+      const idx = imageItems.findIndex(item => item.src === selectedMedia.src)
+      
+      if (e.key === 'ArrowRight' && idx > 0) {
+        setSelectedMedia({ type: 'image', src: imageItems[idx - 1].src! })
+      } else if (e.key === 'ArrowLeft' && idx < imageItems.length - 1) {
+        setSelectedMedia({ type: 'image', src: imageItems[idx + 1].src! })
+      } else if (e.key === 'Escape') {
+        setSelectedMedia(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedMedia])
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -53,16 +112,7 @@ export default function HeroHome() {
     return () => observer.disconnect()
   }, [])
 
-  const mediaItems = [
-    { type: 'video', content: 'placeholder' },
-    { type: 'image', src: '/images/toiletimg1.jpeg', alt: 'תא שירותים ניידים מפואר להשכרה' },
-    { type: 'image', src: '/images/toiletimg2.jpeg', alt: 'תא שירותים ניידים מפואר מבפנים' },
-    { type: 'image', src: '/images/toiletimg_new1.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 1' },
-    { type: 'image', src: '/images/toiletimg_new2.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 2' },
-    { type: 'image', src: '/images/toiletimg4.jpeg', alt: 'תא שירותים ניידים מבט נוסף' },
-  ]
 
-  const imageItems = mediaItems.filter(item => item.type === 'image')
   const canScrollRight = currentIndex > 0 // Right means go back to previous (start)
   const canScrollLeft = currentIndex < imageItems.length - 1 // Left means go to next
 
@@ -293,8 +343,11 @@ export default function HeroHome() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative max-w-5xl w-full h-[85vh] rounded-2xl shadow-2xl flex items-center justify-center cursor-default"
+              className="relative max-w-5xl w-full h-[85vh] rounded-2xl shadow-2xl flex items-center justify-center cursor-default outline-none"
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
             >
               <button
                 className="absolute top-4 right-4 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors cursor-pointer"
@@ -302,6 +355,36 @@ export default function HeroHome() {
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
+
+              {selectedMedia.type === 'image' && (
+                <>
+                  {imageItems.findIndex(item => item.src === selectedMedia.src) > 0 && (
+                    <button
+                      className="absolute right-4 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors cursor-pointer flex items-center justify-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
+                        setSelectedMedia({ type: 'image', src: imageItems[idx - 1].src! });
+                      }}
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  )}
+                  {imageItems.findIndex(item => item.src === selectedMedia.src) < imageItems.length - 1 && (
+                    <button
+                      className="absolute left-4 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors cursor-pointer flex items-center justify-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
+                        setSelectedMedia({ type: 'image', src: imageItems[idx + 1].src! });
+                      }}
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                  )}
+                </>
+              )}
+
               {selectedMedia.type === 'image' ? (
                 <Image
                   src={selectedMedia.src}
