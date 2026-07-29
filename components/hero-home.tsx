@@ -347,34 +347,7 @@ export default function HeroHome() {
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-pointer backdrop-blur-sm"
             onClick={() => setSelectedMedia(null)}
           >
-            {selectedMedia.type === 'image' && (
-              <>
-                {imageItems.findIndex(item => item.src === selectedMedia.src) > 0 && (
-                  <button
-                    className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-3 transition-colors cursor-pointer flex items-center justify-center"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
-                      setSelectedMedia({ type: 'image', src: imageItems[idx - 1].src! });
-                    }}
-                  >
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-                  </button>
-                )}
-                {imageItems.findIndex(item => item.src === selectedMedia.src) < imageItems.length - 1 && (
-                  <button
-                    className="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-3 transition-colors cursor-pointer flex items-center justify-center"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
-                      setSelectedMedia({ type: 'image', src: imageItems[idx + 1].src! });
-                    }}
-                  >
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
-                  </button>
-                )}
-              </>
-            )}
+
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -393,6 +366,35 @@ export default function HeroHome() {
               >
                 <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
+
+              {selectedMedia.type === 'image' && (
+                <>
+                  {imageItems.findIndex(item => item.src === selectedMedia.src) > 0 && (
+                    <button
+                      className="absolute right-2 md:-right-14 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 md:p-3 transition-colors cursor-pointer flex items-center justify-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
+                        setSelectedMedia({ type: 'image', src: imageItems[idx - 1].src! });
+                      }}
+                    >
+                      <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  )}
+                  {imageItems.findIndex(item => item.src === selectedMedia.src) < imageItems.length - 1 && (
+                    <button
+                      className="absolute left-2 md:-left-14 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 md:p-3 transition-colors cursor-pointer flex items-center justify-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
+                        setSelectedMedia({ type: 'image', src: imageItems[idx + 1].src! });
+                      }}
+                    >
+                      <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                  )}
+                </>
+              )}
 
               {selectedMedia.type === 'image' ? (
                 <img
