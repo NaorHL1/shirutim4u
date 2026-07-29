@@ -43,27 +43,27 @@ const imageItems = mediaItems.filter(item => item.type === 'image')
 export default function HeroHome() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
-  
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedMedia, setSelectedMedia] = useState<{ type: 'image' | 'video', src: string } | null>(null)
 
-  const [touchStart, setTouchStart] = useState<number | null>(null)
-  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const touchStartRef = useRef<number | null>(null)
+  const touchEndRef = useRef<number | null>(null)
 
   const minSwipeDistance = 50
 
   const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
-    setTouchStart(e.targetTouches[0].clientX)
+    touchEndRef.current = null
+    touchStartRef.current = e.targetTouches[0].clientX
   }
 
   const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX)
+    touchEndRef.current = e.targetTouches[0].clientX
   }
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
-    const distance = touchStart - touchEnd
+    if (!touchStartRef.current || !touchEndRef.current) return
+    const distance = touchStartRef.current - touchEndRef.current
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
 
@@ -397,10 +397,13 @@ export default function HeroHome() {
               )}
 
               {selectedMedia.type === 'image' ? (
-                <img
+                <Image
                   src={selectedMedia.src}
                   alt="Enlarged view"
-                  className="max-h-[85vh] max-w-[90vw] md:max-w-[80vw] object-contain rounded-xl shadow-2xl"
+                  width={1200}
+                  height={1600}
+                  priority
+                  className="max-h-[85vh] max-w-[90vw] md:max-w-[80vw] w-auto h-auto object-contain rounded-xl shadow-2xl"
                 />
               ) : (
                 <video
