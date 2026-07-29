@@ -96,6 +96,15 @@ export default function HeroHome() {
   }, [selectedMedia])
 
   useEffect(() => {
+    if (selectedMedia?.type === 'image') {
+      const idx = imageItems.findIndex(item => item.src === selectedMedia.src)
+      if (idx !== -1 && slideRefs.current[idx]) {
+        slideRefs.current[idx]?.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' })
+      }
+    }
+  }, [selectedMedia])
+
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
