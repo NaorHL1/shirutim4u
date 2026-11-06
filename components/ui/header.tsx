@@ -44,33 +44,32 @@ export default function Header() {
       )}
 
       <header className="fixed top-3.5 sm:top-4 left-1/2 z-30 -translate-x-1/2 w-[94%] sm:w-[92%] max-w-3xl">
-        <div className="relative flex items-center justify-between sm:justify-around rounded-full sm:rounded-2xl bg-white/95 px-4 sm:px-5 py-2.5 sm:py-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-200/80 ring-1 ring-black/[0.03]">
+        <div className="relative flex items-center justify-between rounded-full bg-white/95 sm:bg-white/95 sm:backdrop-blur-md px-4 sm:px-3.5 md:px-5 py-2.5 sm:py-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] sm:shadow-[0_10px_35px_rgba(0,0,0,0.07)] border border-gray-200/80 ring-1 ring-black/[0.03]">
           
-          {/* תפריט שמאל (מסכים גדולים) */}
-          <nav aria-label="ניווט משני" className="hidden sm:flex items-center gap-1.5">
+          {/* תפריט ימין בדסקטופ (מסכים גדולים - RTL) */}
+          <nav aria-label="ניווט ראשי" className="hidden sm:flex sm:flex-1 items-center justify-start gap-1 md:gap-1.5">
             <Link
-              href="/blog"
-              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+              href="/services/mobile-toilets"
+              className="px-3.5 py-1.5 rounded-full text-sm font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100/90 transition-all duration-200 cursor-pointer"
             >
-              מדריכים
+              שירותים
             </Link>
             <Link
-              href="/#faq"
-              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+              href="/#gallery"
+              className="px-3.5 py-1.5 rounded-full text-sm font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100/90 transition-all duration-200 cursor-pointer"
             >
-              שאלות
+              גלריה
             </Link>
             <Link
-              href="/#contact"
-              className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.22)] ring-1 ring-zinc-700/80 hover:from-zinc-600 hover:via-zinc-800 hover:to-zinc-950 hover:shadow-[0_6px_20px_rgba(37,99,235,0.28)] hover:ring-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+              href="/#whyus"
+              className="px-3.5 py-1.5 rounded-full text-sm font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100/90 transition-all duration-200 cursor-pointer"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
-              <span>צור קשר</span>
+              למה אנחנו
             </Link>
           </nav>
 
-          {/* לוגו - במובייל מוצמד לימין (RTL), בדסקטופ במרכז */}
-          <div className="flex-shrink-0 sm:order-none order-2">
+          {/* לוגו - במובייל מוצמד לימין (RTL), בדסקטופ ממורכז בדיוק באמצע */}
+          <div className="flex-shrink-0 sm:order-none order-2 sm:mx-2">
             <Link href="/" aria-label="א.ל שירותים ניידים - דף הבית" onClick={() => setIsOpen(false)}>
               <Image
                 src="/images/ollogo.png"
@@ -78,30 +77,31 @@ export default function Header() {
                 width={120}
                 height={56}
                 priority
-                className="h-12 sm:h-13 w-auto object-contain"
+                className="h-12 sm:h-12 md:h-[52px] w-auto object-contain"
               />
             </Link>
           </div>
 
-          {/* תפריט ימין (מסכים גדולים) */}
-          <nav aria-label="ניווט ראשי" className="hidden sm:flex items-center gap-1.5">
+          {/* תפריט שמאל בדסקטופ (מסכים גדולים - RTL) */}
+          <nav aria-label="ניווט משני" className="hidden sm:flex sm:flex-1 items-center justify-end gap-1 md:gap-1.5">
             <Link
-              href="/services/mobile-toilets"
-              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+              href="/blog"
+              className="px-3.5 py-1.5 rounded-full text-sm font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100/90 transition-all duration-200 cursor-pointer"
             >
-              שירותים
+              מדריכים
             </Link>
             <Link
-              href="/#whyus"
-              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+              href="/#faq"
+              className="px-3.5 py-1.5 rounded-full text-sm font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100/90 transition-all duration-200 cursor-pointer"
             >
-              למה אנחנו
+              שאלות
             </Link>
             <Link
-              href="/#gallery"
-              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+              href="/#contact"
+              className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-white text-sm font-bold shadow-[0_4px_12px_rgba(0,0,0,0.2)] ring-1 ring-zinc-800 hover:from-zinc-600 hover:via-zinc-800 hover:to-zinc-950 hover:shadow-[0_6px_18px_rgba(0,0,0,0.28)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
             >
-              גלריה
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
+              <span>צור קשר</span>
             </Link>
           </nav>
 
