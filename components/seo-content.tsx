@@ -39,7 +39,7 @@ export default function SeoContent() {
               פינוק ויוקרה אמיתיים באירועי חוץ
             </h3>
             <p className="text-[15px] md:text-base text-gray-700 leading-relaxed">
-              השכרת שירותים ניידים מפוארים לאירועים הפכה לסטנדרט בחתונות טבע, כנסי חברה ואירועי בוטיק. בניגוד לתאי פלסטיק בסיסיים, הקרונות שלנו מציעים מרחב ממוזג, מראות גדולות, תאורת לד נעימה, כיורים מעוצבים, מים זורמים וסבונים יוקרתיים. התרשמו מהתאים ב<Link href="/#gallery" className="text-blue-600 font-semibold hover:underline">גלריית השירותים המפוארים</Link>.
+              השכרת שירותים ניידים מפוארים לאירועים הפכה לסטנדרט בחתונות טבע, כנסי חברה ואירועי בוטיק. בניגוד לתאי פלסטיק בסיסיים, היחידות שלנו מציעות מרחב מרווח ומעוצב, מראות גדולות, תאורת לד נעימה, כיורים מעוצבים, מים זורמים וסבונים יוקרתיים. התרשמו מהתאים ב<Link href="/#gallery" className="text-blue-600 font-semibold hover:underline">גלריית השירותים המפוארים</Link>.
             </p>
           </div>
 
@@ -80,17 +80,17 @@ export default function SeoContent() {
         {/* Comparison Table: Luxury Trailer vs Standard Portable Toilet */}
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-200 mb-16">
           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
-            השוואה: קרון שירותים ניידים מפואר לעומת שירותים כימיים רגילים
+            השוואה: שירותים ניידים מפוארים לעומת שירותים כימיים רגילים
           </h2>
           <p className="text-gray-600 mb-6 text-base leading-relaxed">
-            מתלבטים איזה פתרון מתאים לאירוע או לפרויקט שלכם? בטבלה הבאה ריכזנו את ההבדלים המרכזיים בין השכרת קרון שירותים מפואר לאירועים לבין תאי שירותים ניידים סטנדרטיים:
+            מתלבטים איזה פתרון מתאים לאירוע או לפרויקט שלכם? בטבלה הבאה ריכזנו את ההבדלים המרכזיים בין השכרת שירותים ניידים מפוארים לאירועים לבין תאי שירותים ניידים סטנדרטיים:
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-right border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-200 bg-gray-50 text-gray-900">
                   <th className="py-3.5 px-4 font-bold text-sm md:text-base">מאפיין</th>
-                  <th className="py-3.5 px-4 font-bold text-sm md:text-base text-blue-700">קרון שירותים ניידים מפואר (VIP)</th>
+                  <th className="py-3.5 px-4 font-bold text-sm md:text-base text-blue-700">שירותים ניידים מפוארים (VIP)</th>
                   <th className="py-3.5 px-4 font-bold text-sm md:text-base text-gray-700">שירותים ניידים סטנדרטיים / כימיים</th>
                 </tr>
               </thead>
@@ -101,19 +101,19 @@ export default function SeoContent() {
                   <td className="py-3.5 px-4">הפקות שטח גדולות, פסטיבלים, אתרי בנייה ותשתיות</td>
                 </tr>
                 <tr>
-                  <td className="py-3.5 px-4 font-semibold text-gray-900">מיזוג אוויר ותאורה</td>
-                  <td className="py-3.5 px-4">מיזוג אוויר מלא (קירור/חימום) + תאורת LED ומראות ענק</td>
-                  <td className="py-3.5 px-4">אוורור טבעי ותאורה בסיסית</td>
+                  <td className="py-3.5 px-4 font-semibold text-gray-900">עיצוב פנים ותאורה</td>
+                  <td className="py-3.5 px-4">עיצוב מרווח ויוקרתי, תאורת LED נעימה ומראות גדולות</td>
+                  <td className="py-3.5 px-4">מבנה פלסטיק בסיסי ללא מראות ותאורה מעוצבת</td>
                 </tr>
                 <tr>
-                  <td className="py-3.5 px-4 font-semibold text-gray-900">מערכת מים ושטיפה</td>
-                  <td className="py-3.5 px-4">אסלות חרסינה עם הדחת מים זורמים וכיורים מעוצבים</td>
-                  <td className="py-3.5 px-4">מיכל אגירה אטום עם חומרים מנטרלי ריחות וכיור שטיפה</td>
+                  <td className="py-3.5 px-4 font-semibold text-gray-900">מערכת מים והיגיינה</td>
+                  <td className="py-3.5 px-4">כיורים מעוצבים עם מים זורמים, סבונים יוקרתיים ומפיצי ריח</td>
+                  <td className="py-3.5 px-4">מיכל אגירה אטום עם חומרים כימיים מנטרלי ריחות</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-4 font-semibold text-gray-900">תלות בתשתיות שטח</td>
-                  <td className="py-3.5 px-4">עצמאי לחלוטין (מיכלי מים מובנים ואפשרות לגנרטור שקט)</td>
-                  <td className="py-3.5 px-4">100% עצמאי בשטח ללא כל צורך במים או חשמל</td>
+                  <td className="py-3.5 px-4">100% עצמאי בשטח (Off-Grid) – פועל ללא צורך בחיבור למים, ביוב או חשמל</td>
+                  <td className="py-3.5 px-4">עצמאי בשטח ללא צורך במים או חשמל</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-4 font-semibold text-gray-900">תחזוקה ושירות</td>
@@ -138,15 +138,15 @@ export default function SeoContent() {
             <ul className="space-y-3 text-[15px] text-gray-700 mb-5">
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>עד 200 אורחים (אירוע עד 6 שעות):</strong> קרון שירותים מפואר כפול (2 תאים מרווחים) מספק מענה מצוין וללא המתנה.</span>
+                <span><strong>עד 200 אורחים (אירוע עד 6 שעות):</strong> יחידת שירותים מפוארת (2 תאים מרווחים) מספקת מענה מצוין וללא המתנה.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>200 עד 400 אורחים:</strong> מומלץ להציב 3–4 תאים מפוארים (או צמד קרונות) עם דייל ניקיון צמוד.</span>
+                <span><strong>200 עד 400 אורחים:</strong> מומלץ להציב 3–4 תאים מפוארים עם דייל ניקיון צמוד.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>400+ אורחים והפקות ענק:</strong> מערך משולב של קרונות VIP ממוזגים לתחם האירוח המרכזי ותאי שירותים נוספים לצוותים.</span>
+                <span><strong>400+ אורחים והפקות ענק:</strong> מערך משולב של יחידות שירותים מפוארים למתחם האירוח המרכזי ותאי שירותים נוספים לצוותים.</span>
               </li>
             </ul>
             <p className="text-sm text-gray-500">

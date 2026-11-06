@@ -90,7 +90,7 @@ export default function MobileToiletsPage() {
             השכרת שירותים ניידים לכל מטרה – מאירועי יוקרה ועד פרויקטים בשטח
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
-            א.ל שירותים ניידים מספקת פתרונות תברואה וסניטציה ניידים מתקדמים בפריסה ארצית. אנו מתאימים את סוג התאים והקרונות לאופי האירוע או הפרויקט – החל מ<Link href="/blog/luxury-portable-toilets" className="text-blue-600 font-semibold hover:underline">קרונות שירותים מפוארים וממוזגים לחתונות</Link> ועד לתאי שירותים ניידים עמידים להפקות שטח ואתרי בנייה.
+            א.ל שירותים ניידים מספקת פתרונות תברואה וסניטציה ניידים מתקדמים בפריסה ארצית. אנו מתאימים את סוג התאים והקרונות לאופי האירוע או הפרויקט – החל מ<Link href="/blog/luxury-portable-toilets" className="text-blue-600 font-semibold hover:underline">שירותים ניידים מפוארים לחתונות ואירועים</Link> ועד לתאי שירותים ניידים עמידים להפקות שטח ואתרי בנייה.
           </p>
         </header>
 
@@ -126,10 +126,10 @@ export default function MobileToiletsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                1. קרונות שירותים מפוארים (VIP) לאירועים
+                1. שירותים ניידים מפוארים (VIP) לאירועים
               </h3>
               <p className="text-gray-600 text-[15px] leading-relaxed mb-4">
-                מיועדים לחתונות בטבע, אירועי בוטיק, כנסים ואירועי חברה. כוללים מיזוג אוויר מלא, אסלות חרסינה, כיורים מעוצבים עם מים זורמים, מראות ענק, תאורת LED, מוזיקת רקע ואיש שירות צמוד לאורך האירוע.
+                מיועדים לחתונות בטבע, אירועי בוטיק, כנסים ואירועי חברה. כוללים עיצוב מרווח ויוקרתי, כיורים מעוצבים עם מים זורמים, מראות גדולות, תאורת LED נעימה, סבונים ומפיצי ריח יוקרתיים ואיש שירות צמוד לאורך האירוע.
               </p>
               <Link href="/blog/luxury-portable-toilets" className="text-blue-600 font-semibold text-sm hover:underline">
                 קראו עוד על שירותים ניידים מפוארים &larr;

@@ -34,7 +34,7 @@ const mediaItems = [
   { type: 'image' as const, src: '/images/toiletimg1.jpeg', alt: 'קרון שירותים ניידים מפוארים להשכרה לאירועים בטבע - א.ל שירותים ניידים' },
   { type: 'image' as const, src: '/images/toiletimg2.jpeg', alt: 'תא שירותים נייד מפואר מבפנים עם כיור מעוצב, מראה ותאורת לד' },
   { type: 'image' as const, src: '/images/toiletimg_new1.jpg', alt: 'השכרת שירותים ניידים מפוארים לחתונה בשטח - מראה חיצוני יוקרתי' },
-  { type: 'image' as const, src: '/images/toiletimg_new2.jpg', alt: 'תאי שירותים ניידים ממוזגים ונקיים לאירועי חוץ וכנסים' },
+  { type: 'image' as const, src: '/images/toiletimg_new2.jpg', alt: 'תאי שירותים ניידים מעוצבים ונקיים לאירועי חוץ וכנסים' },
   { type: 'image' as const, src: '/images/toiletimg4.jpeg', alt: 'הצבת קרון שירותים ניידים מפואר בשטח ללא צורך בתשתיות' },
 ]
 
@@ -168,7 +168,7 @@ export default function HeroHome() {
               >
                 {/* פסקת פתיחה סמנטית (תוקן מ-H2 ל-P לשמירה על היררכיית כותרות תקנית) */}
                 <p className="mb-10 text-lg text-gray-600 md:text-xl font-normal">
-                  חתונות בטבע, בר/בת מצווה, כנסים והפקות שטח – א.ל שירותים ניידים מביאים אליכם קרונות שירותים ממוזגים ברמה של מלון 5 כוכבים, עצמאיים לחלוטין בשטח עם איש שירות צמוד בפריסה ארצית.
+                  חתונות בטבע, בר/בת מצווה, כנסים והפקות שטח – א.ל שירותים ניידים מביאים אליכם תאי שירותים מפוארים ברמה של מלון 5 כוכבים, עצמאיים לחלוטין בשטח עם איש שירות צמוד בפריסה ארצית.
                 </p>
 
                 <motion.div
@@ -176,12 +176,7 @@ export default function HeroHome() {
                   style={{ willChange: 'transform, opacity' }}
                   className="mx-auto flex justify-center"
                 >
-                  <div className="group inline-flex items-center gap-3 rounded-full bg-gray-900 px-6 py-3 text-white font-semibold shadow-lg hover:bg-gray-800 transition-transform duration-200 cursor-pointer">
-                    <span className="text-blue-400 transition-transform group-hover:-translate-x-1">
-                      &larr;
-                    </span>
-                    <AddContactButton />
-                  </div>
+                  <AddContactButton />
                 </motion.div>
               </motion.div>
             </motion.div>
