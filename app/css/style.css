@@ -213,16 +213,69 @@
   }
 }
 
+/* עיצוב מותאם ויוקרתי לכפתור ותפריט הנגישות (MicAccessTool) */
+#mic-init-access-tool #mic-access-tool-general-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 9999px !important;
+  background: linear-gradient(180deg, #3f3f46 0%, #18181b 55%, #09090b 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+#mic-init-access-tool #mic-access-tool-general-button:hover,
+#mic-init-access-tool #mic-access-tool-general-button:focus {
+  background: linear-gradient(180deg, #52525b 0%, #27272a 55%, #09090b 100%) !important;
+  border-color: rgba(59, 130, 246, 0.55) !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+  transform: translateY(-2px) scale(1.04) !important;
+  color: #ffffff !important;
+}
+
+#mic-init-access-tool #mic-access-tool-general-button > div {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* הסתרת טקסט CTRL+F2 המיושן בתוך הכפתור לטובת מראה נקי ואלגנטי */
+#mic-init-access-tool #mic-access-tool-general-button > div span {
+  display: none !important;
+}
+
+/* הפיכת אייקון הנגישות ללבן חד ונקי במרכז הכפתור */
+#mic-init-access-tool #mic-access-tool-general-button > div img {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  filter: brightness(0) invert(1) !important;
+  margin: 0 !important;
+}
+
 @media screen and (max-width: 767px) {
-  #mic-access-tool-general-button {
-    width: 62px !important;
-    height: 55px !important;
-    font-size: 24px !important;
+  #mic-init-access-tool #mic-access-tool-general-button {
+    bottom: 16px !important;
+    left: 16px !important;
+    width: 46px !important;
+    height: 46px !important;
   }
 
-  #mic-access-tool-general-button img {
-    width: 60px !important;
-    height: 40px !important;
+  #mic-init-access-tool #mic-access-tool-general-button > div img {
+    width: 22px !important;
+    height: 22px !important;
+    max-width: 22px !important;
   }
 }
 

@@ -1,9 +1,5 @@
-import React from 'react';
-import { ReactNode } from "react";
-
-
+import React, { Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
 
 // --------------------- Types ---------------------
 export type LegalType = "terms" | "privacy" | "accessibility";
@@ -17,108 +13,141 @@ interface LegalModalProps {
 // --------------------- Data ----------------------
 const legalContent: Record<LegalType, { title: string; body: ReactNode }> = {
   terms: {
-    title: "תקנון האתר ותנאי שימוש",
+    title: "תקנון האתר ותנאי שימוש – א.ל שירותים ניידים",
     body: (
-      <div className="space-y-4 text-sm leading-7 text-gray-700 max-h-[60vh] overflow-y-auto pr-2 rtl:text-right">
+      <div className="space-y-4 text-sm leading-7 text-gray-700 max-h-[62vh] overflow-y-auto pl-2 text-right">
+        <p className="text-xs text-gray-500">עודכן לאחרונה: נובמבר 2026</p>
         <p>
-          אתר זה (להלן: "האתר") מופעל על ידי מפעיל האתר ומיועד להצגת מידע על שירותי השכרת שירותים ניידים. השימוש באתר כפוף לתנאים אלה ולהוראות הדין בישראל. השימוש באתר מהווה הסכמה לתנאים אלו.
+          ברוכים הבאים לאתר <strong>shirutim4u.com</strong> (להלן: &quot;האתר&quot;), המופעל על ידי <strong>א.ל שירותים ניידים</strong> (להלן: &quot;מפעיל האתר&quot; או &quot;החברה&quot;). האתר מיועד להצגת מידע מקצועי על שירותי השכרת שירותים ניידים מפוארים ותאי שירותים לאירועים ולשטח, וליצירת קשר לצורך קבלת ייעוץ והצעת מחיר. הגלישה והשימוש באתר מהווים הסכמה לתנאים המפורטים בתקנון זה.
         </p>
-        <h4 className="font-semibold text-gray-900">1. שימוש באתר</h4>
+
+        <h4 className="font-bold text-gray-900">1. שימוש מותר באתר</h4>
         <p>
-          השימוש באתר הוא אישי ובלתי מסחרי. אין לעשות באתר שימוש בלתי חוקי או מפר, לרבות העלאת תכנים פוגעניים או הפעלת תוכנות לא מורשות.
+          השימוש באתר מיועד לצרכים פרטיים או עסקיים חוקיים של התעניינות בשירותי החברה. אין לעשות באתר כל שימוש בלתי חוקי, לרבות העתקה, סריקה אוטומטית (Scraping), הפצת קוד זדוני או פגיעה בפעילותו התקינה של האתר.
         </p>
-        <h4 className="font-semibold text-gray-900">2. היעדר פעילות מסחרית</h4>
+
+        <h4 className="font-bold text-gray-900">2. מידע מקצועי והצעות מחיר</h4>
         <p>
-          האתר אינו מאפשר רכישות מקוונות או סליקה. כל ההתקשרות עם מפעיל האתר מתבצעת ישירות, מחוץ למסגרת האתר.
+          התכנים, התמונות, הסרטונים והמדריכים המופיעים באתר נועדו להתרשמות כללית ולמתן מידע מקצועי בלבד, ואינם מהווים הצעה מחייבת לכריתת חוזה. האתר אינו מבצע סליקה או רכישה מקוונת. כל הזמנת שירות, תיאום תאריך, מפרט תאים ותמחור סופי ייקבעו אך ורק בהתקשרות ישירה מול נציגי א.ל שירותים ניידים ובהתאם למאפייני האירוע, מיקום ההצבה ותנאי השטח.
         </p>
-        <h4 className="font-semibold text-gray-900">3. מסירת פרטים בטופס</h4>
+
+        <h4 className="font-bold text-gray-900">3. השארת פרטים ויצירת קשר</h4>
         <p>
-          המשתמש רשאי להזין שם מלא ומספר טלפון באופן ידני. הפרטים ישמשו ליצירת קשר בלבד ולא יועברו לצדדים שלישיים.
+          המשתמש רשאי להשאיר פרטים בטופס יצירת הקשר באתר (שם מלא, מספר טלפון והודעה) או לפנות ישירות בטלפון ובוואטסאפ. המשתמש מצהיר כי הפרטים שמסר הינם נכונים ומדויקים. מסירת הפרטים מהווה הסכמה לכך שנציג מטעם א.ל שירותים ניידים יחזור אל המשתמש בטלפון או בהודעה לצורך מענה לפנייתו ומתן הצעת מחיר.
         </p>
-        <h4 className="font-semibold text-gray-900">4. קניין רוחני</h4>
+
+        <h4 className="font-bold text-gray-900">4. קניין רוחני וזכויות יוצרים</h4>
         <p>
-          כל תכני האתר מוגנים בזכויות יוצרים ואין להעתיקם או להשתמש בהם ללא אישור מראש ובכתב.
+          מלוא זכויות היוצרים והקניין הרוחני באתר – לרבות תמונות תאי השירותים, סרטונים, לוגו החברה, עיצוב האתר, טקסטים ומדריכים מקצועיים – שייכים ל-א.ל שירותים ניידים (או לצדדים שלישיים שהתירו לחברה להשתמש בהם). אין להעתיק, לשכפל, להפיץ או לפרסם כל חלק מהאתר ללא אישור מראש ובכתב ממפעיל האתר.
         </p>
-        <h4 className="font-semibold text-gray-900">5. אחריות מוגבלת</h4>
+
+        <h4 className="font-bold text-gray-900">5. הגבלת אחריות</h4>
         <p>
-          התכנים באתר ניתנים "כפי שהם" (AS-IS). מפעיל האתר אינו אחראי לדיוק או שלמות המידע באתר ולא יישא באחריות לכל נזק שייגרם עקב שימוש במידע.
+          האתר ותכניו ניתנים לשימוש כפי שהם (&quot;AS-IS&quot;). החברה עושה מאמץ רב לשמור על דיוק המידע באתר, אך ייתכנו שינויים במפרטי היחידות או בזמינותן. מפעיל האתר לא יישא באחריות לכל נזק ישיר או עקיף שייגרם כתוצאה מהסתמכות על מידע כללי באתר ללא תיאום פרטני מראש מול החברה.
         </p>
-        <h4 className="font-semibold text-gray-900">6. קישורים לאתרים חיצוניים</h4>
+
+        <h4 className="font-bold text-gray-900">6. קישורים חיצוניים ורשתות חברתיות</h4>
         <p>
-          האתר עשוי לכלול קישורים לאתרים חיצוניים. אין למפעיל האתר שליטה על אתרים אלו והוא לא יישא באחריות לתוכנם.
+          האתר כולל קישורים לעמודי החברה ברשתות החברתיות (פייסבוק, אינסטגרם, טיקטוק), לוואטסאפ ולביקורות לקוחות בגוגל. השימוש בפלטפורמות חיצוניות אלו כפוף לתנאי השימוש של אותן פלטפורמות.
         </p>
-        <h4 className="font-semibold text-gray-900">7. פרטיות ומידע אנליטי</h4>
+
+        <h4 className="font-bold text-gray-900">7. דין, סמכות שיפוט ויצירת קשר</h4>
         <p>
-          נאסף מידע אנונימי באמצעות Google Analytics לצרכים סטטיסטיים. בנוסף, נאספים רק שם מלא ומספר טלפון שמוזנים ידנית על ידי המשתמש.
-        </p>
-        <h4 className="font-semibold text-gray-900">8. שינויים בתנאים</h4>
-        <p>
-          מפעיל האתר רשאי לעדכן את התנאים בכל עת. המשך שימוש באתר מהווה הסכמה לתנאים המעודכנים.
-        </p>
-        <h4 className="font-semibold text-gray-900">9. דין וסמכות שיפוט</h4>
-        <p>
-          על תנאים אלו יחולו דיני מדינת ישראל. סמכות השיפוט הבלעדית נתונה לבתי המשפט במחוז תל אביב.
+          על תקנון זה יחולו דיני מדינת ישראל בלבד, וסמכות השיפוט הבלעדית נתונה לבתי המשפט המוסמכים במחוז מרכז/תל אביב. לכל שאלה או בירור ניתן לפנות אלינו בטלפון: <strong>052-6920346</strong> (ליאב) / <strong>052-6525185</strong> (אושרי) או בדוא״ל: <strong>shirutim4u@gmail.com</strong>.
         </p>
       </div>
     ),
   },
   privacy: {
-    title: "מדיניות פרטיות",
+    title: "מדיניות פרטיות – א.ל שירותים ניידים",
     body: (
-      <div className="space-y-4 text-sm leading-7 text-gray-700 max-h-[60vh] overflow-y-auto pr-2 rtl:text-right">
+      <div className="space-y-4 text-sm leading-7 text-gray-700 max-h-[62vh] overflow-y-auto pl-2 text-right">
+        <p className="text-xs text-gray-500">עודכן לאחרונה: נובמבר 2026</p>
         <p>
-          פרטיות המשתמשים חשובה לנו. באתר נאסף מידע סטטיסטי אנונימי (כגון כתובת IP ונתוני גלישה) באמצעות Google Analytics.
+          <strong>א.ל שירותים ניידים</strong> (להלן: &quot;החברה&quot;) מכבדת את פרטיות הגולשים באתר <strong>shirutim4u.com</strong> ופועלת בהתאם להוראות חוק הגנת הפרטיות, התשמ״א-1981 (כולל תיקון 13). מסמך זה מפרט איזה מידע נאסף באתר וכיצד נעשה בו שימוש.
         </p>
-        <h4 className="font-semibold text-gray-900">1. מידע שנאסף</h4>
+
+        <h4 className="font-bold text-gray-900">1. איזה מידע אנו אוספים?</h4>
+        <ul className="list-disc list-inside space-y-1.5">
+          <li>
+            <strong>מידע שנמסר ביוזמת המשתמש:</strong> כאשר אתם משאירים פרטים בטופס יצירת הקשר באתר, נאספים הפרטים שהזנתם ידנית: שם מלא, מספר טלפון נייד ותוכן ההודעה (אם הוזנה). מסירת המידע תלויה ברצונכם החופשי, אך ללא שם ומספר טלפון לא נוכל לחזור אליכם עם הצעת מחיר.
+          </li>
+          <li>
+            <strong>מידע טכני וסטטיסטי אנונימי:</strong> בעת הגלישה באתר נאסף מידע סטטיסטי לא מזהה (כגון סוג דפדפן, מכשיר, עמודים שנצפו ומשך השהייה) באמצעות כלי המדידה הרשמי <strong>Google Analytics</strong>, לצורך ניתוח תנועת הגולשים ושיפור חוויית המשתמש באתר.
+          </li>
+        </ul>
+
+        <h4 className="font-bold text-gray-900">2. מטרות השימוש במידע</h4>
         <p>
-          שם מלא ומספר טלפון מוזנים ידנית על ידי המשתמש בטופס יצירת קשר. מידע נוסף נאסף באופן אנונימי באמצעות עוגיות לצורך שיפור האתר.
+          הפרטים האישיים שתמסרו בטופס יצירת הקשר ישמשו אך ורק לצורך יצירת קשר חוזר, מתן ייעוץ מקצועי והפקת הצעת מחיר להשכרת שירותים ניידים. איננו שולחים הודעות ספאם ואיננו מצרפים את פרטיכם לרשימות תפוצה פרסומיות.
         </p>
-        <h4 className="font-semibold text-gray-900">2. שימוש במידע</h4>
+
+        <h4 className="font-bold text-gray-900">3. העברת מידע לצדדים שלישיים</h4>
         <p>
-          המידע ישמש ליצירת קשר בלבד ולהפקת סטטיסטיקות אנונימיות. לא נעשה שימוש מסחרי במידע ולא נעשה בו שימוש לצורך פרופיל אישי.
+          החברה אינה מוכרת, אינה משכירה ואינה מעבירה את פרטיכם האישיים לצדדים שלישיים למטרות מסחריות. תפעול טופס יצירת הקשר מתבצע באמצעות תשתית טכנולוגית מאובטחת (Formspree) המעבירה את הפנייה ישירות לנציגי החברה, או כאשר הדבר נדרש על פי צו שיפוטי/הוראת חוק.
         </p>
-        <h4 className="font-semibold text-gray-900">3. אבטחת מידע</h4>
+
+        <h4 className="font-bold text-gray-900">4. קבצי עוגיות (Cookies)</h4>
         <p>
-          המידע נשמר באופן מאובטח בהתאם לדרישות החוק. אנו נוקטים באמצעים סבירים להגן על המידע.
+          האתר עושה שימוש בעוגיות (Cookies) חיוניות לתפקודו התקין (כגון שמירת העדפות נגישות) ובעוגיות סטטיסטיות של Google Analytics. באפשרותכם לחסום או למחוק עוגיות בכל עת דרך הגדרות הדפדפן שלכם.
         </p>
-        <h4 className="font-semibold text-gray-900">4. זכויות המשתמש</h4>
+
+        <h4 className="font-bold text-gray-900">5. אבטחת מידע</h4>
         <p>
-          ניתן לפנות אלינו לבקשת עיון, תיקון או מחיקה של המידע. אין שימוש במידע מעבר למה שתואר לעיל.
+          האתר פועל תחת פרוטוקול הצפנה מאובטח (SSL / HTTPS), והגישה לפרטי הפניות שמורה לנציגי א.ל שירותים ניידים המורשים בלבד.
         </p>
-        <h4 className="font-semibold text-gray-900">5. עוגיות</h4>
+
+        <h4 className="font-bold text-gray-900">6. זכות עיון, תיקון ומחיקה ויצירת קשר</h4>
         <p>
-          האתר עושה שימוש בעוגיות בסיסיות לצורך תפקודו התקין ושיפור חווית המשתמש. ניתן לשלוט בהגדרות אלו דרך הדפדפן.
-        </p>
-        <h4 className="font-semibold text-gray-900">6. יצירת קשר</h4>
-        <p>
-          לפניות בנושאי פרטיות ניתן ליצור קשר דרך טופס יצירת הקשר באתר או בדוא"ל: shirutim4u@gmail.com
+          על פי חוק הגנת הפרטיות, כל אדם זכאי לעיין במידע שעליו, או לבקש את תיקונו או מחיקתו. לכל פנייה בנושא פרטיות ניתן ליצור קשר בדוא״ל: <strong>shirutim4u@gmail.com</strong> או בטלפון: <strong>052-6920346</strong>.
         </p>
       </div>
     ),
   },
   accessibility: {
-    title: "הצהרת נגישות",
+    title: "הצהרת נגישות – א.ל שירותים ניידים",
     body: (
-      <div className="space-y-4 text-sm leading-7 text-gray-700 max-h-[60vh] overflow-y-auto pr-2 rtl:text-right">
+      <div className="space-y-4 text-sm leading-7 text-gray-700 max-h-[62vh] overflow-y-auto pl-2 text-right">
+        <p className="text-xs text-gray-500">עודכן לאחרונה: נובמבר 2026</p>
         <p>
-          אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 (בהתאם ל־WCAG 2.0 AA).
+          ב-<strong>א.ל שירותים ניידים</strong> אנו רואים חשיבות עליונה במתן שירות שוויוני, מכבד ונגיש לכלל הלקוחות והגולשים, לרבות אנשים עם מוגבלות. אנו משקיעים משאבים בהנגשת האתר <strong>shirutim4u.com</strong> בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע״ג-2013 ובהתאם לתקן הישראלי <strong>ת״י 5568</strong> המבוסס על הנחיות <strong>WCAG 2.0 ברמת AA</strong>.
         </p>
-        <h4 className="font-semibold text-gray-900">1. תוסף MicAccessTool</h4>
+
+        <h4 className="font-bold text-gray-900">1. התאמות הנגישות שבוצעו באתר</h4>
+        <ul className="list-disc list-inside space-y-1.5">
+          <li>מבנה סמנטי ברור והיררכיית כותרות תקנית (H1, H2, H3) להתמצאות קלה עם קוראי מסך.</li>
+          <li>תמיכה בניווט מקלדת מלא (באמצעות מקשי Tab, Shift+Tab, Enter ו-Escape לסגירת חלונות).</li>
+          <li>הוספת תיאורים חלופיים (Alt) לתמונות ותוויות נגישות (aria-label) לכפתורים ולקישורים.</li>
+          <li>עיצוב רספונסיבי מלא המותאם למחשבים, טאבלטים וטלפונים ניידים בכל גודל מסך, כולל תמיכה בהגדלת תצוגה (Zoom) עד 200%.</li>
+          <li>ניגודיות צבעים ברורה וגופן עברי קריא וחד (Rubik).</li>
+        </ul>
+
+        <h4 className="font-bold text-gray-900">2. סרגל הנגישות באתר (MicAccessTool)</h4>
         <p>
-          באתר מוטמע תוסף MicAccessTool המאפשר התאמות נגישות מגוונות כגון: שינוי גודל טקסט, שינוי ניגודיות, הדגשת קישורים, התאמות עבור קוראי מסך, ניווט מקלדת ועוד.
+          בפינה השמאלית התחתונה של האתר מוטמע כפתור נגישות ייעודי (ניתן להפעלה גם באמצעות קיצור המקלדת <strong>Ctrl + F2</strong>). סרגל הנגישות מאפשר בין היתר:
         </p>
-        <h4 className="font-semibold text-gray-900">2. הפעלת התפריט</h4>
+        <ul className="list-disc list-inside space-y-1">
+          <li>הגדלה והקטנה של גודל הטקסט והחלפה לפונט קריא.</li>
+          <li>שינוי ניגודיות צבעים (ניגודיות גבוהה, ניגודיות הפוכה, תצוגת מונוכרום/גווני אפור).</li>
+          <li>הדגשת קישורים וכותרות ברחבי האתר.</li>
+          <li>הגדלת סמן העכבר (שחור או לבן) והצגת תיאורי תמונות.</li>
+          <li>ביטול הבהובים ואנימציות ואיפוס מיידי של הגדרות הנגישות.</li>
+        </ul>
+
+        <h4 className="font-bold text-gray-900">3. נגישות השירות והמענה האנושי</h4>
         <p>
-          ניתן להפעיל את תפריט הנגישות באמצעות לחיצה על סמל הנגישות באתר או על ידי קיצור מקלדת Ctrl+F2.
+          החברה מספקת שירות בפריסה ארצית עד למיקום האירוע או הפרויקט (ללא צורך בהגעה פיזית למשרדי החברה). ניתן לקבל ייעוץ, מידע והצעת מחיר במגוון ערוצים נגישים לבחירתכם: שיחה טלפונית, הודעת וואטסאפ כתובה או מוקלטת, דואר אלקטרוני או טופס האתר.
         </p>
-        <h4 className="font-semibold text-gray-900">3. שיפור מתמיד</h4>
+
+        <h4 className="font-bold text-gray-900">4. פניות ורכז נגישות</h4>
         <p>
-          אנו שואפים להנגיש את כלל רכיבי האתר. במידה ונתקלתם בבעיה, נשמח לקבל פניה ולפעול לתיקון.
+          אנו ממשיכים לפעול לשיפור מתמיד של נגישות האתר. אם נתקלתם בקושי בגלישה או שיש לכם בקשה להתאמת נגישות, נשמח לעמוד לרשותכם ולטפל בפנייה במהירות:
         </p>
-        <h4 className="font-semibold text-gray-900">4. יצירת קשר בנושאי נגישות</h4>
-        <p>
-          לפניות בנושא נגישות ניתן לפנות בדוא"ל: shirutim4u@gmail.com או בטלפון: 052-692-0346
-        </p>
+        <div className="bg-gray-50 p-3.5 rounded-xl border border-gray-200 text-xs sm:text-sm space-y-1">
+          <div><strong>איש קשר לנושאי נגישות:</strong> ליאב</div>
+          <div><strong>טלפון / וואטסאפ:</strong> <a href="tel:+972526920346" className="text-blue-600 font-semibold hover:underline">052-6920346</a></div>
+          <div><strong>דוא״ל:</strong> <a href="mailto:shirutim4u@gmail.com" className="text-blue-600 font-semibold hover:underline">shirutim4u@gmail.com</a></div>
+        </div>
       </div>
     ),
   },
@@ -138,7 +167,7 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/40" />
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-xs" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -152,17 +181,26 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-right align-middle shadow-xl transition-all">
-                <Dialog.Title className="text-lg font-bold text-gray-900 mb-4 border-b pb-2">
-                  {legalContent[type].title}
-                </Dialog.Title>
-                {legalContent[type].body}
-                <div className="mt-6 text-center">
+              <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-3xl bg-white p-6 sm:p-8 text-right align-middle shadow-2xl border border-gray-200 transition-all">
+                <div className="flex items-center justify-between border-b border-gray-200 pb-3 mb-4">
+                  <Dialog.Title className="text-lg sm:text-xl font-extrabold text-gray-900">
+                    {legalContent[type].title}
+                  </Dialog.Title>
                   <button
                     onClick={onClose}
-                    className="cursor-pointer inline-flex justify-center rounded-md border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none"
+                    aria-label="סגור חלון"
+                    className="w-8 h-8 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900 flex items-center justify-center transition cursor-pointer"
                   >
-                    סגור
+                    ✕
+                  </button>
+                </div>
+                {legalContent[type].body}
+                <div className="mt-6 pt-3 border-t border-gray-100 text-center">
+                  <button
+                    onClick={onClose}
+                    className="cursor-pointer inline-flex justify-center rounded-xl bg-gradient-to-b from-zinc-700 via-zinc-900 to-black px-6 py-2.5 text-sm font-bold text-white shadow-md hover:from-zinc-600 hover:to-zinc-900 transition-all focus:outline-none"
+                  >
+                    סגור חלון
                   </button>
                 </div>
               </Dialog.Panel>
@@ -173,3 +211,4 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
     </Transition>
   );
 }
+
