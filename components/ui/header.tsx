@@ -1,179 +1,218 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import Image from "next/image";
 
+const mobileNavLinks = [
+  { href: "/#gallery", label: "גלריית תמונות וסרטון", badge: "VIP" },
+  { href: "/services/mobile-toilets", label: "שירותים ניידים להשכרה", badge: null },
+  { href: "/blog", label: "מדריכים ומאמרים", badge: null },
+  { href: "/#whyus", label: "למה לבחור בנו", badge: null },
+  { href: "/#faq", label: "שאלות נפוצות", badge: null },
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Close mobile menu on Escape or resize to desktop
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 640) setIsOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <header className="fixed top-4 left-1/2 z-30 -translate-x-1/2 w-[92%] max-w-3xl">
-      <div className="flex items-center justify-around rounded-xl bg-white px-4 py-2 shadow-lg border border-gray-200">
-        
-        {/* תפריט שמאל (מסכים גדולים) */}
-        <nav aria-label="ניווט משני" className="hidden sm:flex items-center gap-2">
-          <Link
-            href="/blog"
-            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 hover:border-gray-400 transition cursor-pointer"
-          >
-            מדריכים
-          </Link>
-          <Link
-            href="/#faq"
-            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 hover:border-gray-400 transition cursor-pointer"
-          >
-            שאלות
-          </Link>
-          <Link
-            href="/#contact"
-            className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.22)] ring-1 ring-zinc-700/80 hover:from-zinc-600 hover:via-zinc-800 hover:to-zinc-950 hover:shadow-[0_6px_20px_rgba(37,99,235,0.28)] hover:ring-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
-            <span>צור קשר</span>
-          </Link>
-        </nav>
+    <>
+      {/* Subtle backdrop when mobile menu is open */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-20 bg-black/20 sm:hidden"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
-        {/* לוגו במרכז - מקושר לדף הבית */}
-        <div className="flex-shrink-0">
-          <Link href="/" aria-label="א.ל שירותים ניידים - דף הבית">
-            <Image
-              src="/images/ollogo.png"
-              alt="א.ל שירותים ניידים - השכרת שירותים ניידים מפוארים"
-              width={120}
-              height={56}
-              priority
-              className="h-14 w-auto object-contain"
-            />
-          </Link>
-        </div>
-
-        {/* תפריט ימין (מסכים גדולים) */}
-        <nav aria-label="ניווט ראשי" className="hidden sm:flex items-center gap-2">
-          <Link
-            href="/services/mobile-toilets"
-            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 hover:border-gray-400 transition cursor-pointer"
-          >
-            שירותים
-          </Link>
-          <Link
-            href="/#whyus"
-            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 hover:border-gray-400 transition cursor-pointer"
-          >
-            למה אנחנו
-          </Link>
-          <Link
-            href="/#gallery"
-            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 hover:border-gray-400 transition cursor-pointer"
-          >
-            גלריה
-          </Link>
-        </nav>
-
-        {/* --- אזור מובייל בלבד --- */}
-        <div className="sm:hidden flex-1 flex items-center justify-between pr-4">
+      <header className="fixed top-3.5 sm:top-4 left-1/2 z-30 -translate-x-1/2 w-[92%] max-w-3xl">
+        <div className="relative flex items-center justify-between sm:justify-around rounded-full sm:rounded-2xl bg-white/95 px-3.5 sm:px-5 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-200/80 ring-1 ring-black/[0.03]">
           
-          {/* כפתורי שיחה (מוצמדים לימין, קרובים ללוגו) */}
-          <div className="flex items-center gap-3">
+          {/* תפריט שמאל (מסכים גדולים) */}
+          <nav aria-label="ניווט משני" className="hidden sm:flex items-center gap-1.5">
+            <Link
+              href="/blog"
+              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+            >
+              מדריכים
+            </Link>
+            <Link
+              href="/#faq"
+              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+            >
+              שאלות
+            </Link>
+            <Link
+              href="/#contact"
+              className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.22)] ring-1 ring-zinc-700/80 hover:from-zinc-600 hover:via-zinc-800 hover:to-zinc-950 hover:shadow-[0_6px_20px_rgba(37,99,235,0.28)] hover:ring-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
+              <span>צור קשר</span>
+            </Link>
+          </nav>
+
+          {/* לוגו - במובייל מוצמד לימין (RTL), בדסקטופ במרכז */}
+          <div className="flex-shrink-0 sm:order-none order-2">
+            <Link href="/" aria-label="א.ל שירותים ניידים - דף הבית" onClick={() => setIsOpen(false)}>
+              <Image
+                src="/images/ollogo.png"
+                alt="א.ל שירותים ניידים - השכרת שירותים ניידים מפוארים"
+                width={120}
+                height={56}
+                priority
+                className="h-10 sm:h-13 w-auto object-contain"
+              />
+            </Link>
+          </div>
+
+          {/* תפריט ימין (מסכים גדולים) */}
+          <nav aria-label="ניווט ראשי" className="hidden sm:flex items-center gap-1.5">
+            <Link
+              href="/services/mobile-toilets"
+              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+            >
+              שירותים
+            </Link>
+            <Link
+              href="/#whyus"
+              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+            >
+              למה אנחנו
+            </Link>
+            <Link
+              href="/#gallery"
+              className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-950 hover:bg-gray-100 transition cursor-pointer"
+            >
+              גלריה
+            </Link>
+          </nav>
+
+          {/* --- אזור מובייל בלבד --- */}
+          <div className="sm:hidden flex items-center gap-2 order-1">
+            {/* כפתור תפריט אלגנטי בצורת קפסולה כהה */}
+            <button
+              type="button"
+              className="h-9 px-3.5 rounded-full bg-zinc-900 hover:bg-zinc-800 active:scale-95 text-white flex items-center gap-2 text-xs font-bold shadow-sm transition-all cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "סגור תפריט ניווט" : "פתח תפריט ניווט"}
+              aria-expanded={isOpen}
+            >
+              <svg
+                className="h-4 w-4 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M4 7h16M4 12h16M4 17h11" />
+                )}
+              </svg>
+              <span>{isOpen ? "סגור" : "תפריט"}</span>
+            </button>
+
+            {/* כפתורי חיוג ו-WhatsApp עדינים ומעוצבים */}
             <a
               href="tel:+972526920346"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition cursor-pointer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-zinc-100 text-zinc-800 hover:bg-zinc-200 active:scale-95 transition-all cursor-pointer"
               aria-label="התקשר עכשיו ל-052-6920346"
             >
-              <FaPhoneAlt size={24} />
+              <FaPhoneAlt size={15} />
             </a>
 
             <a
               href="https://wa.me/972526920346"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition cursor-pointer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-emerald-50 text-[#1da851] ring-1 ring-emerald-500/25 hover:bg-emerald-100 active:scale-95 transition-all cursor-pointer"
               aria-label="שלח הודעת וואטסאפ"
             >
-              <FaWhatsapp size={26} />
+              <FaWhatsapp size={19} />
             </a>
           </div>
 
-          {/* אזור כפתור תפריט (מוצמד לשמאל הקיצוני) */}
-          <div className="relative">
-            <button
-              className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-gray-800 shadow-sm hover:bg-gray-200 transition cursor-pointer"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="פתח תפריט ניווט"
-              aria-expanded={isOpen}
+          {/* תפריט מובייל נפתח - כרטיס רחב, נקי ויוקרתי מתחת לסרגל העליון */}
+          {isOpen && (
+            <div
+              dir="rtl"
+              className="sm:hidden absolute top-[calc(100%+10px)] inset-x-0 bg-white rounded-3xl border border-gray-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.18)] p-3.5 z-50"
             >
-              <svg
-                className="h-7 w-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+              <nav aria-label="תפריט מובייל" className="flex flex-col divide-y divide-gray-100">
+                {mobileNavLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex items-center justify-between px-3.5 py-3 text-[15px] font-bold text-gray-800 hover:text-gray-950 hover:bg-gray-50 active:bg-gray-100 rounded-xl transition cursor-pointer"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <span>{item.label}</span>
+                      {item.badge && (
+                        <span className="text-[11px] font-extrabold bg-zinc-900 text-white px-2 py-0.5 rounded-full">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </Link>
+                ))}
+              </nav>
 
-            {/* תפריט נפתח */}
-            {isOpen && (
-              <div
-                dir="rtl"
-                className="text-center absolute top-14 left-0 w-48 bg-white border border-gray-300 rounded-xl shadow-xl py-3 px-4 space-y-2 z-50"
-              >
-                <Link
-                  href="/#gallery"
-                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  גלריה
-                </Link>
-                <Link
-                  href="/services/mobile-toilets"
-                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  שירותים ניידים
-                </Link>
-                <Link
-                  href="/blog"
-                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  מדריכים ומאמרים
-                </Link>
-                <Link
-                  href="/#faq"
-                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  שאלות נפוצות
-                </Link>
-                <Link
-                  href="/#whyus"
-                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  למה אנחנו
-                </Link>
+              <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2.5">
                 <Link
                   href="/#contact"
-                  className="flex items-center justify-center gap-2 text-white bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-md font-bold px-3 py-2.5 rounded-xl shadow-[0_4px_14px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.22)] ring-1 ring-zinc-700/80 hover:from-zinc-600 hover:to-zinc-900 transition-all cursor-pointer"
+                  className="flex items-center justify-center gap-2 text-white bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-[15px] font-bold py-3 px-4 rounded-2xl shadow-[0_4px_14px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.2)] ring-1 ring-zinc-700/80 active:scale-[0.99] transition-all cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" aria-hidden="true" />
-                  <span>צור קשר</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
+                  <span>צור קשר להצעת מחיר</span>
                 </Link>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="tel:+972526920346"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold transition"
+                  >
+                    <FaPhoneAlt size={13} />
+                    <span>052-6920346</span>
+                  </a>
+                  <a
+                    href="https://wa.me/972526920346"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#1da851] ring-1 ring-emerald-500/20 text-xs font-bold transition"
+                  >
+                    <FaWhatsapp size={16} />
+                    <span>וואטסאפ מהיר</span>
+                  </a>
+                </div>
               </div>
-            )}
-          </div>
-          
+            </div>
+          )}
+
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

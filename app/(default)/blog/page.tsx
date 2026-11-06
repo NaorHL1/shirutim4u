@@ -73,11 +73,11 @@ export default function BlogIndexPage() {
         </nav>
 
         {/* Header */}
-        <header className="mb-12 text-right max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+        <header className="mb-10 sm:mb-12 text-right max-w-3xl">
+          <h1 className="text-[26px] sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
             מדריכים וטיפים להשכרת שירותים ניידים לאירועים
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-[15px] sm:text-lg text-gray-600 leading-relaxed">
             מתכננים חתונה בטבע, אירוע חברה או הפקת שטח? ריכזנו עבורכם את כל הידע המקצועי של צוות <strong>א.ל שירותים ניידים</strong> – מבחירת קרון שירותים מפואר ועד פתרונות לעבודה ללא תשתיות מים וחשמל.
           </p>
         </header>

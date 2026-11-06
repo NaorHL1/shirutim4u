@@ -6,18 +6,18 @@ export default function FeaturesPlanet() {
       <div className="mx-auto max-w-6xl">
         <div className="py-12 md:py-20">
           {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-16 text-center md:pb-20">
-            <h2 className="text-4xl font-extrabold text-gray-900 leading-tight">
+          <div className="mx-auto max-w-3xl pb-10 sm:pb-16 text-center md:pb-20">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
               שאלות נפוצות – כל מה שצריך לדעת על השירותים הניידים שלנו
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-3 sm:mt-4 text-[15px] sm:text-lg text-gray-600 leading-relaxed">
               ריכזנו עבורכם את כל המידע החיוני על פתרונות השירותים הניידים המפוארים שלנו.
             </p>
           </div>
 
           {/* Planet visual */}
-        <div className="pb-16 md:pb-20 flex justify-center custom-zoom-in">
-          <div className="relative w-[288px] h-[288px] rounded-full border-8 border-blue-100 bg-gradient-to-tr from-blue-50 to-white shadow-xl flex items-center justify-center overflow-hidden">
+        <div className="pb-12 sm:pb-16 md:pb-20 flex justify-center custom-zoom-in">
+          <div className="relative w-[220px] h-[220px] sm:w-[288px] sm:h-[288px] rounded-full border-8 border-blue-100 bg-gradient-to-tr from-blue-50 to-white shadow-xl flex items-center justify-center overflow-hidden">
             <Image
               className="rounded-full object-cover"
               src="/images/planet.png"

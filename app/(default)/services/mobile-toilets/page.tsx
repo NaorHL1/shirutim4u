@@ -93,19 +93,19 @@ export default function MobileToiletsPage() {
         </nav>
 
         {/* Hero Header */}
-        <header className="mb-12 text-right">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+        <header className="mb-10 sm:mb-12 text-right">
+          <h1 className="text-[26px] sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-snug">
             השכרת שירותים ניידים ותאי שירותים להשכרה לכל מטרה
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
+          <p className="text-[15px] sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
             א.ל שירותים ניידים מספקת פתרונות תברואה וסניטציה ניידים מתקדמים בפריסה ארצית. אם אתם מעוניינים <strong>להשכיר שירותים ניידים</strong>, אנו מתאימים את הפתרון המדויק עבורכם – החל מ<Link href="/blog/luxury-portable-toilets" className="text-blue-600 font-semibold hover:underline">שירותים מפוארים להשכרה (שירותים לאירועים וחתונות)</Link> ועד <strong>תאי שירותים להשכרה</strong> עמידים להפקות שטח ואתרי בנייה.
           </p>
         </header>
 
         {/* Featured Visual + Core Intro */}
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-16 bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100">
-          <div className="space-y-4 text-gray-700 leading-relaxed text-base">
-            <h2 className="text-2xl font-bold text-gray-900">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center mb-12 sm:mb-16 bg-gray-50 p-5 sm:p-6 md:p-8 rounded-3xl border border-gray-100">
+          <div className="space-y-4 text-gray-700 leading-relaxed text-[15px] sm:text-base">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
               שירותים ניידים להשכרה – פתרון אוטונומי ללא צורך בתשתיות
             </h2>
             <p>
@@ -127,8 +127,8 @@ export default function MobileToiletsPage() {
         </div>
 
         {/* Service Categories */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-8">
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-6 sm:mb-8 leading-snug">
             התאמת סוג השירותים הניידים לצורך שלכם
           </h2>
           <div className="grid md:grid-cols-3 gap-6">

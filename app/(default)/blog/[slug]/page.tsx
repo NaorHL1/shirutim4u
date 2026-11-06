@@ -174,11 +174,11 @@ export default async function BlogPostPage({
             <time dateTime={post.lastUpdated}>עודכן לאחרונה: {post.lastUpdated}</time>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-[24px] sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-snug">
             {post.title}
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+          <p className="text-[15px] sm:text-lg md:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8">
             {post.description}
           </p>
 
@@ -207,9 +207,9 @@ export default async function BlogPostPage({
         )}
 
         {/* Table of Contents */}
-        <nav aria-label="תוכן עניינים" className="mb-12 p-6 rounded-2xl bg-gray-50 border border-gray-200">
-          <h2 className="text-lg font-bold text-gray-900 mb-3">תוכן עניינים במדריך זה:</h2>
-          <ol className="list-decimal list-inside space-y-2 text-blue-600 font-medium text-[15px]">
+        <nav aria-label="תוכן עניינים" className="mb-10 sm:mb-12 p-5 sm:p-6 rounded-2xl bg-gray-50 border border-gray-200">
+          <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-3">תוכן עניינים במדריך זה:</h2>
+          <ol className="list-decimal list-inside space-y-2 text-blue-600 font-medium text-[14px] sm:text-[15px]">
             {post.sections.map((sec) => (
               <li key={sec.id}>
                 <a href={`#${sec.id}`} className="hover:underline">
@@ -226,10 +226,10 @@ export default async function BlogPostPage({
         </nav>
 
         {/* Main Sections */}
-        <div className="space-y-12 text-gray-700 leading-relaxed text-base md:text-lg">
+        <div className="space-y-10 sm:space-y-12 text-gray-700 leading-relaxed text-[15px] sm:text-base md:text-lg">
           {post.sections.map((sec) => (
             <section key={sec.id} id={sec.id} className="scroll-mt-28">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mb-3.5 sm:mb-4 leading-snug">
                 {sec.heading}
               </h2>
               {sec.content.map((paragraph, pIdx) => (
@@ -239,9 +239,9 @@ export default async function BlogPostPage({
               ))}
 
               {sec.bullets && (
-                <ul className="space-y-2.5 my-5 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                <ul className="space-y-2.5 my-5 bg-gray-50 p-4 sm:p-6 rounded-2xl border border-gray-100">
                   {sec.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2.5 text-[16px]">
+                    <li key={bIdx} className="flex items-start gap-2.5 text-[14px] sm:text-[16px]">
                       <span className="text-blue-600 font-bold mt-0.5">✓</span>
                       <span>{bullet}</span>
                     </li>
@@ -250,9 +250,9 @@ export default async function BlogPostPage({
               )}
 
               {sec.table && (
-                <div className="overflow-x-auto my-6 rounded-2xl border border-gray-200">
-                  <table className="w-full text-right border-collapse text-sm md:text-base">
-                    <thead>
+                <div className="my-6 md:rounded-2xl md:border md:border-gray-200 md:overflow-hidden">
+                  <table className="w-full text-right border-collapse text-[14px] sm:text-sm md:text-base">
+                    <thead className="hidden md:table-header-group">
                       <tr className="bg-gray-100 border-b border-gray-200 text-gray-900">
                         {sec.table.headers.map((h, hIdx) => (
                           <th key={hIdx} className="py-3 px-4 font-bold">
@@ -261,14 +261,26 @@ export default async function BlogPostPage({
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200 bg-white">
+                    <tbody className="block md:table-row-group space-y-3 md:space-y-0 md:divide-y md:divide-gray-200">
                       {sec.table.rows.map((row, rIdx) => (
-                        <tr key={rIdx}>
+                        <tr
+                          key={rIdx}
+                          className="block md:table-row rounded-2xl border border-gray-200 md:border-0 p-4 md:p-0 bg-gray-50/70 md:bg-white"
+                        >
                           {row.map((cell, cIdx) => (
                             <td
                               key={cIdx}
-                              className={`py-3 px-4 ${cIdx === 0 ? "font-semibold text-gray-900" : ""}`}
+                              className={`block md:table-cell ${
+                                cIdx === 0
+                                  ? "font-extrabold text-gray-900 text-[15px] md:text-base pb-2 mb-2 border-b border-gray-200/80 md:border-0 md:py-3 md:px-4 md:mb-0"
+                                  : "py-1 md:py-3 md:px-4 text-gray-700"
+                              }`}
                             >
+                              {cIdx > 0 && sec.table?.headers[cIdx] && (
+                                <span className="md:hidden font-bold text-gray-900 ml-1.5">
+                                  {sec.table.headers[cIdx]}:
+                                </span>
+                              )}
                               {cell}
                             </td>
                           ))}

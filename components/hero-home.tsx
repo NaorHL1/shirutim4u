@@ -195,18 +195,18 @@ export default function HeroHome() {
         <PageIllustration />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="pb-12 pt-32 md:pb-20 md:pt-40">
+          <div className="pb-10 pt-24 sm:pt-32 md:pb-20 md:pt-40">
 
             <motion.div
-              className="pb-12 text-center md:pb-16"
+              className="pb-8 sm:pb-12 text-center md:pb-16"
               variants={headerContainer}
               initial="hidden"
               animate="show"
             >
-              {/* H1 תוקן לשילוב שיווקי + SEO חזק */}
+              {/* H1 תוקן לשילוב שיווקי + SEO חזק ומותאם בגודל למובייל */}
               <motion.h1
                 variants={headerItem}
-                className="mb-6 text-5xl font-extrabold text-gray-900 leading-tight md:text-6xl"
+                className="mb-4 sm:mb-6 text-[28px] sm:text-4xl md:text-6xl font-extrabold text-gray-900 leading-[1.22] tracking-tight"
               >
                 השכרת שירותים ניידים מפוארים <br className="max-lg:hidden" />
                 לאירועים וחתונות בטבע
@@ -217,7 +217,7 @@ export default function HeroHome() {
                 className="mx-auto max-w-2xl"
               >
                 {/* פסקת פתיחה סמנטית */}
-                <p className="mb-10 text-lg text-gray-600 md:text-xl font-normal">
+                <p className="mb-7 sm:mb-10 text-[15px] sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed px-1">
                   חתונות בטבע, בר/בת מצווה, כנסים והפקות שטח – א.ל שירותים ניידים מביאים אליכם תאי שירותים מפוארים ברמה של מלון 5 כוכבים, עצמאיים לחלוטין בשטח עם איש שירות צמוד בפריסה ארצית.
                 </p>
 
@@ -230,8 +230,8 @@ export default function HeroHome() {
               </motion.div>
             </motion.div>
 
-            <section id="gallery" className="w-full py-16">
-              <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 px-6">
+            <section id="gallery" className="w-full py-10 sm:py-16">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-6 sm:mb-10 px-4">
                 גלריית תאי שירותים ניידים מפוארים
               </h2>
 
@@ -369,12 +369,12 @@ export default function HeroHome() {
 
             <section
               id="whyus"
-              className="px-6 py-20 bg-gradient-to-b from-gray-50 to-white rounded-xl shadow-inner"
+              className="px-4 sm:px-6 py-12 sm:py-20 bg-gradient-to-b from-gray-50 to-white rounded-2xl shadow-inner"
             >
-              <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8 sm:mb-12">
                 למה לבחור בשירותים הניידים שלנו?
               </h2>
-              <div className="grid gap-10 max-w-5xl mx-auto sm:grid-cols-2">
+              <div className="grid gap-6 sm:gap-10 max-w-5xl mx-auto sm:grid-cols-2">
                 {[
                   { title: 'יוקרה ונוחות ללא תחרות', desc: 'שירותים מוארים ומעוצבים – חוויה יוקרתית כמו באולם.' },
                   { title: 'מתאים לכל סוגי האירועים', desc: 'חתונות, בר/בת מצווה, אירועים עסקיים וחגיגות חוץ.' },
@@ -383,9 +383,9 @@ export default function HeroHome() {
                   { title: 'יחס אישי וזמינות', desc: 'מענה מהיר וליווי אישי לאורך כל הדרך.' },
                   { title: 'עצמאי לחלוטין בשטח', desc: 'לא נדרשת תשתית ביוב או מים – השירותים פועלים גם בטבע.' }
                 ].map((item, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
+                  <div key={idx} className="space-y-1.5 sm:space-y-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">{item.title}</h3>
+                    <p className="text-[15px] sm:text-base text-gray-600">{item.desc}</p>
                   </div>
                 ))}
               </div>
