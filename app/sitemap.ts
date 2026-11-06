@@ -5,10 +5,11 @@ export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.shirutim4u.com'
+  const now = new Date()
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.lastUpdated),
+    lastModified: now,
     changeFrequency: 'monthly',
     priority: post.contentType === 'pillar' ? 0.9 : 0.8,
   }))
@@ -16,19 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date('2026-11-06'),
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/services/mobile-toilets`,
-      lastModified: new Date('2026-11-06'),
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date('2026-11-06'),
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
