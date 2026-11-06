@@ -74,7 +74,7 @@ export default function BlogIndexPage() {
 
         {/* Header */}
         <header className="mb-10 sm:mb-12 text-right max-w-3xl">
-          <h1 className="text-[26px] sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
+          <h1 className="text-[32px] sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
             מדריכים וטיפים להשכרת שירותים ניידים לאירועים
           </h1>
           <p className="text-[15px] sm:text-lg text-gray-600 leading-relaxed">

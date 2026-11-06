@@ -195,7 +195,7 @@ export default function HeroHome() {
         <PageIllustration />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="pb-10 pt-24 sm:pt-32 md:pb-20 md:pt-40">
+          <div className="pb-10 pt-28 sm:pt-32 md:pb-20 md:pt-40">
 
             <motion.div
               className="pb-8 sm:pb-12 text-center md:pb-16"
@@ -206,7 +206,7 @@ export default function HeroHome() {
               {/* H1 תוקן לשילוב שיווקי + SEO חזק ומותאם בגודל למובייל */}
               <motion.h1
                 variants={headerItem}
-                className="mb-4 sm:mb-6 text-[28px] sm:text-4xl md:text-6xl font-extrabold text-gray-900 leading-[1.22] tracking-tight"
+                className="mb-5 sm:mb-6 text-[36px] sm:text-4xl md:text-6xl font-extrabold text-gray-900 leading-[1.18] tracking-tight"
               >
                 השכרת שירותים ניידים מפוארים <br className="max-lg:hidden" />
                 לאירועים וחתונות בטבע
@@ -217,7 +217,7 @@ export default function HeroHome() {
                 className="mx-auto max-w-2xl"
               >
                 {/* פסקת פתיחה סמנטית */}
-                <p className="mb-7 sm:mb-10 text-[15px] sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed px-1">
+                <p className="mb-8 sm:mb-10 text-[16.5px] sm:text-lg md:text-xl text-gray-600 font-normal leading-relaxed px-1">
                   חתונות בטבע, בר/בת מצווה, כנסים והפקות שטח – א.ל שירותים ניידים מביאים אליכם תאי שירותים מפוארים ברמה של מלון 5 כוכבים, עצמאיים לחלוטין בשטח עם איש שירות צמוד בפריסה ארצית.
                 </p>
 

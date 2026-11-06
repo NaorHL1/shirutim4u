@@ -43,8 +43,8 @@ export default function Header() {
         />
       )}
 
-      <header className="fixed top-3.5 sm:top-4 left-1/2 z-30 -translate-x-1/2 w-[92%] max-w-3xl">
-        <div className="relative flex items-center justify-between sm:justify-around rounded-full sm:rounded-2xl bg-white/95 px-3.5 sm:px-5 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-200/80 ring-1 ring-black/[0.03]">
+      <header className="fixed top-3.5 sm:top-4 left-1/2 z-30 -translate-x-1/2 w-[94%] sm:w-[92%] max-w-3xl">
+        <div className="relative flex items-center justify-between sm:justify-around rounded-full sm:rounded-2xl bg-white/95 px-4 sm:px-5 py-2.5 sm:py-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-200/80 ring-1 ring-black/[0.03]">
           
           {/* תפריט שמאל (מסכים גדולים) */}
           <nav aria-label="ניווט משני" className="hidden sm:flex items-center gap-1.5">
@@ -78,7 +78,7 @@ export default function Header() {
                 width={120}
                 height={56}
                 priority
-                className="h-10 sm:h-13 w-auto object-contain"
+                className="h-12 sm:h-13 w-auto object-contain"
               />
             </Link>
           </div>
@@ -106,17 +106,17 @@ export default function Header() {
           </nav>
 
           {/* --- אזור מובייל בלבד --- */}
-          <div className="sm:hidden flex items-center gap-2 order-1">
+          <div className="sm:hidden flex items-center gap-2.5 order-1">
             {/* כפתור תפריט אלגנטי בצורת קפסולה כהה */}
             <button
               type="button"
-              className="h-9 px-3.5 rounded-full bg-zinc-900 hover:bg-zinc-800 active:scale-95 text-white flex items-center gap-2 text-xs font-bold shadow-sm transition-all cursor-pointer"
+              className="h-11 px-4 rounded-full bg-zinc-900 hover:bg-zinc-800 active:scale-95 text-white flex items-center gap-2 text-sm font-bold shadow-sm transition-all cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "סגור תפריט ניווט" : "פתח תפריט ניווט"}
               aria-expanded={isOpen}
             >
               <svg
-                className="h-4 w-4 transition-transform duration-200"
+                className="h-5 w-5 transition-transform duration-200"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -130,23 +130,23 @@ export default function Header() {
               <span>{isOpen ? "סגור" : "תפריט"}</span>
             </button>
 
-            {/* כפתורי חיוג ו-WhatsApp עדינים ומעוצבים */}
+            {/* כפתורי חיוג ו-WhatsApp מוגדלים וברורים */}
             <a
               href="tel:+972526920346"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-zinc-100 text-zinc-800 hover:bg-zinc-200 active:scale-95 transition-all cursor-pointer"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-zinc-100 text-zinc-800 hover:bg-zinc-200 active:scale-95 transition-all cursor-pointer"
               aria-label="התקשר עכשיו ל-052-6920346"
             >
-              <FaPhoneAlt size={15} />
+              <FaPhoneAlt size={18} />
             </a>
 
             <a
               href="https://wa.me/972526920346"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-emerald-50 text-[#1da851] ring-1 ring-emerald-500/25 hover:bg-emerald-100 active:scale-95 transition-all cursor-pointer"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-emerald-50 text-[#1da851] ring-1 ring-emerald-500/25 hover:bg-emerald-100 active:scale-95 transition-all cursor-pointer"
               aria-label="שלח הודעת וואטסאפ"
             >
-              <FaWhatsapp size={19} />
+              <FaWhatsapp size={22} />
             </a>
           </div>
 
@@ -154,56 +154,56 @@ export default function Header() {
           {isOpen && (
             <div
               dir="rtl"
-              className="sm:hidden absolute top-[calc(100%+10px)] inset-x-0 bg-white rounded-3xl border border-gray-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.18)] p-3.5 z-50"
+              className="sm:hidden absolute top-[calc(100%+10px)] inset-x-0 bg-white rounded-3xl border border-gray-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.18)] p-4 z-50"
             >
               <nav aria-label="תפריט מובייל" className="flex flex-col divide-y divide-gray-100">
                 {mobileNavLinks.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center justify-between px-3.5 py-3 text-[15px] font-bold text-gray-800 hover:text-gray-950 hover:bg-gray-50 active:bg-gray-100 rounded-xl transition cursor-pointer"
+                    className="flex items-center justify-between px-4 py-3.5 text-[17px] font-bold text-gray-800 hover:text-gray-950 hover:bg-gray-50 active:bg-gray-100 rounded-xl transition cursor-pointer"
                     onClick={() => setIsOpen(false)}
                   >
                     <div className="flex items-center gap-2.5">
                       <span>{item.label}</span>
                       {item.badge && (
-                        <span className="text-[11px] font-extrabold bg-zinc-900 text-white px-2 py-0.5 rounded-full">
+                        <span className="text-xs font-extrabold bg-zinc-900 text-white px-2.5 py-0.5 rounded-full">
                           {item.badge}
                         </span>
                       )}
                     </div>
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </Link>
                 ))}
               </nav>
 
-              <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2.5">
+              <div className="mt-3.5 pt-3.5 border-t border-gray-100 flex flex-col gap-2.5">
                 <Link
                   href="/#contact"
-                  className="flex items-center justify-center gap-2 text-white bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-[15px] font-bold py-3 px-4 rounded-2xl shadow-[0_4px_14px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.2)] ring-1 ring-zinc-700/80 active:scale-[0.99] transition-all cursor-pointer"
+                  className="flex items-center justify-center gap-2.5 text-white bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-base font-bold py-3.5 px-4 rounded-2xl shadow-[0_4px_14px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.2)] ring-1 ring-zinc-700/80 active:scale-[0.99] transition-all cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" aria-hidden="true" />
                   <span>צור קשר להצעת מחיר</span>
                 </Link>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2.5">
                   <a
                     href="tel:+972526920346"
-                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold transition"
+                    className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-900 text-sm font-bold transition"
                   >
-                    <FaPhoneAlt size={13} />
+                    <FaPhoneAlt size={15} />
                     <span>052-6920346</span>
                   </a>
                   <a
                     href="https://wa.me/972526920346"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#1da851] ring-1 ring-emerald-500/20 text-xs font-bold transition"
+                    className="flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#1da851] ring-1 ring-emerald-500/20 text-sm font-bold transition"
                   >
-                    <FaWhatsapp size={16} />
+                    <FaWhatsapp size={19} />
                     <span>וואטסאפ מהיר</span>
                   </a>
                 </div>

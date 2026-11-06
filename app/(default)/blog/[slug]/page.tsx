@@ -174,7 +174,7 @@ export default async function BlogPostPage({
             <time dateTime={post.lastUpdated}>עודכן לאחרונה: {post.lastUpdated}</time>
           </div>
 
-          <h1 className="text-[24px] sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-snug">
+          <h1 className="text-[30px] sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-snug">
             {post.title}
           </h1>
 

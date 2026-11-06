@@ -94,7 +94,7 @@ export default function MobileToiletsPage() {
 
         {/* Hero Header */}
         <header className="mb-10 sm:mb-12 text-right">
-          <h1 className="text-[26px] sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-snug">
+          <h1 className="text-[32px] sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-snug">
             השכרת שירותים ניידים ותאי שירותים להשכרה לכל מטרה
           </h1>
           <p className="text-[15px] sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
