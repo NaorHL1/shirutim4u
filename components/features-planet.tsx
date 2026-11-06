@@ -23,10 +23,10 @@ export default function FeaturesPlanet() {
               src="/images/planet.png"
               width={300}
               height={300}
-              alt="Planet"
+              alt="השכרת שירותים ניידים בפריסה ארצית - מצפון ועד דרום"
             />
             <div className="absolute -right-10 -top-10 w-32 h-32 opacity-30 pointer-events-none">
-              <Image src="/images/planet-overlay.svg" alt="Decoration" width={128} height={128} />
+              <Image src="/images/planet-overlay.svg" alt="" aria-hidden="true" width={128} height={128} />
             </div>
           </div>
         </div>
@@ -35,33 +35,33 @@ export default function FeaturesPlanet() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-center sm:text-right">
             {/* Box 1 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אירועים זה מתאים?</h3>
-              <p className="text-gray-600 text-[15px]">חתונות בטבע, בר/בת מצווה, כנסים, הפקות ענק ואירועים פרטיים ברמה הגבוהה ביותר.</p>
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אירועים מתאימה השכרת שירותים ניידים מפוארים?</h3>
+              <p className="text-gray-600 text-[15px]">השירותים הניידים המפוארים שלנו מתאימים לחתונות בטבע, בר/בת מצווה, כנסים עסקיים, אירועי בוטיק, פסטיבלים והפקות חוץ ברמה הגבוהה ביותר.</p>
             </div>
             {/* Box 2 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אזורים מגיעים?</h3>
-              <p className="text-gray-600 text-[15px]">אנו מספקים שירות בפריסה ארצית רחבה: באזור המרכז, אזור הצפון ואזור הדרום.</p>
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">לאילו אזורים בארץ אתם מגיעים?</h3>
+              <p className="text-gray-600 text-[15px]">אנו מספקים שירות השכרת שירותים ניידים בפריסה ארצית מלאה: אזור המרכז, השרון, ירושלים והסביבה, אזור הצפון ואזור הדרום.</p>
             </div>
             {/* Box 3 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם צריך חיבור למים או ביוב?</h3>
-              <p className="text-gray-600 text-[15px]">לא. היחידות עצמאיות לחלוטין ומצוידות במיכלים המספקים חוויה נקייה וללא תשתיות קבועות.</p>
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם צריך חיבור למים או ביוב בשטח האירוע?</h3>
+              <p className="text-gray-600 text-[15px]">לא. קרונות השירותים שלנו עצמאיים לחלוטין (Off-Grid) ומצוידות במיכלי מים נקיים ומיכלי אגירה אטומים, כך שאינם דורשים חיבור לתשתיות מים או ביוב קבועות.</p>
             </div>
             {/* Box 4 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם נדרש חשמל בשטח?</h3>
-              <p className="text-gray-600 text-[15px]">לא נדרש חיבור חיצוני לחשמל – השירותים פועלים באופן מלא ועצמאי בשטח הפתוח.</p>
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם נדרש חיבור חשמל בשטח?</h3>
+              <p className="text-gray-600 text-[15px]">לא נדרש חיבור חיצוני לרשת החשמל – השירותים הניידים פועלים באופן מלא ועצמאי גם בלב היער, בחוף הים או במדבר.</p>
             </div>
             {/* Box 5 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">כמה יחידות צריך לאירוע?</h3>
-              <p className="text-gray-600 text-[15px]">יחידה אחת מתאימה לכ-200 אורחים. נתאים את הכמות המדויקת למספר המשתתפים ומשך האירוע.</p>
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">כמה תאי שירותים ניידים צריך להזמין לאירוע?</h3>
+              <p className="text-gray-600 text-[15px]">יחידה מפוארת אחת מתאימה לכ-200 אורחים. אנו מתאימים את כמות התאים והרכב הקרונות למספר המשתתפים המדויק, משך האירוע ואופי הקהל.</p>
             </div>
             {/* Box 6 */}
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">השירות כולל ניקיון והתקנה?</h3>
-              <p className="text-gray-600 text-[15px]">בוודאי. השירות כולל הובלה, התקנה, ניקיון שוטף במהלך האירוע ופינוי מלא בסיומו.</p>
+              <h3 className="mb-2 text-lg font-semibold text-gray-900">האם השכרת השירותים הניידים כוללת ניקיון והתקנה?</h3>
+              <p className="text-gray-600 text-[15px]">בוודאי. השירות כולל הובלה עד למיקום האירוע, הצבה והתקנה מקצועית, איש שירות צמוד לניקיון וחיטוי שוטף לאורך כל האירוע, ופינוי מלא בסיומו.</p>
             </div>
           </div>
         </div>

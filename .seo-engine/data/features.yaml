@@ -1,5 +1,5 @@
 project: "shirutim4u.com"
-last_updated: "2026-06-29"
+last_updated: "2026-11-06"
 generated_from: "website"
 
 categories:
@@ -12,10 +12,10 @@ categories:
         features:
           - id: "feat_luxury"
             name: "עיצוב יוקרתי"
-            description: "תאי שירותים בעיצוב יוקרתי עם תאורת לד ומראות."
+            description: "תאי שירותים בעיצוב יוקרתי עם תאורת לד, מיזוג אוויר, אסלות חרסינה ומראות."
             status: "available"
             doc_refs: []
-            blog_refs: []
+            blog_refs: ["luxury-portable-toilets", "portable-toilets-rent", "luxury-toilets-cost-value", "nature-wedding-toilets"]
             tags: ["עיצוב", "יוקרה"]
             notes: ""
           - id: "feat_offgrid"
@@ -23,14 +23,14 @@ categories:
             description: "פועל ללא צורך בחיבור לתשתיות מים וביוב."
             status: "available"
             doc_refs: []
-            blog_refs: []
+            blog_refs: ["luxury-portable-toilets", "portable-toilets-rent", "offgrid-portable-toilets", "nature-wedding-toilets"]
             tags: ["שטח", "תשתיות"]
             notes: ""
           - id: "feat_service"
             name: "פריסה ארצית וניקיון"
-            description: "שירות הובלה, התקנה, וניקיון בפריסה ארצית."
+            description: "שירות הובלה, התקנה, וניקיון עם איש שירות צמוד בפריסה ארצית."
             status: "available"
             doc_refs: []
-            blog_refs: []
+            blog_refs: ["luxury-portable-toilets", "portable-toilets-rent", "offgrid-portable-toilets", "luxury-toilets-cost-value", "nature-wedding-toilets"]
             tags: ["שירות", "ניקיון"]
             notes: ""

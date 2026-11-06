@@ -31,11 +31,11 @@ const fadeVariants = {
 
 const mediaItems = [
   { type: 'video' as const, content: 'placeholder' },
-  { type: 'image' as const, src: '/images/toiletimg1.jpeg', alt: 'תא שירותים ניידים מפואר להשכרה' },
-  { type: 'image' as const, src: '/images/toiletimg2.jpeg', alt: 'תא שירותים ניידים מפואר מבפנים' },
-  { type: 'image' as const, src: '/images/toiletimg_new1.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 1' },
-  { type: 'image' as const, src: '/images/toiletimg_new2.jpg', alt: 'תא שירותים ניידים מפואר - מבט נוסף 2' },
-  { type: 'image' as const, src: '/images/toiletimg4.jpeg', alt: 'תא שירותים ניידים מבט נוסף' },
+  { type: 'image' as const, src: '/images/toiletimg1.jpeg', alt: 'קרון שירותים ניידים מפוארים להשכרה לאירועים בטבע - א.ל שירותים ניידים' },
+  { type: 'image' as const, src: '/images/toiletimg2.jpeg', alt: 'תא שירותים נייד מפואר מבפנים עם כיור מעוצב, מראה ותאורת לד' },
+  { type: 'image' as const, src: '/images/toiletimg_new1.jpg', alt: 'השכרת שירותים ניידים מפוארים לחתונה בשטח - מראה חיצוני יוקרתי' },
+  { type: 'image' as const, src: '/images/toiletimg_new2.jpg', alt: 'תאי שירותים ניידים ממוזגים ונקיים לאירועי חוץ וכנסים' },
+  { type: 'image' as const, src: '/images/toiletimg4.jpeg', alt: 'הצבת קרון שירותים ניידים מפואר בשטח ללא צורך בתשתיות' },
 ]
 
 const imageItems = mediaItems.filter(item => item.type === 'image')
@@ -157,8 +157,8 @@ export default function HeroHome() {
                 style={{ willChange: 'transform, opacity' }}
                 className="mb-6 text-5xl font-extrabold text-gray-900 leading-tight md:text-6xl"
               >
-                שירותים ניידים מפוארים <br className="max-lg:hidden" />
-                להשכרה לאירועים מיוחדים
+                השכרת שירותים ניידים מפוארים <br className="max-lg:hidden" />
+                לאירועים וחתונות בטבע
               </motion.h1>
 
               <motion.div
@@ -166,10 +166,10 @@ export default function HeroHome() {
                 style={{ willChange: 'transform, opacity' }}
                 className="mx-auto max-w-2xl"
               >
-                {/* H2 שמשמש כתת-כותרת מחזק את הקשר הסמנטי */}
-                <h2 className="mb-10 text-lg text-gray-600 md:text-xl font-normal">
-                  חתונות בטבע, בר/בת מצווה וכנסים – אנחנו מביאים אליכם שירותים ניידים ברמה של אולם יוקרתי. שירות מקצועי בפריסה ארצית.
-                </h2>
+                {/* פסקת פתיחה סמנטית (תוקן מ-H2 ל-P לשמירה על היררכיית כותרות תקנית) */}
+                <p className="mb-10 text-lg text-gray-600 md:text-xl font-normal">
+                  חתונות בטבע, בר/בת מצווה, כנסים והפקות שטח – א.ל שירותים ניידים מביאים אליכם קרונות שירותים ממוזגים ברמה של מלון 5 כוכבים, עצמאיים לחלוטין בשטח עם איש שירות צמוד בפריסה ארצית.
+                </p>
 
                 <motion.div
                   variants={headerItem}
@@ -188,7 +188,7 @@ export default function HeroHome() {
 
             <section id="gallery" className="w-full py-16">
               <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 px-6">
-                גלריית תאי שירותים מפוארים
+                גלריית תאי שירותים ניידים מפוארים
               </h2>
 
               {/* MOBILE: Swipeable Gallery with Indicator */}
@@ -205,12 +205,12 @@ export default function HeroHome() {
                 {/* Horizontal Swipe Photos */}
                 <div className="relative w-full">
                   {canScrollRight && (
-                    <button onClick={scrollRight} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
+                    <button onClick={scrollRight} aria-label="תמונה קודמת" className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                     </button>
                   )}
                   {canScrollLeft && (
-                    <button onClick={scrollLeft} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
+                    <button onClick={scrollLeft} aria-label="תמונה הבאה" className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
                     </button>
                   )}
@@ -241,7 +241,7 @@ export default function HeroHome() {
                   className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100 cursor-pointer"
                   onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
                 >
-                  <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0 pointer-events-none" autoPlay loop muted playsInline />
+                  <video src="/images/toiletvideo.mov" poster="/images/toiletimg2.jpeg" preload="metadata" aria-label="סרטון הצגת תא שירותים נייד מפואר מבפנים" className="w-full h-full object-cover relative z-0 pointer-events-none" autoPlay loop muted playsInline />
                 </div>
               </div>
 
@@ -267,7 +267,7 @@ export default function HeroHome() {
                       className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 cursor-pointer group"
                       onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
                     >
-                      <video src="/images/toiletvideo.mov" className="w-full h-full object-cover relative z-0 pointer-events-none transition-transform duration-700 group-hover:scale-105" autoPlay loop muted playsInline />
+                      <video src="/images/toiletvideo.mov" poster="/images/toiletimg2.jpeg" preload="metadata" aria-label="סרטון סיור בתוך קרון שירותים ניידים מפואר" className="w-full h-full object-cover relative z-0 pointer-events-none transition-transform duration-700 group-hover:scale-105" autoPlay loop muted playsInline />
                     </div>
                   </div>
 

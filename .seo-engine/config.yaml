@@ -8,15 +8,18 @@ project:
   website: "https://www.shirutim4u.com"
   target_audience:
     primary: "מפיקי אירועים, חתנים וכלות, מארגני כנסים"
-    secondary: ""
+    secondary: "חברות הפקה, קבלנים ומארגני אירועי שטח"
     technical_level: "beginner"
 
 author:
   name: "א.ל שירותים ניידים"
-  title: ""
-  bio: ""
+  title: "מומחים להשכרת קרונות שירותים ניידים מפוארים ופתרונות סניטציה לשטח"
+  bio: "א.ל שירותים ניידים מספקת קרונות שירותים ניידים מפוארים ברמת מלון 5 כוכבים לאירועים, חתונות בטבע, כנסים והפקות שטח בפריסה ארצית מלאה, כולל איש שירות צמוד."
   website: "https://www.shirutim4u.com"
-  social_links: {}
+  social_links:
+    instagram: "https://www.instagram.com/shirutim4u"
+    tiktok: "https://www.tiktok.com/@shirutim4u"
+    facebook: "https://www.facebook.com/people/%D7%90%D7%9C-%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D-%D7%A0%D7%99%D7%99%D7%93%D7%99%D7%9D/61576869609037/"
 
 trust_signals:
   review_links:
@@ -26,13 +29,24 @@ trust_signals:
     product_hunt: ""
     rightfeature: ""
     canny: ""
-    other: []
-  testimonials: []
-  metrics: []
+    other:
+      - "https://www.google.com/maps/contrib/107588140169912078050/reviews?hl=iw"
+      - "https://www.google.com/maps/contrib/111821951457040260538/reviews?hl=iw"
+  testimonials:
+    - author: "Avi Kazav"
+      quote: "עשינו חתונה והיינו צריכים שירותים מפוארים לאורחים, וכך הגענו לליאב שנתן שירות מדהים. שירותים מפוארים עם איש תחזוקה בשטח לאורך כל האירוע ברמה של מלון 5 כוכבים!"
+    - author: "מושיקו חיים לוי"
+      quote: "שכרתי שירותים ניידים לאירוע שעשיתי בשטח והייתי מאוד מרוצה מהשירות! הציוד הגיע בזמן, הכל היה נקי, מסודר ומתוחזק ברמה גבוהה."
+    - author: "yarin"
+      quote: "הזמנתי אותו לחתונה ביער, פשוט היה תענוג! כל האורחים החמיאו ואמרו שזאת החתונה ביער הראשונה שלהם שהיו בה שירותים נורמליים ומענגים."
+  metrics:
+    - "46+ ביקורות מאומתות של 5 כוכבים בגוגל"
+    - "100% פעילות עצמאית בשטח (Off-Grid) ללא צורך בתשתיות מים או ביוב"
+    - "פריסה ארצית מלאה 24/7 מצפון ועד דרום"
 
 cms:
   type: "next.js"
-  blog_directory: "app/blog"
+  blog_directory: "app/(default)/blog"
   docs_directory: ""
   frontmatter_format: "yaml"
   date_format: "YYYY-MM-DD"
@@ -66,7 +80,7 @@ seo:
   primary_topics: ["שירותים ניידים להשכרה", "השכרת שירותים ניידים", "שירותים ניידים מפוארים", "השכרת שירותים ניידים מפוארים"]
   brand_terms: ["א.ל שירותים ניידים", "shirutim4u"]
   avoid_terms: []
-  target_regions: ["Global"]
+  target_regions: ["IL"]
   language: "he"
 
 content:
@@ -89,5 +103,5 @@ technical_seo:
 
 integrations:
   seo_tool: "none"
-  analytics: "none"
-  search_console: false
+  analytics: "ga4"
+  search_console: true

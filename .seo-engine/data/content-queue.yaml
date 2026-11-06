@@ -1,4 +1,4 @@
-last_updated: "2026-06-29"
+last_updated: "2026-11-06"
 
 queue:
   - id: "q_001"
@@ -11,11 +11,11 @@ queue:
     unique_angle: "מדריך מקיף שכולל את כל השלבים והשיקולים לבחירת תאי שירותים יוקרתיים ללא תלות בתשתיות קיימות"
     priority: "high"
     priority_reason: "Pillar page for primary topic"
-    status: "planned"
+    status: "human-review"
     estimated_word_count: 2000
     eeat_plan: "include expertise and practical tips from a portable toilets supplier point of view"
-    serp_analyzed: false
+    serp_analyzed: true
     cannibalization_check: "passed"
-    notes: ""
+    notes: "Implemented in app/(default)/blog/blog-data.ts"
     depends_on: []
-    internal_link_targets: []
+    internal_link_targets: ["luxury-toilets-cost-value", "nature-wedding-toilets", "offgrid-portable-toilets", "portable-toilets-rent"]

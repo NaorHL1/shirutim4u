@@ -1,3 +1,72 @@
-last_updated: "2026-06-29"
+last_updated: "2026-11-06"
 
-blogs: []
+blogs:
+  - slug: "luxury-portable-toilets"
+    title: "המדריך המלא לבחירת שירותים ניידים מפוארים לאירוע שלכם"
+    path: "app/(default)/blog/[slug]/page.tsx"
+    content_type: "pillar"
+    cluster_id: "tc_luxury_toilets"
+    primary_keyword: "שירותים ניידים מפוארים"
+    secondary_keywords: ["השכרת שירותים ניידים מפוארים", "קרון שירותים מפואר", "שירותים ניידים לחתונה בטבע"]
+    mapped_features: ["feat_luxury", "feat_offgrid", "feat_service"]
+    has_eeat_signals: true
+    status: "human-review"
+    date_published: "2026-07-01"
+    last_updated: "2026-11-06"
+    internal_links_to: ["luxury-toilets-cost-value", "nature-wedding-toilets", "offgrid-portable-toilets", "portable-toilets-rent"]
+
+  - slug: "portable-toilets-rent"
+    title: "השכרת שירותים ניידים: כל הפתרונות לאירוע מושלם ופרויקטים בשטח"
+    path: "app/(default)/blog/[slug]/page.tsx"
+    content_type: "pillar"
+    cluster_id: "tc_portable_toilets"
+    primary_keyword: "שירותים ניידים להשכרה"
+    secondary_keywords: ["השכרת שירותים ניידים", "שירותים ניידים לאירועים", "שירותים כימיים ניידים"]
+    mapped_features: ["feat_luxury", "feat_offgrid", "feat_service"]
+    has_eeat_signals: true
+    status: "human-review"
+    date_published: "2026-07-05"
+    last_updated: "2026-11-06"
+    internal_links_to: ["luxury-portable-toilets", "offgrid-portable-toilets", "luxury-toilets-cost-value", "nature-wedding-toilets"]
+
+  - slug: "offgrid-portable-toilets"
+    title: "שירותים ניידים לאירועים ללא תשתית מים וחשמל – איך זה עובד?"
+    path: "app/(default)/blog/[slug]/page.tsx"
+    content_type: "cluster"
+    cluster_id: "tc_portable_toilets"
+    primary_keyword: "שירותים ניידים לאירועים ללא תשתית מים"
+    secondary_keywords: ["שירותים ניידים ללא חשמל", "שירותים ניידים לשטח", "קרון שירותים עצמאי"]
+    mapped_features: ["feat_offgrid", "feat_service"]
+    has_eeat_signals: true
+    status: "human-review"
+    date_published: "2026-07-10"
+    last_updated: "2026-11-06"
+    internal_links_to: ["portable-toilets-rent", "luxury-portable-toilets", "nature-wedding-toilets"]
+
+  - slug: "luxury-toilets-cost-value"
+    title: "השכרת שירותים ניידים מפוארים – מה משפיע על המחיר ואיך לבחור נכון?"
+    path: "app/(default)/blog/[slug]/page.tsx"
+    content_type: "cluster"
+    cluster_id: "tc_luxury_toilets"
+    primary_keyword: "השכרת שירותים ניידים מפוארים"
+    secondary_keywords: ["שירותים ניידים מפוארים מחיר", "עלות השכרת שירותים ניידים לאירוע"]
+    mapped_features: ["feat_luxury", "feat_service"]
+    has_eeat_signals: true
+    status: "human-review"
+    date_published: "2026-07-14"
+    last_updated: "2026-11-06"
+    internal_links_to: ["luxury-portable-toilets", "portable-toilets-rent", "nature-wedding-toilets"]
+
+  - slug: "nature-wedding-toilets"
+    title: "איך לבחור שירותים ניידים לחתונה בטבע: הצ'ק-ליסט המלא לזוגות"
+    path: "app/(default)/blog/[slug]/page.tsx"
+    content_type: "cluster"
+    cluster_id: "tc_luxury_toilets"
+    primary_keyword: "איך לבחור שירותים ניידים לחתונה בטבע"
+    secondary_keywords: ["שירותים ניידים לחתונה בטבע", "קרון שירותים לחתונה"]
+    mapped_features: ["feat_luxury", "feat_offgrid", "feat_service"]
+    has_eeat_signals: true
+    status: "human-review"
+    date_published: "2026-07-18"
+    last_updated: "2026-11-06"
+    internal_links_to: ["luxury-portable-toilets", "offgrid-portable-toilets", "luxury-toilets-cost-value"]

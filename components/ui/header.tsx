@@ -7,48 +7,62 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-4 left-1/2 z-30 -translate-x-1/2 w-[90%] max-w-2xl">
+    <header className="fixed top-4 left-1/2 z-30 -translate-x-1/2 w-[92%] max-w-3xl">
       <div className="flex items-center justify-around rounded-xl bg-white px-4 py-2 shadow-lg border border-gray-200">
         
         {/* תפריט שמאל (מסכים גדולים) */}
-        <nav className="hidden sm:flex gap-2">
+        <nav aria-label="ניווט משני" className="hidden sm:flex gap-2">
+          <Link
+            href="/blog"
+            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+          >
+            מדריכים
+          </Link>
           <Link
             href="/#faq"
-            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             שאלות
           </Link>
           <Link
             href="/#contact"
-            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+            className="px-3.5 py-1.5 rounded-xl bg-gray-900 text-white text-sm font-semibold shadow-sm hover:bg-gray-800 transition"
           >
             צור קשר
           </Link>
         </nav>
 
-        {/* לוגו במרכז */}
+        {/* לוגו במרכז - מקושר לדף הבית */}
         <div className="flex-shrink-0">
-          <Image
-            src="/images/ollogo.png"
-            alt="Logo"
-            width={120}
-            height={56}
-            priority
-            className="h-14 w-auto object-contain"
-          />
+          <Link href="/" aria-label="א.ל שירותים ניידים - דף הבית">
+            <Image
+              src="/images/ollogo.png"
+              alt="א.ל שירותים ניידים - השכרת שירותים ניידים מפוארים"
+              width={120}
+              height={56}
+              priority
+              className="h-14 w-auto object-contain"
+            />
+          </Link>
         </div>
 
         {/* תפריט ימין (מסכים גדולים) */}
-        <nav className="hidden sm:flex gap-2">
+        <nav aria-label="ניווט ראשי" className="hidden sm:flex gap-2">
+          <Link
+            href="/services/mobile-toilets"
+            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+          >
+            שירותים
+          </Link>
           <Link
             href="/#whyus"
-            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             למה אנחנו
           </Link>
           <Link
             href="/#gallery"
-            className="px-4 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
+            className="px-3.5 py-1.5 rounded-xl border border-gray-300 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-100 transition"
           >
             גלריה
           </Link>
@@ -62,7 +76,7 @@ export default function Header() {
             <a
               href="tel:+972526920346"
               className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
-              aria-label="התקשר עכשיו"
+              aria-label="התקשר עכשיו ל-052-6920346"
             >
               <FaPhoneAlt size={24} />
             </a>
@@ -83,7 +97,8 @@ export default function Header() {
             <button
               className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-gray-800 shadow-sm hover:bg-gray-200 transition"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="פתח תפריט"
+              aria-label="פתח תפריט ניווט"
+              aria-expanded={isOpen}
             >
               <svg
                 className="h-7 w-7"
@@ -105,7 +120,7 @@ export default function Header() {
             {isOpen && (
               <div
                 dir="rtl"
-                className="text-center absolute top-14 left-0 w-40 bg-white border border-gray-300 rounded-xl shadow-xl py-3 px-4 space-y-2 z-50"
+                className="text-center absolute top-14 left-0 w-48 bg-white border border-gray-300 rounded-xl shadow-xl py-3 px-4 space-y-2 z-50"
               >
                 <Link
                   href="/#gallery"
@@ -115,11 +130,25 @@ export default function Header() {
                   גלריה
                 </Link>
                 <Link
+                  href="/services/mobile-toilets"
+                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
+                  onClick={() => setIsOpen(false)}
+                >
+                  שירותים ניידים
+                </Link>
+                <Link
+                  href="/blog"
+                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
+                  onClick={() => setIsOpen(false)}
+                >
+                  מדריכים ומאמרים
+                </Link>
+                <Link
                   href="/#faq"
                   className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
                   onClick={() => setIsOpen(false)}
                 >
-                  שאלות
+                  שאלות נפוצות
                 </Link>
                 <Link
                   href="/#whyus"
@@ -130,7 +159,7 @@ export default function Header() {
                 </Link>
                 <Link
                   href="/#contact"
-                  className="block text-gray-800 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition"
+                  className="block text-white bg-gray-900 text-md font-semibold px-3 py-2 rounded-lg hover:bg-gray-800 transition"
                   onClick={() => setIsOpen(false)}
                 >
                   צור קשר

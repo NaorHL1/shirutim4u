@@ -1,31 +1,46 @@
 import './css/style.css'
 import Script from 'next/script'
-import { Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-const inter = Inter({
-  subsets: ['latin'],
+const rubik = Rubik({
+  subsets: ['hebrew', 'latin'],
   variable: '--font-inter',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.shirutim4u.com'),
-  title: 'השכרת שירותים ניידים מפוארים לאירועי טבע וחתונות | א.ל',
-  description: 'מחפשים שירותים ניידים להשכרה? א.ל מציעה תאי שירות מפוארים, נקיים ומרווחים לאירועי שטח וחתונות. שירות מקצועי בפריסה ארצית.',
+  title: {
+    default: 'השכרת שירותים ניידים מפוארים לאירועים וחתונות בטבע | א.ל שירותים ניידים',
+    template: '%s | א.ל שירותים ניידים',
+  },
+  description: 'השכרת שירותים ניידים מפוארים לאירועים, חתונות בטבע, כנסים והפקות שטח. קרונות שירותים ממוזגים, עצמאיים לחלוטין ללא צורך בתשתיות מים וחשמל, עם איש שירות צמוד בפריסה ארצית.',
+  keywords: [
+    'השכרת שירותים ניידים',
+    'שירותים ניידים מפוארים',
+    'שירותים ניידים להשכרה',
+    'השכרת שירותים ניידים מפוארים',
+    'שירותים ניידים לחתונה בטבע',
+    'שירותים ניידים לאירועים',
+    'קרון שירותים מפואר',
+    'שירותים כימיים ניידים',
+    'א.ל שירותים ניידים',
+  ],
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   alternates: {
     canonical: '/',
     languages: {
       'he-IL': '/',
-    }
+      'x-default': '/',
+    },
   },
   openGraph: {
-    title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל',
+    title: 'השכרת שירותים ניידים מפוארים לאירועים וחתונות | א.ל שירותים ניידים',
     description:
-      'שירותים ניידים פרימיום, ריח מושלם, תא רחב ונקי – שירות מקצועי בפריסה ארצית.',
-    url: '/',
+      'קרונות שירותים ניידים מפוארים ברמת מלון 5 כוכבים: מיזוג אוויר, מים זורמים, תאורת אווירה ואיש תחזוקה צמוד בפריסה ארצית.',
+    url: 'https://www.shirutim4u.com',
     siteName: 'א.ל שירותים ניידים',
     locale: 'he_IL',
     images: [
@@ -33,15 +48,22 @@ export const metadata: Metadata = {
         url: '/images/toiletimg2.jpeg',
         width: 1200,
         height: 630,
-        alt: 'תא שירותים נייד מפואר מבפנים',
+        alt: 'תא שירותים נייד מפואר מבפנים - א.ל שירותים ניידים',
       },
     ],
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'השכרת שירותים ניידים מפוארים לאירועים | א.ל שירותים ניידים',
+    description: 'קרונות שירותים ניידים מפוארים לחתונות בטבע ואירועים בפריסה ארצית. עצמאיים לחלוטין בשטח עם איש שירות צמוד.',
+    images: ['/images/toiletimg2.jpeg'],
+  },
   icons: { 
     icon: '/favicon.ico',
-    apple: '/favicon.ico'
+    apple: '/favicon/apple-icon-180x180.png',
   },
+  manifest: '/favicon/manifest.json',
 }
 
 export const viewport: Viewport = {
@@ -56,7 +78,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl" className="scroll-smooth">
-      <body className={`${inter.variable} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}>
+      <body className={`${rubik.variable} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}>
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
