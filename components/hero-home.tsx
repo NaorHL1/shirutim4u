@@ -85,7 +85,7 @@ export default function HeroHome() {
           }
         })
       },
-      { threshold: 0.25 }
+      { rootMargin: '300px 0px', threshold: 0 }
     )
 
     videoObserver.observe(activeVideo)
@@ -283,17 +283,18 @@ export default function HeroHome() {
 
                 {/* Vertical Video Block Underneath (Mounted/played only on mobile) */}
                 <div
-                  className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100 cursor-pointer"
+                  className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-neutral-900 cursor-pointer"
+                  style={{ backgroundImage: "url('/images/video-first-frame.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
                   onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
                 >
                   {!isDesktop && (
                     <video
                       ref={mobileVideoRef}
                       src="/images/toiletvideo.mov"
-                      poster="/images/toiletimg2.jpeg"
-                      preload="metadata"
+                      preload="auto"
                       aria-label="סרטון הצגת תא שירותים נייד מפואר מבפנים"
                       className="w-full h-full object-cover relative z-0 pointer-events-none"
+                      autoPlay
                       loop
                       muted
                       playsInline
@@ -321,17 +322,18 @@ export default function HeroHome() {
                   {/* Left Side: Video (Mounted/played only on desktop) */}
                   <div className="col-span-1">
                     <div
-                      className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 cursor-pointer group"
+                      className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-neutral-900 cursor-pointer group"
+                      style={{ backgroundImage: "url('/images/video-first-frame.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
                       onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
                     >
                       {isDesktop && (
                         <video
                           ref={desktopVideoRef}
                           src="/images/toiletvideo.mov"
-                          poster="/images/toiletimg2.jpeg"
-                          preload="metadata"
+                          preload="auto"
                           aria-label="סרטון סיור בתוך קרון שירותים ניידים מפואר"
                           className="w-full h-full object-cover relative z-0 pointer-events-none transition-transform duration-700 group-hover:scale-105"
+                          autoPlay
                           loop
                           muted
                           playsInline
