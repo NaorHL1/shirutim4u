@@ -10,19 +10,19 @@ export default function SeoContent() {
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
           <div className="lg:w-1/2 text-right">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
-              כל מה שצריך לדעת על השכרת שירותים ניידים מפוארים
+              כל מה שצריך לדעת על השכרת שירותים ניידים ושירותים מפוארים להשכרה
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-4">
-              כאשר מתכננים חתונה בטבע, כנס עסקי או אירוע שטח, אחת הדאגות המרכזיות היא נוחות האורחים ורמת ההיגיינה. אנו ב<strong className="text-gray-900">א.ל שירותים ניידים</strong> מבינים שאירוע מושלם דורש התייחסות לכל פרט, ולכן אנו מספקים קרונות שירותים ניידים מפוארים שמעניקים תחושה של בית מלון 5 כוכבים – גם בלב היער, בחוף הים או במדבר.
+              כאשר מתכננים חתונה בטבע, כנס עסקי או הפקת חוץ ומחפשים <strong className="text-gray-900">שירותים לאירועים</strong>, אחת הדאגות המרכזיות היא נוחות האורחים ורמת ההיגיינה. אנו ב<strong className="text-gray-900">א.ל שירותים ניידים</strong> מספקים <strong className="text-gray-900">תאי שירותים להשכרה</strong> ושירותים מפוארים להשכרה שמעניקים תחושה של בית מלון 5 כוכבים – גם בלב היער, בחוף הים או במדבר.
             </p>
             <p className="text-base text-gray-600 leading-relaxed mb-6">
-              בין אם אתם מחפשים <Link href="/blog/luxury-portable-toilets" className="text-blue-600 font-semibold hover:underline">שירותים ניידים מפוארים לחתונה</Link> או <Link href="/services/mobile-toilets" className="text-blue-600 font-semibold hover:underline">השכרת שירותים ניידים לכל מטרה</Link>, המערך שלנו ערוך לתת מענה מיידי, אסתטי ועצמאי לחלוטין ללא צורך בתשתיות מים, ביוב או חשמל.
+              אם אתם רוצים <strong className="text-gray-900">להשכיר שירותים ניידים</strong> לחתונה או מחפשים <Link href="/services/mobile-toilets" className="text-blue-600 font-semibold hover:underline">שירותים ניידים להשכרה לכל מטרה</Link>, המערך שלנו ערוך לתת מענה מיידי, אסתטי ועצמאי לחלוטין ללא צורך בתשתיות מים, ביוב או חשמל. קראו גם את <Link href="/blog/luxury-portable-toilets" className="text-blue-600 font-semibold hover:underline">המדריך לבחירת שירותים ניידים מפוארים</Link>.
             </p>
           </div>
           <div className="lg:w-1/2 w-full relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <Image 
               src="/images/toiletimg_new1.jpg" 
-              alt="קרון שירותים ניידים מפוארים מוכן לאירוע שטח - א.ל שירותים ניידים" 
+              alt="שירותים מפוארים להשכרה ותאי שירותים להשכרה לאירועים בשטח - א.ל שירותים ניידים" 
               fill 
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 hover:scale-105"
@@ -39,7 +39,7 @@ export default function SeoContent() {
               פינוק ויוקרה אמיתיים באירועי חוץ
             </h3>
             <p className="text-[15px] md:text-base text-gray-700 leading-relaxed">
-              השכרת שירותים ניידים מפוארים לאירועים הפכה לסטנדרט בחתונות טבע, כנסי חברה ואירועי בוטיק. בניגוד לתאי פלסטיק בסיסיים, היחידות שלנו מציעות מרחב מרווח ומעוצב, מראות גדולות, תאורת לד נעימה, כיורים מעוצבים, מים זורמים וסבונים יוקרתיים. התרשמו מהתאים ב<Link href="/#gallery" className="text-blue-600 font-semibold hover:underline">גלריית השירותים המפוארים</Link>.
+              השכרת שירותים ניידים מפוארים הפכה לסטנדרט בחתונות טבע, כנסי חברה ואירועי בוטיק. בניגוד לתאי פלסטיק בסיסיים, היחידות שלנו מציעות מרחב מרווח ומעוצב, מראות גדולות, תאורת לד נעימה, כיורים מעוצבים, מים זורמים וסבונים יוקרתיים. התרשמו מהתאים ב<Link href="/#gallery" className="text-blue-600 font-semibold hover:underline">גלריית השירותים המפוארים</Link>.
             </p>
           </div>
 
@@ -80,10 +80,10 @@ export default function SeoContent() {
         {/* Comparison Table: Luxury Trailer vs Standard Portable Toilet */}
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-200 mb-16">
           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
-            השוואה: שירותים ניידים מפוארים לעומת שירותים כימיים רגילים
+            השוואה: שירותים מפוארים להשכרה לעומת תאי שירותים להשכרה רגילים
           </h2>
           <p className="text-gray-600 mb-6 text-base leading-relaxed">
-            מתלבטים איזה פתרון מתאים לאירוע או לפרויקט שלכם? בטבלה הבאה ריכזנו את ההבדלים המרכזיים בין השכרת שירותים ניידים מפוארים לאירועים לבין תאי שירותים ניידים סטנדרטיים:
+            מתלבטים אילו שירותים לאירועים או לפרויקט כדאי להזמין? בטבלה הבאה ריכזנו את ההבדלים המרכזיים כאשר בוחרים להשכיר שירותים ניידים מפוארים לעומת תאי שירותים סטנדרטיים:
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-right border-collapse">
