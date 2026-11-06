@@ -85,23 +85,30 @@ export default function RootLayout({
           {children}
         </div>
 
-        {/* סקריפט הנגישות */}
+        {/* סקריפט הנגישות - עם הגנה מפני אתחול כפול בדפדפני מובייל */}
         <Script src="/acctoolbar.min.js" strategy="lazyOnload" />
         <Script id="init-acctoolbar" strategy="lazyOnload">
           {`
-            function initMicAccessTool() {
-              if (typeof MicAccessTool !== 'undefined') {
-                window.micAccessTool = new MicAccessTool({
-                  link: '/',
-                  contact: 'mailto:shirutim4u@gmail.com',
-                  buttonPosition: 'left',
-                  forceLang: 'he-IL'
-                });
-              } else {
-                setTimeout(initMicAccessTool, 50);
+            (function() {
+              var attempts = 0;
+              function initMicAccessTool() {
+                if (document.getElementById('mic-init-access-tool') || window.micAccessTool) {
+                  return;
+                }
+                if (typeof MicAccessTool !== 'undefined') {
+                  window.micAccessTool = new MicAccessTool({
+                    link: '/',
+                    contact: 'mailto:shirutim4u@gmail.com',
+                    buttonPosition: 'left',
+                    forceLang: 'he-IL'
+                  });
+                } else if (attempts < 40) {
+                  attempts++;
+                  setTimeout(initMicAccessTool, 100);
+                }
               }
-            }
-            initMicAccessTool();
+              initMicAccessTool();
+            })();
           `}
         </Script>
 

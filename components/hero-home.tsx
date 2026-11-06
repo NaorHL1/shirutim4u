@@ -3,30 +3,25 @@
 import Image from 'next/image'
 import PageIllustration from '@/components/page-illustration'
 import AddContactButton from '@/components/addcontactbutton'
-import { motion, MotionConfig, AnimatePresence } from 'framer-motion'
-import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect, useCallback } from 'react'
 
 const headerContainer = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
     },
   },
 }
 
 const headerItem = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: 0.55, ease: 'easeOut' },
   },
-}
-
-const fadeVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
 }
 
 const mediaItems = [
@@ -43,14 +38,68 @@ const imageItems = mediaItems.filter(item => item.type === 'image')
 export default function HeroHome() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
+  const mobileVideoRef = useRef<HTMLVideoElement>(null)
+  const desktopVideoRef = useRef<HTMLVideoElement>(null)
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedMedia, setSelectedMedia] = useState<{ type: 'image' | 'video', src: string } | null>(null)
+  const [isDesktop, setIsDesktop] = useState(false)
 
   const touchStartRef = useRef<number | null>(null)
   const touchEndRef = useRef<number | null>(null)
 
   const minSwipeDistance = 50
+
+  // Detect desktop vs mobile so we only activate ONE hardware video decoder on iOS
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const update = () => setIsDesktop(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  // Pause inline video when offscreen or when Lightbox modal is open to save iOS GPU/RAM
+  useEffect(() => {
+    const activeVideo = isDesktop ? desktopVideoRef.current : mobileVideoRef.current
+    const inactiveVideo = isDesktop ? mobileVideoRef.current : desktopVideoRef.current
+
+    if (inactiveVideo && !inactiveVideo.paused) {
+      inactiveVideo.pause()
+    }
+
+    if (!activeVideo) return
+
+    if (selectedMedia) {
+      activeVideo.pause()
+      return
+    }
+
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !selectedMedia) {
+            activeVideo.play().catch(() => {})
+          } else {
+            activeVideo.pause()
+          }
+        })
+      },
+      { threshold: 0.25 }
+    )
+
+    videoObserver.observe(activeVideo)
+    return () => videoObserver.disconnect()
+  }, [isDesktop, selectedMedia])
+
+  // Horizontal container-only scroll helper (never scrolls window/body on iOS)
+  const scrollToSlide = useCallback((idx: number, behavior: ScrollBehavior = 'smooth') => {
+    const container = scrollRef.current
+    const slide = slideRefs.current[idx]
+    if (!container || !slide) return
+    const targetLeft = slide.offsetLeft - (container.clientWidth - slide.clientWidth) / 2
+    container.scrollTo({ left: targetLeft, behavior })
+  }, [])
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchEndRef.current = null
@@ -81,7 +130,7 @@ export default function HeroHome() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedMedia || selectedMedia.type !== 'image') return
       const idx = imageItems.findIndex(item => item.src === selectedMedia.src)
-      
+
       if (e.key === 'ArrowRight' && idx > 0) {
         setSelectedMedia({ type: 'image', src: imageItems[idx - 1].src! })
       } else if (e.key === 'ArrowLeft' && idx < imageItems.length - 1) {
@@ -96,48 +145,52 @@ export default function HeroHome() {
   }, [selectedMedia])
 
   useEffect(() => {
-    if (selectedMedia?.type === 'image') {
+    if (selectedMedia?.type === 'image' && !isDesktop) {
       const idx = imageItems.findIndex(item => item.src === selectedMedia.src)
-      if (idx !== -1 && slideRefs.current[idx]) {
-        slideRefs.current[idx]?.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' })
+      if (idx !== -1) {
+        scrollToSlide(idx, 'auto')
       }
     }
-  }, [selectedMedia])
+  }, [selectedMedia, isDesktop, scrollToSlide])
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const idx = Number(entry.target.getAttribute('data-index'))
-          if (!isNaN(idx)) setCurrentIndex(idx)
-        }
-      })
-    }, { root: scrollRef.current, threshold: 0.5 })
+    const container = scrollRef.current
+    if (!container) return
 
-    slideRefs.current.forEach(slide => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.getAttribute('data-index'))
+            if (!isNaN(idx)) setCurrentIndex(idx)
+          }
+        })
+      },
+      { root: container, threshold: 0.5 }
+    )
+
+    slideRefs.current.forEach((slide) => {
       if (slide) observer.observe(slide)
     })
 
     return () => observer.disconnect()
   }, [])
 
-
-  const canScrollRight = currentIndex > 0 // Right means go back to previous (start)
-  const canScrollLeft = currentIndex < imageItems.length - 1 // Left means go to next
+  const canScrollRight = currentIndex > 0
+  const canScrollLeft = currentIndex < imageItems.length - 1
 
   const scrollLeft = () => {
     const nextIdx = Math.min(currentIndex + 1, imageItems.length - 1)
-    slideRefs.current[nextIdx]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    scrollToSlide(nextIdx, 'smooth')
   }
 
   const scrollRight = () => {
     const prevIdx = Math.max(currentIndex - 1, 0)
-    slideRefs.current[prevIdx]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    scrollToSlide(prevIdx, 'smooth')
   }
 
-
   return (
-    <MotionConfig reducedMotion="never">
+    <>
       <section className="relative bg-white text-center">
         <PageIllustration />
 
@@ -149,12 +202,10 @@ export default function HeroHome() {
               variants={headerContainer}
               initial="hidden"
               animate="show"
-              style={{ transform: 'translateZ(0)' }}
             >
               {/* H1 תוקן לשילוב שיווקי + SEO חזק */}
               <motion.h1
                 variants={headerItem}
-                style={{ willChange: 'transform, opacity' }}
                 className="mb-6 text-5xl font-extrabold text-gray-900 leading-tight md:text-6xl"
               >
                 השכרת שירותים ניידים מפוארים <br className="max-lg:hidden" />
@@ -163,17 +214,15 @@ export default function HeroHome() {
 
               <motion.div
                 variants={headerItem}
-                style={{ willChange: 'transform, opacity' }}
                 className="mx-auto max-w-2xl"
               >
-                {/* פסקת פתיחה סמנטית (תוקן מ-H2 ל-P לשמירה על היררכיית כותרות תקנית) */}
+                {/* פסקת פתיחה סמנטית */}
                 <p className="mb-10 text-lg text-gray-600 md:text-xl font-normal">
                   חתונות בטבע, בר/בת מצווה, כנסים והפקות שטח – א.ל שירותים ניידים מביאים אליכם תאי שירותים מפוארים ברמה של מלון 5 כוכבים, עצמאיים לחלוטין בשטח עם איש שירות צמוד בפריסה ארצית.
                 </p>
 
                 <motion.div
                   variants={headerItem}
-                  style={{ willChange: 'transform, opacity' }}
                   className="mx-auto flex justify-center"
                 >
                   <AddContactButton />
@@ -200,22 +249,22 @@ export default function HeroHome() {
                 {/* Horizontal Swipe Photos */}
                 <div className="relative w-full">
                   {canScrollRight && (
-                    <button onClick={scrollRight} aria-label="תמונה קודמת" className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
+                    <button onClick={scrollRight} aria-label="תמונה קודמת" className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto cursor-pointer">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                     </button>
                   )}
                   {canScrollLeft && (
-                    <button onClick={scrollLeft} aria-label="תמונה הבאה" className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto">
+                    <button onClick={scrollLeft} aria-label="תמונה הבאה" className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg text-gray-900 rounded-full p-2 hover:bg-white transition-all pointer-events-auto cursor-pointer">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
                     </button>
                   )}
                   <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {imageItems.map((item, idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         data-index={idx}
                         ref={el => { slideRefs.current[idx] = el }}
-                        className="flex-shrink-0 w-[95vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200 cursor-pointer"
+                        className="flex-shrink-0 w-[90vw] aspect-[3/4] snap-center rounded-3xl overflow-hidden relative shadow-lg bg-gray-200 cursor-pointer"
                         onClick={() => setSelectedMedia({ type: 'image', src: item.src! })}
                       >
                         <Image
@@ -223,7 +272,8 @@ export default function HeroHome() {
                           alt={item.alt!}
                           fill
                           priority={idx === 0}
-                          sizes="95vw"
+                          loading={idx === 0 ? undefined : 'lazy'}
+                          sizes="(max-width: 768px) 90vw, 25vw"
                           className="object-cover"
                         />
                       </div>
@@ -231,16 +281,28 @@ export default function HeroHome() {
                   </div>
                 </div>
 
-                {/* Vertical Video Block Underneath */}
-                <div 
+                {/* Vertical Video Block Underneath (Mounted/played only on mobile) */}
+                <div
                   className="w-[85vw] aspect-[9/16] mt-2 rounded-3xl overflow-hidden relative shadow-xl bg-gray-100 cursor-pointer"
                   onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
                 >
-                  <video src="/images/toiletvideo.mov" poster="/images/toiletimg2.jpeg" preload="metadata" aria-label="סרטון הצגת תא שירותים נייד מפואר מבפנים" className="w-full h-full object-cover relative z-0 pointer-events-none" autoPlay loop muted playsInline />
+                  {!isDesktop && (
+                    <video
+                      ref={mobileVideoRef}
+                      src="/images/toiletvideo.mov"
+                      poster="/images/toiletimg2.jpeg"
+                      preload="metadata"
+                      aria-label="סרטון הצגת תא שירותים נייד מפואר מבפנים"
+                      className="w-full h-full object-cover relative z-0 pointer-events-none"
+                      loop
+                      muted
+                      playsInline
+                    />
+                  )}
                 </div>
               </div>
 
-              {/* DESKTOP: Static Layout (Text/Video Top, 3 Photos Bottom) */}
+              {/* DESKTOP: Static Layout (Text/Video Top, 4 Photos Bottom) */}
               <div className="hidden md:flex flex-col gap-10 max-w-7xl mx-auto px-6 w-full" dir="rtl">
 
                 {/* Top Row: Text (Right) and Video (Left) aligned to a 3-col grid */}
@@ -256,13 +318,25 @@ export default function HeroHome() {
                     </p>
                   </div>
 
-                  {/* Left Side: Video (spans 1 column, aligns perfectly with bottom left photo) */}
+                  {/* Left Side: Video (Mounted/played only on desktop) */}
                   <div className="col-span-1">
-                    <div 
+                    <div
                       className="w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 cursor-pointer group"
                       onClick={() => setSelectedMedia({ type: 'video', src: '/images/toiletvideo.mov' })}
                     >
-                      <video src="/images/toiletvideo.mov" poster="/images/toiletimg2.jpeg" preload="metadata" aria-label="סרטון סיור בתוך קרון שירותים ניידים מפואר" className="w-full h-full object-cover relative z-0 pointer-events-none transition-transform duration-700 group-hover:scale-105" autoPlay loop muted playsInline />
+                      {isDesktop && (
+                        <video
+                          ref={desktopVideoRef}
+                          src="/images/toiletvideo.mov"
+                          poster="/images/toiletimg2.jpeg"
+                          preload="metadata"
+                          aria-label="סרטון סיור בתוך קרון שירותים ניידים מפואר"
+                          className="w-full h-full object-cover relative z-0 pointer-events-none transition-transform duration-700 group-hover:scale-105"
+                          loop
+                          muted
+                          playsInline
+                        />
+                      )}
                     </div>
                   </div>
 
@@ -270,9 +344,9 @@ export default function HeroHome() {
 
                 {/* Bottom Row: 4 Photos Side-by-Side (Desktop only) */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-                  {mediaItems.filter(item => item.type === 'image').slice(0, 4).map((item, idx) => (
-                    <div 
-                      key={idx} 
+                  {imageItems.slice(0, 4).map((item, idx) => (
+                    <div
+                      key={idx}
                       className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] ring-1 ring-gray-900/5 relative bg-gray-50 group cursor-pointer"
                       onClick={() => setSelectedMedia({ type: 'image', src: item.src! })}
                     >
@@ -280,8 +354,8 @@ export default function HeroHome() {
                         src={item.src!}
                         alt={item.alt!}
                         fill
-                        priority={idx === 0}
-                        sizes="25vw"
+                        loading="lazy"
+                        sizes="(max-width: 1024px) 45vw, 25vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
@@ -298,13 +372,7 @@ export default function HeroHome() {
               <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
                 למה לבחור בשירותים הניידים שלנו?
               </h2>
-              <motion.div
-                className="grid gap-10 max-w-5xl mx-auto sm:grid-cols-2"
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeVariants}
-              >
+              <div className="grid gap-10 max-w-5xl mx-auto sm:grid-cols-2">
                 {[
                   { title: 'יוקרה ונוחות ללא תחרות', desc: 'שירותים מוארים ומעוצבים – חוויה יוקרתית כמו באולם.' },
                   { title: 'מתאים לכל סוגי האירועים', desc: 'חתונות, בר/בת מצווה, אירועים עסקיים וחגיגות חוץ.' },
@@ -313,42 +381,29 @@ export default function HeroHome() {
                   { title: 'יחס אישי וזמינות', desc: 'מענה מהיר וליווי אישי לאורך כל הדרך.' },
                   { title: 'עצמאי לחלוטין בשטח', desc: 'לא נדרשת תשתית ביוב או מים – השירותים פועלים גם בטבע.' }
                 ].map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="space-y-2"
-                    initial="hidden"
-                    whileInView="show"
-                    variants={fadeVariants}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ delay: idx * 0.1, duration: 0.6 }}
-                  >
+                  <div key={idx} className="space-y-2">
                     <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
                     <p className="text-gray-600">{item.desc}</p>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             </section>
           </div>
         </div>
       </section>
 
-      {/* Fullscreen Media Modal */}
+      {/* Fullscreen Media Modal (iOS Memory Safe: no backdrop-blur over video, bounded image sizes) */}
       <AnimatePresence>
         {selectedMedia && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-pointer backdrop-blur-sm"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 cursor-pointer"
             onClick={() => setSelectedMedia(null)}
           >
-
-
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", duration: 0.5 }}
+            <div
               className="relative inline-block cursor-default outline-none max-w-full max-h-full"
               onClick={(e) => e.stopPropagation()}
               onTouchStart={onTouchStart}
@@ -356,6 +411,7 @@ export default function HeroHome() {
               onTouchEnd={onTouchEnd}
             >
               <button
+                aria-label="סגור תצוגה מוגדלת"
                 className="absolute -top-4 -right-4 md:-top-5 md:-right-5 z-[110] bg-white text-gray-900 hover:bg-gray-200 rounded-full p-2 transition-colors cursor-pointer shadow-xl"
                 onClick={() => setSelectedMedia(null)}
               >
@@ -366,7 +422,8 @@ export default function HeroHome() {
                 <>
                   {imageItems.findIndex(item => item.src === selectedMedia.src) > 0 && (
                     <button
-                      className="absolute right-2 md:-right-14 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 md:p-3 transition-colors cursor-pointer flex items-center justify-center"
+                      aria-label="תמונה קודמת"
+                      className="absolute right-2 md:-right-14 top-1/2 -translate-y-1/2 z-[110] bg-black/60 hover:bg-black/85 text-white rounded-full p-2 md:p-3 transition-colors cursor-pointer flex items-center justify-center"
                       onClick={(e) => {
                         e.stopPropagation();
                         const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
@@ -378,7 +435,8 @@ export default function HeroHome() {
                   )}
                   {imageItems.findIndex(item => item.src === selectedMedia.src) < imageItems.length - 1 && (
                     <button
-                      className="absolute left-2 md:-left-14 top-1/2 -translate-y-1/2 z-[110] bg-black/50 hover:bg-black/80 text-white rounded-full p-2 md:p-3 transition-colors cursor-pointer flex items-center justify-center"
+                      aria-label="תמונה הבאה"
+                      className="absolute left-2 md:-left-14 top-1/2 -translate-y-1/2 z-[110] bg-black/60 hover:bg-black/85 text-white rounded-full p-2 md:p-3 transition-colors cursor-pointer flex items-center justify-center"
                       onClick={(e) => {
                         e.stopPropagation();
                         const idx = imageItems.findIndex(item => item.src === selectedMedia.src);
@@ -394,10 +452,10 @@ export default function HeroHome() {
               {selectedMedia.type === 'image' ? (
                 <Image
                   src={selectedMedia.src}
-                  alt="Enlarged view"
-                  width={1200}
-                  height={1600}
-                  priority
+                  alt="תצוגה מוגדלת של תא שירותים נייד מפואר"
+                  width={800}
+                  height={1066}
+                  sizes="(max-width: 768px) 90vw, 720px"
                   className="max-h-[85vh] max-w-[90vw] md:max-w-[80vw] w-auto h-auto object-contain rounded-xl shadow-2xl"
                 />
               ) : (
@@ -410,10 +468,10 @@ export default function HeroHome() {
                   playsInline
                 />
               )}
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </MotionConfig>
+    </>
   )
 }
